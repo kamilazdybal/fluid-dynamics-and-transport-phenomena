@@ -107,7 +107,7 @@ To contact me personally drop me a line at:
 
 \chapter{Introduction} \label{chap:intro}
 
-In October 2017 I have decided that I will be studying boundary layers for minimum 25 minutes every day.
+In October 2017 I have decided that I will be studying boundary layers for minimum 25 minutes every day. This document is a record of what I've accomplished.
 
 
 \section{Mission objectives} \label{chap:objectives}
@@ -127,6 +127,8 @@ These are my reasons for why I study boundary layers:
 \item I want to write this PDF that will contain a bunch of my-way-explanations of "difficult" concepts which will hopefully one day become a guide (that I always needed to find) for someone.
 
 \item I want to become better at fluid dynamics in general so that even when there are amazing places like the Von Karman Institute which can't take me for their programs because the government of my country didn't support their research, there might still be people who would like to help. You know: "be so good that they can't ignore you".
+
+\item Besides, that's not a reason to quit. This is something that I feel passionate about and I'll keep doing it regardless.
 
 \end{enumerate}
 
@@ -154,7 +156,7 @@ This is a list of things that bring the pleasure to my studies:
 
 \item Writing LaTeX documents.
 
-\item Talking with friends.
+\item Talking with friends about things that I've learned. 
 
 
 \end{enumerate}
@@ -188,13 +190,13 @@ Do you feel the "pressing" of each palm on the other?
 
 - Yes! I can feel it!
 
-Perfect! There is no reason why you shouldn't. The forces perpendicular to your palms get transported from one to the other just fine.\footnote{Interesting distraction: can you think of a way to build a "frictionless world" simulator, one that will allow you to feel the push on your hands when they get in close contact but at the same time you will not experience the shear when sliding your hands?}
+Perfect! There is no reason why you shouldn't. The forces perpendicular to your palms get transported from one to the other just fine.\footnote{Interesting distraction: can you think of a way to build a "frictionless world simulator", one that will allow you to feel the push on your hands when they get in close contact but at the same time you will not experience the shear when sliding your hands?}
 
 Now, the same thing happens when we make an assumption that the fluid is perfect, ergo frictionless. Any object that such fluid will flow around will not experience the shear stress (or the drag). It will however experience the pressure force perpendicular to its outline.
 
 There is a big consequence that comes from the above "monologue": if you want to study the drag on a body immersed in a fluid, you have to look at the world of friction.
 
-That's why it's the high time to leave the frictionless considerations. It's of not much use in the subject of boundary layers - or the science of what happens at the very edge between. Get ready for the ride in the world of friction.
+That's why it's the high time to leave the frictionless considerations. It's of not much use in the subject of boundary layers - or the science of what happens at the very edge between the fluid and the solid body. Get ready for an awesome ride in the world of friction.
 
 
 
@@ -228,7 +230,48 @@ So the total change of pastry in time is simply the sum of the two:
 
 $\frac{Dp}{Dt} = LC_p + AC_p$
 
+\begin{equation}
+\frac{D \rho}{D t} = - \rho \text{div} \vec{\upsilon}
+\end{equation}
 
+and also:
+
+\begin{equation}
+\frac{\partial \rho}{\partial t} = - \text{div} (\rho \vec{\upsilon})
+\end{equation}
+
+but why???
+
+Let's see, in the 3-D case we have:
+
+\begin{equation}
+\frac{\partial \rho}{\partial t} = - \frac{\partial}{\partial x} (\rho \vec{\upsilon}) - \frac{\partial}{\partial y} (\rho \vec{\upsilon}) - \frac{\partial}{\partial z} (\rho \vec{\upsilon})
+\end{equation}
+
+\begin{equation}
+\frac{\partial \rho}{\partial t} = - \frac{\partial \rho}{\partial x} \vec{\upsilon} - \frac{\partial \vec{\upsilon}}{\partial x} \rho - \frac{\partial \rho}{\partial y} \vec{\upsilon} - \frac{\partial \vec{\upsilon}}{\partial y} \rho - \frac{\partial \rho}{\partial z} \vec{\upsilon} - \frac{\partial \vec{\upsilon}}{\partial z} \rho 
+\end{equation}
+
+\begin{equation}
+\frac{\partial \rho}{\partial t} + \frac{\partial \rho}{\partial x} \vec{\upsilon} + \frac{\partial \rho}{\partial y} \vec{\upsilon} + \frac{\partial \rho}{\partial z} \vec{\upsilon} =  - \frac{\partial \vec{\upsilon}}{\partial x} \rho - \frac{\partial \vec{\upsilon}}{\partial y} \rho - \frac{\partial \vec{\upsilon}}{\partial z} \rho
+\end{equation}
+
+By definition of the partial derivative:
+
+\begin{equation}
+\frac{\partial \rho}{\partial t} + \frac{\partial \rho}{\partial x} \vec{\upsilon} + \frac{\partial \rho}{\partial y} \vec{\upsilon} + \frac{\partial \rho}{\partial z} \vec{\upsilon} = \frac{D \rho}{D t}
+\end{equation}
+
+Et voila!
+
+\begin{equation}
+\frac{D \rho}{D t} = - \frac{\partial \vec{\upsilon}}{\partial x} \rho - \frac{\partial \vec{\upsilon}}{\partial y} \rho - \frac{\partial \vec{\upsilon}}{\partial z} \rho
+\end{equation}
+
+
+\begin{equation}
+\frac{D \rho}{D t} = - \rho \text{div} \vec{\upsilon}
+\end{equation}
 
 
 
