@@ -228,13 +228,27 @@ Then I'm going to call the continuous change due to eating (and independent of m
 
 So the total change of pastry in time is simply the sum of the two:
 
-$\frac{Dp}{Dt} = LC_p + AC_p$
+\begin{equation}
+\frac{Dp}{Dt} = LC_p + AC_p
+\end{equation}
+
+
+
+Now when you see this in a textbook:
 
 \begin{equation}
 \frac{D \rho}{D t} = - \rho \text{div} \vec{\upsilon}
 \end{equation}
 
-and also:
+it doesn't look so scary anymore! Even though we still don't \textbf{really} know what it means. But at least we have a feel for it.
+
+
+
+
+
+
+
+So they claim that that is equivalent to this:
 
 \begin{equation}
 \frac{\partial \rho}{\partial t} = - \text{div} (\rho \vec{\upsilon})
@@ -276,9 +290,34 @@ Et voila!
 
 
 
+\section{Making use of $F = ma$} \label{chap:momentum}
+
+A close companion of the continuity equation is a momentum equation. I bet you'll meet them in a close proximity when you read any fluid textbook. Some people simply write them out thinking that people will learn through exposure\footnote{\textit{Learning through exposure} (n.) - a process of learning something just by being around it for a significant amount of time.}. And you begin to feel stupid that you didn't understand them by looking at them.
+
+One breakthrough in the study of the momentum equations was when I realized that it was just "$F=ma$"\footnote{Yay for Newton.}. But a more fancy one. Let me prove that for you:
+
+\begin{equation}
+\rho \frac{D \vec{\upsilon}}{Dt} = \vec{f} + \vec{P}
+\label{eq:momentum}
+\end{equation}
+
+
+In fact, the way I wrote this here is more of "$ma=F$". On the right hand side you have the net force acting on a fluid volume - there's the friction force $\vec{f}$ and the pressure force $\vec{P}$ - the only two taken into account. On the left hand side you have mass times acceleration. With acceleration being You might ask now: what mass? I don't see any, there's only density $\rho$! 
+
+Well, yeah. The equation \ref{eq:momentum} is given \textbf{per unit volume}. And so the truth is that it's "$\frac{F}{dV} = \frac{ma}{dV}$". If you've ever wondered what $dV$ looks like, here it is:
+
+\begin{figure}[H]
+\centering\includegraphics[width=10cm]{dV}
+\caption{Model of the infinitesimal volume, scale 1 000 000:1.}			
+\label{fig:infinitesimals}
+\end{figure}
+
+
+When you divide mass per volume you get density. But it also means that the terms on the right hand side cannot have the unit of force but the force per volume as well. $\vec{f}$ is in fact friction force per unit volume and $\vec{P}$ is pressure force per unit volume.
 
 
 
+So if they simply describe the sum of forces why are they called "momentum" equations and not, for example, the "force" equations?
 
 
 
