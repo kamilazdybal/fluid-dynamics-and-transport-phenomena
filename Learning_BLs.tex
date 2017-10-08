@@ -107,7 +107,7 @@ To contact me personally drop me a line at:
 
 \chapter{Introduction} \label{chap:intro}
 
-In October 2017 I have decided that I will be studying boundary layers for minimum 25 minutes every day. This document is a record of what I've accomplished.
+In October 2017 I have decided that I will be studying boundary layers for minimum 25 minutes every day. This document is a start log of my journey that is still in progress.
 
 
 \section{Mission objectives} \label{chap:objectives}
@@ -118,7 +118,7 @@ These are my reasons for why I study boundary layers:
 
 \begin{enumerate}
 
-\item I want to gain maths knowledge used in fluid dynamics, so that next subjects will be of less struggle in understanding calculus and become really the struggle to understand fluid dynamics.
+\item I want to gain maths knowledge used in fluid dynamics, so that next subjects will be of less struggle in understanding calculus and become really the struggle to understand fluid dynamics concepts.
 
 \item I want to understand Navier-Stokes equations. I want to gain intuitive feel for them and become comfortable about what every term means. I want to see their full power and see what their limitations are.
 
@@ -144,20 +144,23 @@ This is a list of things that bring the pleasure to my studies:
 
 \item Imagining how what I've learned could be used.
 
-\item Imagining experiments I could do to verify what was said in the book.
+\item Imagining, and sometimes performing the experiments to verify what was said in the book.
 
 \item Making thought experiments, sometimes imagining "what-if-worlds" that do not exist.
 
-\item Doing things my way and doing things new way. Finding new ways to make things more interesting.
+\item Imagining and writing Matlab / Python codes to simulate phenomena given in the textbook.
+
+\item Doing things my way and doing things new way. 
+
+\item Finding new ways to make things more interesting.
 
 \item Explaining things on a white board / card board as if I was presenting it to someone.
 
-\item Preparing an illustrative drawing to explain what was said in the book.
+\item Preparing an illustrative drawing to explain what was said in the book. Even if it's something that I've already understood.
 
 \item Writing LaTeX documents.
 
 \item Talking with friends about things that I've learned. 
-
 
 \end{enumerate}
 
@@ -165,22 +168,45 @@ This is a list of things that bring the pleasure to my studies:
 
 \section{The learning curve} \label{chap:learning_curve}
 
+\begin{figure}[H]
+\centering\includegraphics[width=14.5cm]{learning_curve}
+\caption{The learning curve.}			
+\label{fig:learning_curve}
+\end{figure}
 
+
+The difference is that if you aren't engaged with the subject you're very likely to quit. Either it's at D, earlier or later. I made a decision not to quit (and my reasons for why I started in the first place help me on the way). 
 
 
 \section{The learning observations} \label{chap:learning_observations}
 
 
 
+
+\section{Sources of knowledge}
+
+
+\textbf{EdX course - MITx: 16.110x 2 Flight Vehicle Aerodynamics} by Mark Drela
+
+
+
+
+
+
+
+
+
+
 \chapter{Preliminaries}
 
+This chapter is a record of what my "first 20 hours" looked like.
 
 
 \section{World without friction} \label{chap:without_friction}
 
 Imagine the world without friction.
 
-Now imagine, that you move the palms of your hand agains each other.
+Now imagine, that you move the palms of your hands against each other.
 
 Do you feel the "shear" or "drag" on your hands?
 
@@ -200,11 +226,12 @@ That's why it's the high time to leave the frictionless considerations. It's of 
 
 
 
+\chapter{The journey}
 
 
+This chapter is a record of my journey. It is constantly in progress...
 
-
-\section{Understanding substantial derivative} \label{chap:deriv}
+\section{Understanding the substantial derivative} \label{chap:deriv}
 
 The substantial derivative is damn important. I've already had a chance to find about this in my previous pursuits of fluid mechanics. I remember it has been a challenge to really understand what the substantial derivative means and when I began my studying of BLs I realized that I either already forgot what I've once learned or I've never really understand it.
 
@@ -234,6 +261,11 @@ So the total change of pastry in time is simply the sum of the two:
 
 
 
+
+
+
+\section{Understanding the continuity equation}
+
 Now when you see this in a textbook:
 
 \begin{equation}
@@ -262,6 +294,8 @@ Let's see, in the 3-D case we have:
 \frac{\partial \rho}{\partial t} = - \frac{\partial}{\partial x} (\rho \vec{\upsilon}) - \frac{\partial}{\partial y} (\rho \vec{\upsilon}) - \frac{\partial}{\partial z} (\rho \vec{\upsilon})
 \end{equation}
 
+In the most general case $\rho$ is a function of time and space. In 3-D it can be written as $\rho(t, x, y, z)$, so we have to apply the product rule to calculate the derivative of each term:
+
 \begin{equation}
 \frac{\partial \rho}{\partial t} = - \frac{\partial \rho}{\partial x} \vec{\upsilon} - \frac{\partial \vec{\upsilon}}{\partial x} \rho - \frac{\partial \rho}{\partial y} \vec{\upsilon} - \frac{\partial \vec{\upsilon}}{\partial y} \rho - \frac{\partial \rho}{\partial z} \vec{\upsilon} - \frac{\partial \vec{\upsilon}}{\partial z} \rho 
 \end{equation}
@@ -276,23 +310,21 @@ By definition of the partial derivative:
 \frac{\partial \rho}{\partial t} + \frac{\partial \rho}{\partial x} \vec{\upsilon} + \frac{\partial \rho}{\partial y} \vec{\upsilon} + \frac{\partial \rho}{\partial z} \vec{\upsilon} = \frac{D \rho}{D t}
 \end{equation}
 
-Et voila!
+and by observing that the right hand sides is much like the divergence of something:
 
 \begin{equation}
-\frac{D \rho}{D t} = - \frac{\partial \vec{\upsilon}}{\partial x} \rho - \frac{\partial \vec{\upsilon}}{\partial y} \rho - \frac{\partial \vec{\upsilon}}{\partial z} \rho
+- \frac{\partial \vec{\upsilon}}{\partial x} \rho - \frac{\partial \vec{\upsilon}}{\partial y} \rho - \frac{\partial \vec{\upsilon}}{\partial z} \rho = - \rho \text{div} \vec{\upsilon}
 \end{equation}
 
+voila:
 
 \begin{equation}
 \frac{D \rho}{D t} = - \rho \text{div} \vec{\upsilon}
 \end{equation}
 
-
-
-
 \section{Making use of $F = ma$} \label{chap:momentum}
 
-A close companion of the continuity equation is a momentum equation. I bet you'll meet them in a close proximity when you read any fluid textbook. Some people simply write them out thinking that people will learn through exposure\footnote{\textit{Learning through exposure} (n.) - a process of learning something just by being around it for a significant amount of time.}. And you begin to feel stupid that you didn't understand them by looking at them.
+A close companion of the continuity equation is the momentum equation. I bet you'll meet them in a close proximity when you read any fluid textbook. Some authors simply write them out thinking that people will learn through exposure\footnote{\textit{Learning through exposure} (n.) - a process of learning something just by being around it for a significant amount of time.}. And you begin to feel stupid that you didn't understand them by looking at them.
 
 One breakthrough in the study of the momentum equations was when I realized that it was just "$F=ma$"\footnote{Yay for Newton.}. But a more fancy one. Let me prove that for you:
 
@@ -301,8 +333,7 @@ One breakthrough in the study of the momentum equations was when I realized that
 \label{eq:momentum}
 \end{equation}
 
-
-In fact, the way I wrote this here is more of "$ma=F$". On the right hand side you have the net force acting on a fluid volume - there's the friction force $\vec{f}$ and the pressure force $\vec{P}$ - the only two taken into account. On the left hand side you have mass times acceleration. With acceleration being You might ask now: what mass? I don't see any, there's only density $\rho$! 
+In fact, the way I wrote this here is more of "$ma=F$". On the right hand side you have the net force acting on a fluid volume - there's the friction force $\vec{f}$ and the pressure force $\vec{P}$ - the only two taken into account. On the left hand side you have mass times acceleration, with acceleration being $\frac{D \vec{\upsilon}}{Dt}$. You might ask now: what mass? I don't see any! 
 
 Well, yeah. The equation \ref{eq:momentum} is given \textbf{per unit volume}. And so the truth is that it's "$\frac{F}{dV} = \frac{ma}{dV}$". If you've ever wondered what $dV$ looks like, here it is:
 
