@@ -1,6 +1,6 @@
-/Learning_BLs.aux
-/Learning_BLs.log
-/Learning_BLs.out
-/Learning_BLs.pdf
-/Learning_BLs.synctex.gz
-/Learning_BLs.toc
+*.aux
+*.log
+*.out
+*.pdf
+*.synctex.gz
+*.toc
