@@ -1,12 +1,12 @@
 # Fluid mechanics
 
-## "Study hard what interests you the most in the most undisciplined, irreverent and original manner possible."
+> _"Study hard what interests you the most in the most undisciplined, irreverent and original manner possible."_
 
-**~ Richard Feynman**
+**Richard Feynman**
 
 This repository is the record of my journey through learning fluid mechanics.
 
-# Learning notes in development
+## Learning notes in development
 
 `Fluid Toolbox`
 
