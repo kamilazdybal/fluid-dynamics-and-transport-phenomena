@@ -4,4 +4,4 @@
 Learning_BLs.pdf
 *.synctex.gz
 *.toc
-/openFOAM/.ipynb_checkpoints
+*/.ipynb_checkpoints
