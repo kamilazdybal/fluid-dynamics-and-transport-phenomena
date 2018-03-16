@@ -1,6 +1,7 @@
 *.aux
 *.log
 *.out
+*.pdf
 Learning_BLs.pdf
 *.synctex.gz
 *.toc

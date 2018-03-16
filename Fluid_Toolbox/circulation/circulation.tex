@@ -1,0 +1,46 @@
+
+
+Circulation is defined as:
+
+\begin{equation}
+\Gamma = \oint_C \vec{\upsilon} \cdot \vec{dl}
+\end{equation}
+
+The dot operation gives a scalar which is expressing "how much" in the direction of the other vector is this vector.
+
+\begin{figure}[H]
+\centering\includegraphics[width=5cm]{circulation_dot_prod}
+\caption{Dot product of two vectors.}			
+\label{fig:learning_curve}
+\end{figure}
+
+When they are $\perp$, the dot product is zero.
+
+In the concept of circulation, you ask "how much" at any point on the curve $C$ the velocity vector at that point is in the direction of the curve's geometry. Now, that doesn't yet sound as something to do with "circulating". For the moment, I would think that it's more of an "on-trackness". Something, that in real world would be for instance the measure of how much the vehicle's velocity is in the direction of the road geometry.
+
+But then you realise an important detail of "$\circ$" on the integral symbol, which means that the curve should be a closed curve - a loop.
+
+When you perform integration, which means summing up every little $\vec{\upsilon} \cdot \vec{dl}$ as you go around the loop, you count "how much" at every point on the loop, the velocity vector at these points is in the direction of the loop's geometry (at these points).
+
+If we were to place a small particle at some starting point $P$ on the loop, the circulation would tell us "how much" the velocity field which this particle is subjected to, is tending to move that particle around the loop.
+
+It can be very intuitive when you take a look at these two pictures:
+
+
+
+It's no surprise that when the velocity is everywhere perpendicular to the loop's geometry, the circulation around the loop is zero. If you were to place a particle at any point on the loop, such velocity field would act to immediately displace the particle off the loop. Therefore, the particle would have no way of "circulating" around the loop.
+
+On the other extreme is the case when the velocity field is everywhere tangent to the loop's geometry. Anywhere the particle goes on the loop, the velocity at that point would act to keep the particle moving around the loop.
+
+Questions:
+
+\begin{enumerate}
+\item Why closed loop? Would it have any meaning if we calculated circulation along any general spline?
+
+\item How to chose loops so that the circulation we calculate is of the most meaning to us?
+
+\item What does the zero, positive, negative circulation mean?
+
+\item Can circulation be infinite?
+\end{enumerate}
+

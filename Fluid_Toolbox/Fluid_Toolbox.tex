@@ -1,0 +1,188 @@
+\documentclass[10pt]{book}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{tgbonum}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{epsf}
+\usepackage{float}
+\usepackage{mathpazo}
+\usepackage
+[
+a4paper,% other options: a3paper, a5paper, etc
+left=2.2cm,
+right=2.2cm,
+top=3cm,
+bottom=3cm,
+]{geometry}
+%\geometry{hmargin=3.5cm, vmargin=2.5cm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\usepackage{color}
+\graphicspath{{DWGs/}}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{139, 231, 3}
+
+\usepackage{tcolorbox}
+\definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
+
+\newtcbox{\mb}{nobeforeafter,colframe=mycolor,colback=mycolor!10!white,boxrule=0.5pt,arc=4pt,
+  boxsep=0pt,left=6pt,right=6pt,top=3pt,bottom=3pt,tcbox raise base}
+
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(-50,-0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[height=\paperheight,%
+keepaspectratio]{DWGs/cover.png}%
+\vfill
+}}}
+
+\usepackage{anyfontsize}
+\usepackage{t1enc}
+
+\makeatletter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \raggedleft \reset@font
+            \scshape \@chapapp{} \thechapter
+        \par\nobreak
+        \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    %\vspace*{1\p@}%
+    \hrulefill
+    \par\nobreak
+    \vskip 100\p@
+  }}
+\def\@makeschapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \raggedleft \reset@font
+            \scshape \vphantom{\@chapapp{} \thechapter}
+        \par\nobreak
+        \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    %\vspace*{1\p@}%
+    \hrulefill
+    \par\nobreak
+    \vskip 100\p@
+  }}
+
+\begin{document}
+
+
+\begin{titlepage}
+
+\AddToShipoutPicture*{\BackgroundPic}
+
+\ \\[4cm]
+
+{\sffamily \color{white}
+\begin{center}
+\fontsize{56}{10}\selectfont F l u i d T o o l b o x
+\end{center}
+}
+
+\vfill
+
+
+{\fontsize{20}{20}\color{white}\sffamily Science Docs \hfill\color{white} Kamila Zdybał}
+
+\end{titlepage}
+
+
+\thispagestyle{empty}
+
+\ \\[20cm]
+
+\textit{About the cover photo:} view from the coast of the Cres island in Croatia. J. Aleksanderek, 2016
+
+\newpage
+
+\thispagestyle{empty}
+\begin{center}
+    
+\vspace*{4cm}
+
+\includegraphics[width = 80mm]{ex_libris_arduino.png}
+
+\vspace*{2cm}
+
+Copyright \textcopyright \, K. Zdybał, 2018
+
+For more projects similar to this one
+
+visit me on GitHub: \verb|@camillejr|
+
+\verb|camillejr.github.io/science-docs/|
+
+To contact me personally drop me a line at:
+
+\verb|kamilazdybal@gmail.com|
+
+\vspace*{2cm}
+
+\verb|Fluid Toolbox|
+
+\verb|version 1.0|
+\end{center}
+
+
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0cm}
+%\renewcommand{\baselinestretch}{0.6}
+
+%\twocolumn
+
+
+
+
+
+
+
+% Fluid Toolbox content
+
+\chapter{Circulation}
+
+\input{circulation/circulation.tex}
+
+\chapter{Vorticity}
+
+\input{vorticity/vorticity.tex}
+
+\chapter{Stoke's Theorem}
+
+\input{stokes_theorem/stokes_theorem.tex}
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\begin{thebibliography}{50}
+
+\end{thebibliography}
+
+\end{document}
