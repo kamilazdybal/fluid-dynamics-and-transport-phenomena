@@ -55,6 +55,8 @@ keepaspectratio]{DWGs/cover.png}%
 \usepackage{anyfontsize}
 \usepackage{t1enc}
 
+% CHAPTER STYLE =================================================
+
 \makeatletter
 \def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
 \def\@makechapterhead#1{%
@@ -84,48 +86,26 @@ keepaspectratio]{DWGs/cover.png}%
 
 \begin{document}
 
+% TITLE PAGE ====================================================
 
 \begin{titlepage}
-
 \AddToShipoutPicture*{\BackgroundPic}
-
 \ \\[4cm]
-
 {\sffamily \color{white}
 \begin{center}
 \fontsize{66}{10}\selectfont \fontfamily{qcr}\selectfont Fluid  Toolbox
 \end{center}
 }
-
 \vfill
-
-
 {\fontsize{20}{20}\color{white}\sffamily Science Docs \hfill\color{white} Kamila Zdybał}
-
 \end{titlepage}
 
 
-\thispagestyle{empty}
-
-\ \\[12cm]
-\begin{flushright}%
-\includegraphics[width = 100mm]{cover.png}
-
-\ \\[0.5cm]
-
-\textit{About the cover photo:} view from the coast of the Cres island in Croatia, October 2016.
-
-\ \\[0.1cm]
-
-Photo by: J. Aleksanderek
-\end{flushright}
-\newpage
+% EX LIBRIS PAGE ================================================
 
 \thispagestyle{empty}
 \begin{center}
-    
 \vspace*{4cm}
-
 \includegraphics[width = 80mm]{ex_libris_arduino.png}
 
 \vspace*{2cm}
@@ -141,8 +121,6 @@ visit me on GitHub: \verb|@camillejr|
 To contact me personally drop me a line at:
 
 \verb|kamilazdybal@gmail.com|
-
-
 
 \vspace*{2cm}
 
@@ -160,14 +138,14 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 
 (CC BY-NC-SA
 4.0) license.
-
 \end{center}
+
 
 
 \setlength{\parskip}{0.6em}
 \setlength{\parindent}{0cm}
 
-
+\tableofcontents
 
 \chapter*{Preface}
 \chaptermark{Preface}
@@ -181,13 +159,40 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 
 \input{vorticity/vorticity.tex}
 
-\chapter{Stoke's Theorem}
+\chapter{Stoke's theorem}
 
 \input{stokes_theorem/stokes_theorem.tex}
+
+\chapter{Material derivative}
+
+\chapter{Gauss's law}
+
+\chapter{On the road to Navier-Stokes equations}
+
+\chapter*{Appendix}
+
+\newpage
+\thispagestyle{empty}
+
+\begin{flushright}
+
+\ \\[12cm]
+
+\includegraphics[width = 100mm]{cover.png}
+
+\ \\[0.5cm]
+\textit{About the cover photo:} view from the coast of the Cres island in Croatia, October 2016.
+\ \\[0.1cm]
+Photo by: J. Aleksanderek
+\end{flushright}
 
 
 
 
 \begin{thebibliography}{50}
+\thispagestyle{empty}
 \end{thebibliography}
+
+
+
 \end{document}
