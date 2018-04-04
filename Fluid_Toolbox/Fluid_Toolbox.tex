@@ -34,6 +34,7 @@ bottom=3cm,
 \usepackage{xcolor}
 \usepackage{framed}
 \definecolor{shadecolor}{RGB}{139, 231, 3}
+\usepackage{epigraph}
 
 \usepackage{tcolorbox}
 \definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
@@ -67,7 +68,7 @@ keepaspectratio]{DWGs/cover.png}%
         \interlinepenalty\@M
     \Huge \bfseries #1\par\nobreak
     %\vspace*{1\p@}%
-    \hrulefill
+    %\hrulefill
     \par\nobreak
     \vskip 100\p@
   }}
@@ -79,7 +80,7 @@ keepaspectratio]{DWGs/cover.png}%
         \interlinepenalty\@M
     \Huge \bfseries #1\par\nobreak
     %\vspace*{1\p@}%
-    \hrulefill
+    %\hrulefill
     \par\nobreak
     \vskip 100\p@
   }}
@@ -151,6 +152,22 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 \chaptermark{Preface}
 % Fluid Toolbox content
 
+\rightline{{\rm \textit{"Use it well."}}}
+
+\rightline{{\rm --- Prof. Dumbledore}}
+
+\textbf{Fluid Toolbox} is a collection of human-readable, pseudo-random study notes. It contains descriptions and explanations of fluid dynamics, fluid mechanics and aerodynamics related concepts, presented in a way that resembles the record of my understanding of them. It is meant to be used complimentary to the regular textbook, since it may provide additional insight but it will not substitute a mathematical rigor nor thoroughness of a standard course in the subject. I believe that working side by side with a course it can become indeed a useful toolbox of concepts that are ready to understand and use in your personal projects.
+
+\chapter{Differentiation}
+
+Differentiation is a way to make discrete things continuous.
+
+\chapter{Drag force}
+
+\input{drag_force/drag_force.tex}
+
+
+
 \chapter{Circulation}
 
 \input{circulation/circulation.tex}
@@ -167,21 +184,37 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 
 \chapter{Gauss's law}
 
-\chapter{On the road to Navier-Stokes equations}
+\chapter{On the road to the Navier-Stokes equations}
 
 \chapter*{Appendix}
 
 \newpage
 \thispagestyle{empty}
 
+\chapter*{About the author}
+
+I am a recent graduate in civil engineering and a long-time passionate of the fluid business. My journey through fluid mechanics has begun during my first visit in a wind tunnel laboratory, where my future supervising Professor winked at me when encouraging students to join his research. Since then I wrote two theses under his guard: my Bachelor thesis on the subject of small-scale wind turbines and my Master thesis on the wind action causing flutter of bridges.
+
+In the meantime I worked in a wind engineering company in the UK, where I had a chance to take part in every step of wind tunnel testing of tall buildings, occasionally even gluing some model details.
+
+I was also a stagiaire at the von Karman Institute for Fluid Dynamics in Belgium, where apart from falling in love with French and Dutch languages, I studied data decomposition methods in linear algebra and applied them to approximate fluid flow phenomena.
+
+I am now waiting for my next destination in this journey.
+
+
+
 \begin{flushright}
 
-\ \\[12cm]
+%\ \\[6cm]
 
 \includegraphics[width = 100mm]{cover.png}
 
+\setlength{\parskip}{0.1em}
+\setlength{\parindent}{0cm}
 \ \\[0.5cm]
-\textit{About the cover photo:} view from the coast of the Cres island in Croatia, October 2016.
+\textit{The cover photo:} Whenever the weather permits I enjoy exploring distant places with my bicycle. 
+
+This photo is a view from the coast of the Cres island in Croatia, October 2016.
 \ \\[0.1cm]
 Photo by: J. Aleksanderek
 \end{flushright}
