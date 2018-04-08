@@ -8,8 +8,10 @@ _Richard Feynman_
 
 This repository is a record of my journey through learning fluid mechanics.
 
-## Learning notes in development
+## Study notes in development
 
 `Fluid Toolbox`
 
 `Learning Boundary Layers`
+
+`Heat Conduction`
