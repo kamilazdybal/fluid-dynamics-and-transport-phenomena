@@ -2,7 +2,9 @@
 *.log
 *.out
 *.pdf
-Learning_BLs.pdf
 *.synctex.gz
 *.toc
-*/.ipynb_checkpoints
+*.ipynb_checkpoints
+
+Boundary_Layers/Learning_BLs.pdf
+Fluid_Toolbox/Fluid_Toolbox.pdf
