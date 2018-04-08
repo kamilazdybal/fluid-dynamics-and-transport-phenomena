@@ -50,20 +50,83 @@ bottom=3cm,
 
 \section*{Conduction in a rod with internal heat production}
 
-This is a derivation of the temperature distribution function $T(x)$ for a steady-state heat conduction in a rod of length $L$. We assume that the internal heat production is present in every point inside the rod volume. The rod is perfectly insulated along its length and it loses heat only through its endpoints which in a steady-state case are kept at a fixed temperature $T_0$.
+This is a derivation of the temperature distribution function $T(x)$ for a steady-state heat conduction in a straight rod of length $L$. We assume that the internal heat production $Q_p$ is present in every point inside the rod volume (which may simulate heating of an electrical wire). The rod is perfectly insulated along its length and it loses heat only through its endpoints which in a steady-state case are kept at a fixed temperature $T_0$.
 
-We will take for the control volume a slice $dx$ from the rod.
+We will take for the control volume a slice $dx$ from the rod. 
 
 The energy balance for the rod element:
 
 \begin{equation}
-\frac{dE}{dt} = E_{in} + E_{out} + E_{production}
+\frac{dE}{dt} = E_{in} - E_{out} + E_{production}
 \end{equation}
+
+(note here that $E_{in}$, $E_{out}$ and $E_{production}$ are energies per unit time and so have the units of $\frac{J}{s}$)
+
+The heat flow is described by the Fourier's law:
+
+\begin{equation}
+\phi = \lambda A \Big(- \frac{dT}{dx} \Big)
+\label{eq:fourier}
+\end{equation}
+
+Hence:
+
+\begin{equation}
+E_{in} = \lambda A \Big(- \frac{dT}{dx} \Big)_x
+\end{equation}
+
+\begin{equation}
+E_{out} = \lambda A \Big(- \frac{dT}{dx} \Big)_{x + dx}
+\end{equation}
+
+
+The energy per unit time coming from the production can be written as $Q_p$ (which is in the units of $\frac{W}{m^3}$) multiplied by the volume of the slice $dx$:
+
+\begin{equation}
+E_{production} = Q_p A dx
+\end{equation}
+
+In the steady-state $\frac{dE}{dt} = 0$ and the energy balance becomes:
+
+
+\begin{equation}
+\lambda A \Big(- \frac{dT}{dx} \Big)_x - \lambda A \Big(- \frac{dT}{dx} \Big)_{x + dx} + Q_p A dx = 0
+\end{equation}
+
+Simplifying the above energy balance we get:
+
+\begin{equation*}
+\frac{\Big(\frac{dT}{dx} \Big)_{x + dx} - \Big(\frac{dT}{dx} \Big)_x  }{dx} = - \frac{Q_p}{\lambda}
+\end{equation*}
+
+If we now substitute some function $f(x) = \frac{dT}{dx}$ we notice that we have:
+
+\begin{equation*}
+\frac{f(x + dx) - f(x)}{dx} = - \frac{Q_p}{\lambda}
+\end{equation*}
+
+in other words:
+
+\begin{equation}
+\frac{df(x)}{dx} = - \frac{Q_p}{\lambda}
+\end{equation}
+
+With the above substitution, the differential equation that we are about to solve becomes:
+
+\begin{equation}
+\frac{d^2T}{dx^2} = - \frac{Q_p}{\lambda}
+\end{equation}
+
+The solution to the above differential equation is:
 
 \begin{equation}
 T(x) = - \frac{Q}{2 \lambda} (x^2 - Lx) + T_0
 \label{eq:solution}
 \end{equation}
+
+It is interesting to note here that the solution does not depend on the cross-sectional surface area of the rod.
+
+
 
 
 \subsection*{Computational example}
