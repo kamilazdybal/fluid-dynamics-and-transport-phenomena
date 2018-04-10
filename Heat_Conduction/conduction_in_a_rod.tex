@@ -54,6 +54,12 @@ This document was prepared as part of the course \textit{The Basics of Transport
 
 This is a derivation of the temperature distribution function $T(x)$ for a steady-state heat conduction in a straight rod of length $L$. We assume that the internal heat production $Q_p$ is present in every point inside the rod volume (which may simulate heating of an electrical wire). The rod is perfectly insulated along its length and it loses heat only through its endpoints which in a steady-state case are kept at a fixed temperature $T_0$.
 
+\begin{figure}[H]
+\centering\includegraphics[width=16cm]{conduction_rod.jpg}
+\caption{Conduction in a rod with internal heat production}
+\label{fig:conduction}
+\end{figure}
+
 We will take for the control volume a slice $dx$ from the rod. 
 
 The energy balance for the rod element:
@@ -107,8 +113,6 @@ If we now substitute some function $f(x) = \frac{dT}{dx}$ we notice that we have
 \frac{f(x + dx) - f(x)}{dx} = - \frac{Q_p}{\lambda}
 \end{equation*}
 
-\newpage
-
 in other words:
 
 \begin{equation}
@@ -140,7 +144,7 @@ As a computational example we will draw the graph of the temperature distributio
 \begin{figure}[H]
 \centering\includegraphics[width=18cm]{temperature_distribution.png}
 \caption{Temperature distribution in a rod with internal heat production of $20 W$}
-\label{fig:learning_curve}
+\label{fig:python_graph}
 \end{figure}
 
 
