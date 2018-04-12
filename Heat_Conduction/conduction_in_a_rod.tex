@@ -1,6 +1,7 @@
 \documentclass[10pt]{article}
 \usepackage[utf8]{inputenc}
 %\usepackage[T1]{fontenc}
+% Pick the only rightous font:
 \usepackage{tgbonum}
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -35,10 +36,8 @@ bottom=3cm,
 \usepackage{framed}
 \definecolor{shadecolor}{RGB}{139, 231, 3}
 \usepackage{epigraph}
-
 \usepackage{tcolorbox}
 \definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
-
 \usepackage{anyfontsize}
 \usepackage{t1enc}
 
@@ -52,7 +51,7 @@ This document was prepared as part of the course \textit{The Basics of Transport
 
 \section*{Conduction in a rod with internal heat production}
 
-This is a derivation of the temperature distribution function $T(x)$ for a steady-state heat conduction in a straight rod of length $L$. We assume that the internal heat production $Q_p$ is present in every point inside the rod volume (which may simulate heating of an electrical wire). The rod is perfectly insulated along its length and it loses heat only through its endpoints which in a steady-state case are kept at a fixed temperature $T_0$.
+This is a derivation of the temperature distribution function $T(x)$ for a steady-state heat conduction in a straight rod of length $L$. We assume that the internal heat production $Q_p$ is present in every point inside the rod volume (which may simulate heating up of an electrical wire). The rod is perfectly insulated along its length and it loses heat only through its endpoints which in a steady-state case are kept at a fixed temperature $T_0$.
 
 \begin{figure}[H]
 \centering\includegraphics[width=16cm]{conduction_rod.jpg}
@@ -62,84 +61,83 @@ This is a derivation of the temperature distribution function $T(x)$ for a stead
 
 We will take for the control volume a slice $dx$ from the rod. 
 
-The energy balance for the rod element:
+The energy balance for the rod element $dx$ reads
 
 \begin{equation}
-\frac{dE}{dt} = E_{in} - E_{out} + E_{production}
+\frac{dE_{dx}}{dt} = E_{dx, in} - E_{dx, out} + E_{dx, production}
 \end{equation}
 
-(note here that $E_{in}$, $E_{out}$ and $E_{production}$ are energies per unit time and so have the units of $\frac{J}{s}$)
+(note here that $E_{dx, in}$, $E_{dx, out}$ and $E_{dx, production}$ are energies per unit time and so have the units of $W$)
 
-The heat flow is described by the Fourier's law:
+The heat flow is described by the Fourier's law
 
 \begin{equation}
 \phi = \lambda A \Big(- \frac{dT}{dx} \Big)
 \label{eq:fourier}
 \end{equation}
 
-Hence:
+Hence
 
 \begin{equation}
-E_{in} = \lambda A \Big(- \frac{dT}{dx} \Big)_x
+E_{dx, in} = \lambda A \Big(- \frac{dT}{dx} \Big)_x
 \end{equation}
 
 \begin{equation}
-E_{out} = \lambda A \Big(- \frac{dT}{dx} \Big)_{x + dx}
+E_{dx, out} = \lambda A \Big(- \frac{dT}{dx} \Big)_{x + dx}
 \end{equation}
 
-
-The energy per unit time coming from the production can be written as $Q_p$ (which is in the units of $\frac{W}{m^3}$) multiplied by the volume of the slice $dx$:
+The energy per unit time coming from the production can be written as $Q_p$ multiplied by the volume of the slice $dx$
 
 \begin{equation}
-E_{production} = Q_p A dx
+E_{dx, production} = Q_p A dx
 \end{equation}
 
-In the steady-state $\frac{dE}{dt} = 0$ and the energy balance becomes:
+\newpage
 
+In the steady-state $\frac{dE}{dt} = 0$ and the energy balance becomes
 
 \begin{equation}
 \lambda A \Big(- \frac{dT}{dx} \Big)_x - \lambda A \Big(- \frac{dT}{dx} \Big)_{x + dx} + Q_p A dx = 0
 \end{equation}
 
-Simplifying the above energy balance we get:
+Simplifying the above energy balance we get
 
 \begin{equation*}
 \frac{\Big(\frac{dT}{dx} \Big)_{x + dx} - \Big(\frac{dT}{dx} \Big)_x  }{dx} = - \frac{Q_p}{\lambda}
 \end{equation*}
 
-If we now substitute some function $f(x) = \frac{dT}{dx}$ we notice that we have:
+It is interesting to note here that we have lost the dependence on the cross-sectional surface area of the rod.
+
+If we now substitute some function $f(x) = \frac{dT}{dx}$ we notice that we have
 
 \begin{equation*}
 \frac{f(x + dx) - f(x)}{dx} = - \frac{Q_p}{\lambda}
 \end{equation*}
 
-in other words:
+in other words
 
 \begin{equation}
 \frac{df(x)}{dx} = - \frac{Q_p}{\lambda}
 \end{equation}
 
-With the above substitution, the differential equation that we are about to solve becomes:
+With the above substitution, the differential equation that we are about to solve becomes
 
 \begin{equation}
 \frac{d^2T}{dx^2} = - \frac{Q_p}{\lambda}
 \end{equation}
 
-The solution to the above differential equation is:
+Applying the boundary conditions from both ends of the rod, the solution to the above differential equation is
 
 \begin{equation}
-T(x) = - \frac{Q}{2 \lambda} (x^2 - Lx) + T_0
+T(x) = - \frac{Q_p}{2 \lambda} (x^2 - Lx) + T_0
 \label{eq:solution}
 \end{equation}
 
-It is interesting to note here that the solution does not depend on the cross-sectional surface area of the rod.
-
-
-
+\newpage
 
 \subsection*{Computational example}
 
-As a computational example we will draw the graph of the temperature distribution in a copper rod $200 m$ long. We take that the thermal conductivity for this rod is $400 \frac{W}{m \cdot ^o C}$. The internal heat production is $20 W$.
+As a computational example we will draw the graph of the temperature distribution in a copper rod $200 m$ long. We take that the thermal conductivity for this rod is $400 \frac{W}{m \cdot K}$. The internal heat production in the entire rod is $20 W$.
 
 \begin{figure}[H]
 \centering\includegraphics[width=18cm]{temperature_distribution.png}
