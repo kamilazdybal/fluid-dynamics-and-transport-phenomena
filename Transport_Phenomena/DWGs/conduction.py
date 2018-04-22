@@ -18,7 +18,7 @@ lam = 400 # W/(m*C)
 N = 50
 
 x = numpy.linspace(0, L, N)
-T = - Q/(2*lam) * (x*x - L * x) + T0
+T = - Q/(2*lam) * (x**2 - L * x) + T0
 
 # Plot graph:
 figure = plt.figure(figsize=(10, 5))
