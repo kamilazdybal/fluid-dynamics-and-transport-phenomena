@@ -12,6 +12,6 @@ This repository is a record of my journey through learning fluid mechanics.
 
 `Fluid Toolbox`
 
-`Learning Boundary Layers`
+`Boundary Layers`
 
-`Heat Conduction`
+`Transport Phenomena`
