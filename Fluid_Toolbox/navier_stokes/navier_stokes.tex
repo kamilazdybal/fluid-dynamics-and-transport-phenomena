@@ -1,26 +1,84 @@
-The Navier-Stokes equations represent the momentum balance on an infinitesimal fluid volume. They state that the sum of forces acting on a fluid volume is equal to the change in momentum for that volume.
+The Navier-Stokes equations represent the momentum balance on an infinitesimal fluid volume. They state that the sum of forces acting on a fluid volume is equal to the change in momentum for that volume (Newton's second law).
+
+In a three-dimensional case we have:
 
 $x$-direction:
 
 \begin{equation}
-\rho g_x - \frac{\partial P}{\partial x} + \mu \Big( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}\Big) = \rho \Big( \frac{\partial u}{\partial t} + \frac{\partial u}{\partial x} + \frac{\partial u}{\partial y} + \frac{\partial u}{\partial z} \Big)
+\rho g_x - \frac{\partial P}{\partial x} + \mu \Big( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}\Big) = \rho \Big( \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z} \Big)
 \end{equation}
 
 $y$-direction:
 
 \begin{equation}
-\rho g_y - \frac{\partial P}{\partial y} + \mu \Big( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} + \frac{\partial^2 v}{\partial z^2}\Big) = \rho \Big( \frac{\partial v}{\partial t} + \frac{\partial v}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial v}{\partial z} \Big)
+\rho g_y - \frac{\partial P}{\partial y} + \mu \Big( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} + \frac{\partial^2 v}{\partial z^2}\Big) = \rho \Big( \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z} \Big)
 \end{equation}
 
 $z$-direction:
 
 \begin{equation}
-\rho g_z - \frac{\partial P}{\partial z} + \mu \Big( \frac{\partial^2 w}{\partial x^2} + \frac{\partial^2 w}{\partial y^2} + \frac{\partial^2 w}{\partial z^2}\Big) = \rho \Big( \frac{\partial w}{\partial t} + \frac{\partial w}{\partial x} + \frac{\partial w}{\partial y} + \frac{\partial w}{\partial z} \Big)
+\rho g_z - \frac{\partial P}{\partial z} + \mu \Big( \frac{\partial^2 w}{\partial x^2} + \frac{\partial^2 w}{\partial y^2} + \frac{\partial^2 w}{\partial z^2}\Big) = \rho \Big( \frac{\partial w}{\partial t} + u \frac{\partial w}{\partial x} + v \frac{\partial w}{\partial y} + w \frac{\partial w}{\partial z} \Big)
 \end{equation}
 
+Sum of the forces is written on the LHS of the above equations. The total change in momentum is written on the RHS of the above equations.
 
 \section{Derivation}
 
+\subsection{RHS}
 
+In the most general case, the velocity vector $\vec{V} = (u, v, w)$ is a function of time and position. We write therefore:
+
+
+\begin{equation}
+\vec{V}(t, x, y, z) = (u(t, x, y, z), v(t, x, y, z), w(t, x, y, z))
+\end{equation}
+
+The acceleration component is described as the time derivative of the corresponding velocity component. If you were to take the derivative with respect to time of any of the components of the velocity vector, it would become due to chain rule:
+
+\begin{equation}
+a_x = \frac{d u(t,x,y,z)}{dt} = \frac{\partial u}{\partial t} \frac{\partial t}{\partial t} + \frac{\partial u}{\partial x} \frac{\partial x}{\partial t} + \frac{\partial u}{\partial y} \frac{\partial y}{\partial t} + \frac{\partial u}{\partial z} \frac{\partial z}{\partial t}
+\end{equation}
+
+Observe then, that $\frac{\partial t}{\partial t} = 1$, $\frac{\partial x}{\partial t} = u$, $\frac{\partial y}{\partial t} = v$, $\frac{\partial z}{\partial t} = w$.
+
+Altogether, we have therefore for all three components:
+
+\begin{equation}
+a_x = \frac{d u(t,x,y,z)}{dt} = \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z}
+\end{equation}
+
+\begin{equation}
+a_y = \frac{d v(t,x,y,z)}{dt} = \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z}
+\end{equation}
+
+\begin{equation}
+a_z = \frac{d w(t,x,y,z)}{dt} = \frac{\partial w}{\partial t} + u \frac{\partial w}{\partial x} + v \frac{\partial w}{\partial y} + w \frac{\partial w}{\partial z}
+\end{equation}
+
+Note, that the terms $\frac{\partial u}{\partial t}$, $\frac{\partial v}{\partial t}$, $\frac{\partial w}{\partial t}$ are called \textbf{local accelerations}, and the remaining terms, where the derivatives are taken with respect to spacial coordinates are called \textbf{convective accelerations}\footnote{See the chapter on Material Derivative for more understanding of the local and convective terms.}.
+
+The above equations represent the acceleration components and are present in the RHS of the Navier-Stokes equations written before.
+
+The standard way to write the Newton's second law is that the sum of the forces equals mass multiplied by acceleration. Since the Navier-Stokes equations are written per volume basis, the change in momentum (or the mass multiplied by acceleration) is written per unit of volume, so:
+
+\begin{equation}
+\frac{dm}{dV} a_x = \frac{dm}{dV} \frac{d u(t,x,y,z)}{dt} = \rho \frac{d u(t,x,y,z)}{dt}
+\end{equation}
+
+Multiplying all the acceleration components by the density $\rho$ we are going to obtain the full description for the change in momentum:
+
+\begin{equation}
+\rho a_x = \rho \frac{d u(t,x,y,z)}{dt} = \rho \frac{\partial u}{\partial t} + \rho  u \frac{\partial u}{\partial x} + \rho v \frac{\partial u}{\partial y} + \rho w \frac{\partial u}{\partial z}
+\end{equation}
+
+\begin{equation}
+\rho a_y = \rho \frac{d v(t,x,y,z)}{dt} = \rho \frac{\partial v}{\partial t} + \rho u \frac{\partial v}{\partial x} + \rho v \frac{\partial v}{\partial y} + \rho w \frac{\partial v}{\partial z}
+\end{equation}
+
+\begin{equation}
+\rho a_z = \rho \frac{d w(t,x,y,z)}{dt} = \rho \frac{\partial w}{\partial t} + \rho u \frac{\partial w}{\partial x} + \rho v \frac{\partial w}{\partial y} + \rho w \frac{\partial w}{\partial z}
+\end{equation}
+
+That concludes the derivation and explanation of the RHS of the Navier-Stokes equations stated at the beginning of this chapter.
 
 \section{Assumptions and limitations}
