@@ -57,7 +57,7 @@ a_z = \frac{d w(t,x,y,z)}{dt} = \frac{\partial w}{\partial t} + u \frac{\partial
 
 Note, that the terms $\frac{\partial u}{\partial t}$, $\frac{\partial v}{\partial t}$, $\frac{\partial w}{\partial t}$ are called \textbf{local accelerations}, and the remaining terms, where the derivatives are taken with respect to spacial coordinates are called \textbf{convective accelerations}\footnote{See the chapter on Material Derivative for more understanding of the local and convective terms.}.
 
-The above equations represent the acceleration components and are present in the RHS of the Navier-Stokes equations written before.
+The above equations represent the acceleration components. These components are present in the RHS of the Navier-Stokes equations written before.
 
 The standard way to write the Newton's second law is that the sum of the forces equals mass multiplied by acceleration. Since the Navier-Stokes equations are written per volume basis, the change in momentum (or the mass multiplied by acceleration) is written per unit of volume, so:
 
@@ -65,7 +65,7 @@ The standard way to write the Newton's second law is that the sum of the forces 
 \frac{dm}{dV} a_x = \frac{dm}{dV} \frac{d u(t,x,y,z)}{dt} = \rho \frac{d u(t,x,y,z)}{dt}
 \end{equation}
 
-Multiplying all the acceleration components by the density $\rho$ we are going to obtain the full description for the change in momentum:
+Multiplying all the acceleration components by the density $\rho$ we are going to obtain the full description for the change in momentum per unit of volume:
 
 \begin{equation}
 \rho a_x = \rho \frac{d u(t,x,y,z)}{dt} = \rho \frac{\partial u}{\partial t} + \rho  u \frac{\partial u}{\partial x} + \rho v \frac{\partial u}{\partial y} + \rho w \frac{\partial u}{\partial z}
@@ -80,5 +80,24 @@ Multiplying all the acceleration components by the density $\rho$ we are going t
 \end{equation}
 
 That concludes the derivation and explanation of the RHS of the Navier-Stokes equations stated at the beginning of this chapter.
+
+
+\subsection{LHS}
+
+Now we are going to crunch the LHS of the Navier-Stokes equations - the sum of the forces acting on a unit volume of fluid. There are three types of forces taken into account here: body forces (gravity), forces due to pressure difference and forces due to stresses at the external surfaces of the unit volume.
+
+The body forces due to gravity are perhaps the most intuitive to figure out. In order to construct the gravity force $F_{g, x}$ on a fluid element, we multiply mass of that element by gravitational acceleration. Inside the Navier-Stokes equations it is not any different. We have the terms: $\rho g_x$, $\rho g_y$, $\rho g_z$, that represent exactly that idea, except they are again written on a per volume basis.
+
+\begin{equation}
+\frac{d F_{g, x}}{dV} = \frac{dm}{dV} g_x =  \rho g_x
+\end{equation}
+
+\begin{equation}
+\frac{d F_{g, y}}{dV} = \frac{dm}{dV} g_y =  \rho g_y
+\end{equation}
+
+\begin{equation}
+\frac{d F_{g, z}}{dV} = \frac{dm}{dV} g_z =  \rho g_z
+\end{equation}
 
 \section{Assumptions and limitations}
