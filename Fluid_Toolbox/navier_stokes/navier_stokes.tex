@@ -55,7 +55,7 @@ a_y = \frac{d v(t,x,y,z)}{dt} = \frac{\partial v}{\partial t} + u \frac{\partial
 a_z = \frac{d w(t,x,y,z)}{dt} = \frac{\partial w}{\partial t} + u \frac{\partial w}{\partial x} + v \frac{\partial w}{\partial y} + w \frac{\partial w}{\partial z}
 \end{equation}
 
-Note, that the terms $\frac{\partial u}{\partial t}$, $\frac{\partial v}{\partial t}$, $\frac{\partial w}{\partial t}$ are called \textbf{local accelerations}, and the remaining terms, where the derivatives are taken with respect to spacial coordinates are called \textbf{convective accelerations}\footnote{See the chapter on Material Derivative for more understanding of the local and convective terms.}.
+The terms $\frac{\partial u}{\partial t}$, $\frac{\partial v}{\partial t}$, $\frac{\partial w}{\partial t}$ are called \textbf{local accelerations}, and the remaining terms, where the derivatives are taken with respect to spacial coordinates are called \textbf{convective accelerations}\footnote{See the chapter on Material Derivative for more understanding of the local and convective terms.}.
 
 The above equations represent the acceleration components. These components are present in the RHS of the Navier-Stokes equations written before.
 
@@ -84,7 +84,7 @@ That concludes the derivation and explanation of the RHS of the Navier-Stokes eq
 
 \subsection{LHS}
 
-Now we are going to crunch the LHS of the Navier-Stokes equations - the sum of the forces acting on a unit volume of fluid. There are three types of forces taken into account here: body forces (gravity), forces due to pressure difference and forces due to stresses at the external surfaces of the unit volume.
+Now we are going to crunch the LHS of the Navier-Stokes equations - the sum of the forces acting on a unit volume of fluid. There are three types of forces taken into account here: \textbf{body forces} (gravity), forces due to \textbf{pressure difference} and forces due to \textbf{stresses} at the external surfaces of the unit volume.
 
 The body forces due to gravity are perhaps the most intuitive to figure out. In order to construct the gravity force $F_{g, x}$ on a fluid element, we multiply mass of that element by gravitational acceleration. Inside the Navier-Stokes equations it is not any different. We have the terms: $\rho g_x$, $\rho g_y$, $\rho g_z$, that represent exactly that idea, except they are again written on a per volume basis.
 
@@ -101,3 +101,18 @@ The body forces due to gravity are perhaps the most intuitive to figure out. In 
 \end{equation}
 
 \section{Assumptions and limitations}
+
+
+
+
+
+\begin{tikzpicture}
+  \node[minimum height=0.8cm,minimum width=16.5cm, fill=lightgray,fill opacity=0.5,rounded
+      corners=1ex,font=\fontsize{14pt}{14pt}] (a) {\textit{\textbf{Questions}}};
+\end{tikzpicture}
+
+\begin{enumerate}
+
+\item What would the Navier-Stokes equations reduce to for different flow cases?
+
+\end{enumerate}

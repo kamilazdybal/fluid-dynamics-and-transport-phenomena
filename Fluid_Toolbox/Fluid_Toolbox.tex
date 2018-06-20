@@ -10,6 +10,7 @@
 \usepackage{epsf}
 \usepackage{float}
 \usepackage{mathpazo}
+\usepackage{pifont}
 \usepackage
 [
 a4paper,% other options: a3paper, a5paper, etc
@@ -53,8 +54,14 @@ keepaspectratio]{DWGs/cover.png}%
 \vfill
 }}}
 
+\usepackage{emerald}
+\usepackage[T1]{fontenc}
+
 \usepackage{anyfontsize}
 \usepackage{t1enc}
+\newcommand{\heart}{\ensuremath\varheartsuit}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
 
 % CHAPTER STYLE =================================================
 
@@ -95,6 +102,11 @@ keepaspectratio]{DWGs/cover.png}%
 {\sffamily \color{white}
 \begin{center}
 \fontsize{66}{10}\selectfont \fontfamily{qcr}\selectfont Fluid  Toolbox
+
+\vskip 10\p@
+
+\fontsize{25}{10} \ECFAugie{with Python}
+
 \end{center}
 }
 \vfill
@@ -129,7 +141,7 @@ To contact me personally drop me a line at:
 
 \verb|version 1.0|
 
-Typeset with \LaTeX
+Typeset with \ding{170} for \LaTeX
 
 \vspace*{1.8cm}
 
@@ -156,7 +168,7 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 
 \rightline{{\rm --- Prof. Albus Dumbledore}}
 
-\textbf{Fluid Toolbox} is a collection of human-readable, pseudo-random study notes. It contains descriptions and explanations of fluid mechanics, fluid dynamics and aerodynamics concepts, presented in a way that resembles the record of my understanding of them. It is meant to be used complimentary to the regular textbook, since it may provide additional insight but it will not substitute thoroughness of a standard course in the subject. I believe that working side by side with a course it can become indeed a useful toolbox of concepts that are ready-to-understand and read-to-use.
+\textbf{Fluid Toolbox} is a collection of human-readable, pseudo-random study notes. It contains descriptions and explanations of fluid mechanics concepts, presented in a way that resembles the record of my understanding of them. It is meant to be used complimentary to the regular textbook, since it may provide additional insight but it will not substitute thoroughness of a standard course in the subject. I believe that working side by side with a course it can become indeed a useful toolbox of concepts that are ready-to-understand and read-to-use.
 
 These notes are under constant development as I learn more and understand more.
 
@@ -168,6 +180,11 @@ I have a goal of laying the ground for the most important fluid mechanics concep
 
 Each concept is presented as a separate chapter.
 
+\section*{A note of inspiration and motivation}
+
+
+
+
 \chapter{Changes}
 
 \input{changes/changes.tex}
@@ -176,6 +193,13 @@ Each concept is presented as a separate chapter.
 \chapter{Differentiation}
 
 Differentiation is a way to make discrete things continuous.
+
+\chapter{Common flow types}
+
+\input{common_flow_types/common_flow_types.tex}
+
+
+
 
 \chapter{Drag force}
 
@@ -245,7 +269,7 @@ Photo by: J. Aleksanderek
 
 \begin{thebibliography}{50}
 
-\item 
+\item Y. A. Çengel, J. M. Cimbala, \textbf{\textit{Fluid Mechanics: Fundamentals and Applications}}, McGraw-Hill, 2006
 \item
 \item
 \item
