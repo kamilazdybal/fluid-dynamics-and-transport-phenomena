@@ -1,0 +1,69 @@
+
+We present the derivation of the continuity equation.
+
+
+\begin{equation} \label{eq:net_change}
+\text{net change} = \text{flow in} - \text{flow out}
+\end{equation}
+
+We are going to write out the net changes in time of mass in all three directions.
+
+In the $x$-direction:
+
+\begin{equation}
+\Big( \rho u - \frac{\partial (\rho u)}{\partial x} \frac{dx}{2} \Big) dy dz - \Big( \rho u + \frac{\partial (\rho u)}{\partial x} \frac{dx}{2} \Big) dy dz = - \frac{\partial (\rho u)}{\partial x} dx dy dz
+\end{equation}
+
+In the $y$-direction:
+
+\begin{equation}
+\Big( \rho v - \frac{\partial (\rho v)}{\partial y} \frac{dy}{2} \Big) dx dz - \Big( \rho v + \frac{\partial (\rho v)}{\partial y} \frac{dy}{2} \Big) dx dz = - \frac{\partial (\rho v)}{\partial y} dy dx dz
+\end{equation}
+
+In the $z$-direction:
+
+\begin{equation}
+\Big( \rho w - \frac{\partial (\rho w)}{\partial z} \frac{dz}{2} \Big) dx dy - \Big( \rho w + \frac{\partial (\rho w)}{\partial z} \frac{dz}{2} \Big) dx dy = - \frac{\partial (\rho w)}{\partial z} dz dx dy
+\end{equation}
+
+The net change in time of mass can be written as:
+
+\begin{equation}
+\frac{\partial \rho}{dt} dx dy dz
+\end{equation}
+
+Putting all the terms together into equation \ref{eq:net_change} we obtain:
+
+\begin{equation}
+\frac{\partial \rho}{dt} dx dy dz = - \frac{\partial (\rho u)}{\partial x} dx dy dz - \frac{\partial (\rho v)}{\partial y} dy dx dz - \frac{\partial (\rho w)}{\partial z} dz dx dy
+\end{equation}
+
+Simplifying both sides by $dx dy dz$ we get:
+
+\begin{equation} \label{eq:continuity_general}
+\frac{\partial \rho}{dt} = - \frac{\partial (\rho u)}{\partial x} - \frac{\partial (\rho v)}{\partial y} - \frac{\partial (\rho w)}{\partial z}
+\end{equation}
+
+Lastly, we can observe that the divergence of the quantity $\rho \vec{V}$ is:
+
+\begin{equation}
+\nabla (\rho \vec{V}) = \nabla (\rho \langle u, v, w \rangle) = \nabla \langle \rho u, \rho v, \rho w \rangle = \frac{\partial (\rho u)}{\partial x} + \frac{\partial (\rho v)}{\partial y} + \frac{\partial (\rho w)}{\partial z}
+\end{equation}
+
+So in the end, we can further write the RHS of the equation \ref{eq:continuity_general} in a shorter format as:
+
+\begin{equation} \label{eq:continuity_divergence}
+\frac{\partial \rho}{dt} = - \nabla (\rho \vec{V})
+\end{equation}
+
+
+
+
+
+\section{Special cases}
+
+\subsection{Steady flow}
+
+\subsection{Incompressible flow}
+
+\subsection{Dimension reduction}
