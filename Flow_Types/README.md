@@ -35,74 +35,104 @@ _______________________________________
 _______________________________________
 ```
 
-### `Poiseuille` class
+## Documentation
+
+### Class `Poiseuille`
 
 #### Attributes
 
 Class `Poiseuille` takes the following arguments (defaults presented if not specified by the user):
 
 ```python
-Poiseuille(dpdx=-1, channelThickness=0.01, density=997, viscosity=0.00089, fluidName="unknown"))
+Poiseuille(dpdx=-1, channelThickness=0.01, density=997, viscosity=0.00089, fluidName="unknown")
 ```
 
-`dpdx`: pressure gradient in Pa/m
+`dpdx` pressure gradient in Pa/m
 
-`channelThickness`: thickness (or diameter) of the channel in m
+`channelThickness` thickness (or diameter) of the channel in m
 
-`density`: fluid density in kg/m^3 [not used for the moment]
+`density` fluid density in kg/m^3 [not used for the moment]
 
-`viscosity`: fluid viscosity in Pa*s
+`viscosity` fluid viscosity in Pa*s
 
-`fluidName`: arbitrarily chosen nick name for the fluid used (could be for instance set to `"water"`)
+`fluidName` arbitrarily chosen nick name for the fluid used (could be for instance set to `"water"`)
 
 #### Methods
 
-Class `Poiseuille` has got a method `velocityDistribution()` that plots the channel vertical position vs. velocity graph.
+Class `Poiseuille` has got a method `velocityDistribution` that plots the channel vertical position vs. velocity graph. The default arguments:
 
-### `Couette` class
+```python
+velocityDistribution(savePlot=False)
+```
+
+`savePlot` boolean specifying whether you want to save the produced plot to .png
+
+### Class `Couette`
 
 #### Attributes
 
 Class `Couette` takes the following arguments (defaults presented if not specified by the user):
 
 ```python
-Couette(boundaryVel=1, channelThickness=0.01, density=997, viscosity=0.00089, fluidName="unknown"))
+Couette(boundaryVel=1, channelThickness=0.01, density=997, viscosity=0.00089, fluidName="unknown")
 ```
 
-`boundaryVel`: velocity at the non-zero-boundary in m/s
+`boundaryVel` velocity at the non-zero-boundary in m/s
 
-`channelThickness`: thickness (or diameter) of the channel in m
+`channelThickness` thickness (or diameter) of the channel in m
 
-`density`: fluid density in kg/m^3 [not used for the moment]
+`density` fluid density in kg/m^3 [not used for the moment]
 
-`viscosity`: fluid viscosity in Pa*s [not used for the moment]
+`viscosity` fluid viscosity in Pa*s [not used for the moment]
 
-`fluidName`: arbitrarily chosen nick name for the fluid used (could be for instance set to `"water"`)
+`fluidName` arbitrarily chosen nick name for the fluid used (could be for instance set to `"water"`)
 
 #### Methods
 
-Class `Poiseuille` has got a method `velocityDistribution()` that plots the channel vertical position vs. velocity graph.
+Class `Poiseuille` has got a method `velocityDistribution` that plots the channel vertical position vs. velocity graph. The default arguments:
 
-### `Uniform` class
+```python
+velocityDistribution(savePlot=False)
+```
+
+`savePlot` boolean specifying whether you want to save the produced plot to .png
+
+### Class `Uniform`
 
 #### Attributes
 
 Class `Uniform` takes the following arguments (defaults presented if not specified by the user):
 
 ```python
-Couette(uniformVel=1, channelThickness=0.01, density=997, viscosity=0.00089, fluidName="unknown"))
+Couette(uniformVel=1, channelThickness=0.01, density=997, viscosity=0.00089, fluidName="unknown")
 ```
 
-`uniformVel`: uniform velocity in m/s
+`uniformVel` uniform velocity in m/s
 
-`channelThickness`: thickness (or diameter) of the channel in m
+`channelThickness` thickness (or diameter) of the channel in m
 
-`density`: fluid density in kg/m^3 [not used for the moment]
+`density` fluid density in kg/m^3 [not used for the moment]
 
-`viscosity`: fluid viscosity in Pa*s [not used for the moment]
+`viscosity` fluid viscosity in Pa*s [not used for the moment]
 
-`fluidName`: arbitrarily chosen nick name for the fluid used (could be for instance set to `"water"`)
+`fluidName` arbitrarily chosen nick name for the fluid used (could be for instance set to `"water"`)
 
 #### Methods
 
-Class `Poiseuille` has got a method `velocityDistribution()` that plots the channel vertical position vs. velocity graph.
+Class `Poiseuille` has got a method `velocityDistribution` that plots the channel vertical position vs. velocity graph. The default arguments:
+
+```python
+velocityDistribution(savePlot=False)
+```
+
+`savePlot` boolean specifying whether you want to save the produced plot to .png
+
+## Plots
+
+Example plots produced are presented below.
+
+![Screenshot][poiseuille_flow_dpdx-1_channelThickness0.1_water.png]
+
+![Screenshot][couette_flow_boundaryVel1_channelThickness1_water.png]
+
+![Screenshot][uniform_flow_uniformVel1_channelThickness0.5_methane.png]

@@ -34,7 +34,7 @@ class Couette(FlowType):
         print('{:>20}  {:<8}  {:<10}'.format("viscosity:", str(viscosity), "Pa*s"))
         print("_______________________________________\n")
 
-    def velocityDistribution(self):
+    def velocityDistribution(self, savePlot=False):
         velocity = '#282850'
         boundary = "#cccccc"
         print("Plotting velocity distribution...")
@@ -47,6 +47,8 @@ class Couette(FlowType):
         plt.plot([0, 0], [-self.channelThickness/2, self.channelThickness/2], "--", lw=1.5, color=velocity, zorder=1)
         plt.title('Couette flow velocity distribution for fluid: ' + self.fluidName, fontsize=10)
         plt.draw()
+        if savePlot == True:
+            plt.savefig("couette_flow_boundaryVel" + str(self.boundaryVel) + "_channelThickness" + str(self.channelThickness) + "_" + str(self.fluidName) + ".png", dpi = 150)
         plt.pause(3)
         plt.close()
 
@@ -68,7 +70,7 @@ class Uniform(FlowType):
         print('{:>20}  {:<8}  {:<10}'.format("viscosity:", str(viscosity), "Pa*s"))
         print("_______________________________________\n")
 
-    def velocityDistribution(self):
+    def velocityDistribution(self, savePlot=False):
         velocity = '#282850'
         boundary = "#cccccc"
         print("Plotting velocity distribution...")
@@ -81,6 +83,8 @@ class Uniform(FlowType):
         plt.plot([0, self.uniformVel], [self.channelThickness/2, self.channelThickness/2], "--", lw=2, color=boundary, zorder=1)
         plt.title('Uniform flow velocity distribution for fluid: ' + self.fluidName, fontsize=10)
         plt.draw()
+        if savePlot == True:
+            plt.savefig("uniform_flow_uniformVel" + str(self.uniformVel) + "_channelThickness" + str(self.channelThickness) + "_" + str(self.fluidName) + ".png", dpi = 150)
         plt.pause(3)
         plt.close()
 
@@ -104,7 +108,7 @@ class Poiseuille(FlowType):
         print('{:>20}  {:<8}  {:<10}'.format("viscosity:", str(viscosity), "Pa*s"))
         print("_______________________________________\n")
 
-    def velocityDistribution(self):
+    def velocityDistribution(self, savePlot=False):
         velocity = '#282850'
         boundary = "#cccccc"
         print("Plotting velocity distribution...")
@@ -113,10 +117,12 @@ class Poiseuille(FlowType):
         plt.ylim(-1.2*self.channelThickness/2, 1.2*self.channelThickness/2)
         plt.plot(vel, y, "-", lw=1.5, color=velocity, zorder=-1)
         plt.plot([0, 0], [-self.channelThickness/2, self.channelThickness/2], "--", lw=1.5, color=velocity, zorder=1)
-        plt.plot([0, self.centerVel], [-self.channelThickness/2, -self.channelThickness/2], "-", lw=1, color=boundary, zorder=1)
-        plt.plot([0, self.centerVel], [self.channelThickness/2, self.channelThickness/2], "-", lw=1, color=boundary, zorder=1)
+        plt.plot([0, self.centerVel], [-self.channelThickness/2, -self.channelThickness/2], "-", lw=2, color=boundary, zorder=1)
+        plt.plot([0, self.centerVel], [self.channelThickness/2, self.channelThickness/2], "-", lw=2, color=boundary, zorder=1)
         plt.title('Poiseuille flow velocity distribution for fluid: ' + self.fluidName, fontsize=10)
         plt.draw()
+        if savePlot == True:
+            plt.savefig("poiseuille_flow_dpdx" + str(self.dpdx) + "_channelThickness" + str(self.channelThickness) + "_" + str(self.fluidName) + ".png", dpi = 150)
         plt.pause(3)
         plt.close()
 
