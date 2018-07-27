@@ -4,6 +4,8 @@
 *.synctex.gz
 *.toc
 *.ipynb_checkpoints
+*.pyc
+*__pycache__
 
 Boundary_Layers/Learning_BLs.pdf
 Fluid_Toolbox/Fluid_Toolbox.pdf
