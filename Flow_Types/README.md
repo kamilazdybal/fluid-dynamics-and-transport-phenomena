@@ -131,8 +131,8 @@ velocityDistribution(savePlot=False)
 
 Example plots produced are presented below.
 
-![Screenshot][poiseuille_flow_dpdx-1_channelThickness0.1_water.png]
+![Screenshot][/poiseuille_flow_dpdx-1_channelThickness0.1_water.png]
 
-![Screenshot][couette_flow_boundaryVel1_channelThickness1_water.png]
+![Screenshot][/couette_flow_boundaryVel1_channelThickness1_water.png]
 
-![Screenshot][uniform_flow_uniformVel1_channelThickness0.5_methane.png]
+![Screenshot][/uniform_flow_uniformVel1_channelThickness0.5_methane.png]
