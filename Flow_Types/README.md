@@ -1,4 +1,4 @@
-# Flow types with OOP
+# Flow types with Python OOP
 
 ## Crash-tutorial
 
@@ -16,12 +16,33 @@ Couette
 Uniform
 ```
 
+Example output after creating an instance:
+
+```
+_______________________________________
+
+	Poiseuille flow
+	Fluid used: water
+.......................................
+
+           Parameter  Value     Unit      
+ -------------------  --------  ----      
+    center velocity:  1.40      m/s       
+  channel thickness:  0.1       m         
+  pressure gradient:  -1        Pa/m      
+            density:  997       kg/m^3    
+          viscosity:  0.00089   Pa*s      
+_______________________________________
+```
+
 ### `Poiseuille` class
+
+#### Attributes
 
 Class `Poiseuille` takes the following arguments (defaults presented if not specified by the user):
 
 ```python
-Poiseuille(dpdx=-1, channelThickness=0.01, density=1000, viscosity=0.00089, fluidName="unknown"))
+Poiseuille(dpdx=-1, channelThickness=0.01, density=997, viscosity=0.00089, fluidName="unknown"))
 ```
 
 `dpdx`: pressure gradient in Pa/m
@@ -34,12 +55,18 @@ Poiseuille(dpdx=-1, channelThickness=0.01, density=1000, viscosity=0.00089, flui
 
 `fluidName`: arbitrarily chosen nick name for the fluid used (could be for instance set to `"water"`)
 
+#### Methods
+
+Class `Poiseuille` has got a method `velocityDistribution()` that plots the channel vertical position vs. velocity graph.
+
 ### `Couette` class
+
+#### Attributes
 
 Class `Couette` takes the following arguments (defaults presented if not specified by the user):
 
 ```python
-Couette(boundaryVel=1, channelThickness=0.01, density=1000, viscosity=0.00089, fluidName="unknown"))
+Couette(boundaryVel=1, channelThickness=0.01, density=997, viscosity=0.00089, fluidName="unknown"))
 ```
 
 `boundaryVel`: velocity at the non-zero-boundary in m/s
@@ -52,13 +79,18 @@ Couette(boundaryVel=1, channelThickness=0.01, density=1000, viscosity=0.00089, f
 
 `fluidName`: arbitrarily chosen nick name for the fluid used (could be for instance set to `"water"`)
 
+#### Methods
+
+Class `Poiseuille` has got a method `velocityDistribution()` that plots the channel vertical position vs. velocity graph.
 
 ### `Uniform` class
+
+#### Attributes
 
 Class `Uniform` takes the following arguments (defaults presented if not specified by the user):
 
 ```python
-Couette(uniformVel=1, channelThickness=0.01, density=1000, viscosity=0.00089, fluidName="unknown"))
+Couette(uniformVel=1, channelThickness=0.01, density=997, viscosity=0.00089, fluidName="unknown"))
 ```
 
 `uniformVel`: uniform velocity in m/s
@@ -70,3 +102,7 @@ Couette(uniformVel=1, channelThickness=0.01, density=1000, viscosity=0.00089, fl
 `viscosity`: fluid viscosity in Pa*s [not used for the moment]
 
 `fluidName`: arbitrarily chosen nick name for the fluid used (could be for instance set to `"water"`)
+
+#### Methods
+
+Class `Poiseuille` has got a method `velocityDistribution()` that plots the channel vertical position vs. velocity graph.
