@@ -21,6 +21,7 @@ class Couette(FlowType):
     def __init__(self, boundaryVel=1, channelThickness=0.01, density=997, viscosity=0.00089, fluidName="unknown"):
         super().__init__(channelThickness, density, viscosity, fluidName)
         self.boundaryVel = boundaryVel
+        self.Re = density * channelThickness * boundaryVel / 2 / viscosity
 
         print("\tCouette flow")
         if fluidName != "unknown":
@@ -32,6 +33,7 @@ class Couette(FlowType):
         print('{:>20}  {:<8}  {:<10}'.format("channel thickness:", str(channelThickness), "m"))
         print('{:>20}  {:<8}  {:<10}'.format("density:", str(density), "kg/m^3"))
         print('{:>20}  {:<8}  {:<10}'.format("viscosity:", str(viscosity), "Pa*s"))
+        print('{:>20}  {:<8}  {:<10}'.format("Re (avg):", "%.0f" %self.Re, "-"))
         print("_______________________________________\n")
 
     def velocityDistribution(self, savePlot=False):
@@ -57,6 +59,7 @@ class Uniform(FlowType):
     def __init__(self, uniformVel=1, channelThickness=0.01, density=997, viscosity=0.00089, fluidName="unknown"):
         super().__init__(channelThickness, density, viscosity, fluidName)
         self.uniformVel = uniformVel
+        self.Re = density * channelThickness * uniformVel / viscosity
 
         print("\tUniform flow")
         if fluidName != "unknown":
@@ -68,6 +71,7 @@ class Uniform(FlowType):
         print('{:>20}  {:<8}  {:<10}'.format("channel thickness:", str(channelThickness), "m"))
         print('{:>20}  {:<8}  {:<10}'.format("density:", str(density), "kg/m^3"))
         print('{:>20}  {:<8}  {:<10}'.format("viscosity:", str(viscosity), "Pa*s"))
+        print('{:>20}  {:<8}  {:<10}'.format("Re (avg):", "%.0f" %self.Re, "-"))
         print("_______________________________________\n")
 
     def velocityDistribution(self, savePlot=False):
