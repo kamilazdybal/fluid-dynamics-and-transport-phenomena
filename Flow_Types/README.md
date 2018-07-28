@@ -77,7 +77,7 @@ Class `Couette` takes the following arguments (defaults presented if not specifi
 Couette(boundaryVel=1, channelThickness=0.01, density=997, viscosity=0.00089, fluidName="unknown")
 ```
 
-`boundaryVel` velocity at the non-zero-boundary in m/s
+`boundaryVel` velocity at the non-zero boundary in m/s
 
 `channelThickness` thickness (or diameter) of the channel in m
 
