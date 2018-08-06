@@ -64,16 +64,6 @@ So in the end, we can further write the RHS of the equation \ref{eq:continuity_g
 
 In the most general case, the density $\rho$ is a function of time and space $\rho = \rho(t, x, y, z)$ and the equation \ref{eq:continuity_divergence} is written out for the most general case. Special cases can be defined when certain restrictions are imposed on the density function.
 
-\subsection{Steady flow}
-
-First, when the density $\rho$ is only a function of position $\rho = \rho(x,y,z)$ and does not change in time at any point in the flow field, we arrive at the steady state condition where the derivative $\frac{\partial \rho}{dt} = 0$.
-
-The continuity equation then becomes:
-
-\begin{equation} \label{eq:continuity_stst}
-0 = - \rho \nabla \vec{V}
-\end{equation}
-
 \subsection{Incompressible flow}
 
 When we assume that the density is constant in space, it can be taken out front of the divergence operator and the incompressible continuity equation is:
@@ -84,7 +74,10 @@ When we assume that the density is constant in space, it can be taken out front 
 
 The above equation corresponds to the density that is constant throughout the flow field at any moment in time, but can change in time in the entire flow field.
 
-\subsection{Steady and incompressible flow}
+
+
+
+\subsection{Incompressible, steady flow}
 
 The steady flow can be further combined with the incompressible condition, which disables the density to change both in time and space. The stead-state incompressible continuity equation then becomes:
 
@@ -97,5 +90,18 @@ or writing the above equation with the use of partial differentiation operator:
 \begin{equation}
 \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0
 \end{equation}
+
+
+\subsection{Compressible, steady flow}
+
+First, when the density $\rho$ is only a function of position $\rho = \rho(x,y,z)$ and does not change in time at any point in the flow field, we arrive at the steady state condition where the derivative $\frac{\partial \rho}{dt} = 0$.
+
+The continuity equation then becomes:
+
+\begin{equation} \label{eq:continuity_stst}
+0 = - \nabla (\rho  \vec{V})
+\end{equation}
+
+
 
 \section{Dimension reduction}
