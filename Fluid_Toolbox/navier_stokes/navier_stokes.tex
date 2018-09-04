@@ -2,23 +2,23 @@ The Navier-Stokes equations represent the momentum balance on an infinitesimal f
 
 \section{Incompressible Navier-Stokes}
 
-In a three-dimensional, incompressible, unsteady flow case we have:
+In a three-dimensional, incompressible, unsteady flow we have:
 
 $x$-direction:
 
-\begin{equation}
+\begin{equation} \label{eq:NS_x}
 \rho g_x - \frac{\partial P}{\partial x} + \mu \Big( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}\Big) = \rho \Big( \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z} \Big)
 \end{equation}
 
 $y$-direction:
 
-\begin{equation}
+\begin{equation} \label{eq:NS_y}
 \rho g_y - \frac{\partial P}{\partial y} + \mu \Big( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} + \frac{\partial^2 v}{\partial z^2}\Big) = \rho \Big( \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z} \Big)
 \end{equation}
 
 $z$-direction:
 
-\begin{equation}
+\begin{equation} \label{eq:NS_z}
 \rho g_z - \frac{\partial P}{\partial z} + \mu \Big( \frac{\partial^2 w}{\partial x^2} + \frac{\partial^2 w}{\partial y^2} + \frac{\partial^2 w}{\partial z^2}\Big) = \rho \Big( \frac{\partial w}{\partial t} + u \frac{\partial w}{\partial x} + v \frac{\partial w}{\partial y} + w \frac{\partial w}{\partial z} \Big)
 \end{equation}
 
@@ -28,65 +28,68 @@ Sum of the forces is written on the LHS of the above equations. The total change
 
 \subsection{RHS}
 
-In the most general case, the velocity vector $\vec{V} = (u, v, w)$ is a function of time and position. We write therefore:
+In the most general case, the velocity vector $\vec{V} = \langle u, v, w \rangle$ is a function of time and position. We write therefore: $\vec{V}(t, x, y, z) = \langle u(t, x, y, z), v(t, x, y, z), w(t, x, y, z) \rangle $.
 
-
-\begin{equation}
-\vec{V}(t, x, y, z) = (u(t, x, y, z), v(t, x, y, z), w(t, x, y, z))
-\end{equation}
-
-The acceleration component is described as the time derivative of the corresponding velocity component. If you were to take the derivative with respect to time of any of the components of the velocity vector, it would become due to chain rule:
+The acceleration component is described as the time derivative of the corresponding velocity component. If you were to take the derivative with respect to time of any of the above components of the velocity vector, it would become due to chain rule:
 
 \begin{equation}
-a_x = \frac{d u(t,x,y,z)}{dt} = \frac{\partial u}{\partial t} \frac{\partial t}{\partial t} + \frac{\partial u}{\partial x} \frac{\partial x}{\partial t} + \frac{\partial u}{\partial y} \frac{\partial y}{\partial t} + \frac{\partial u}{\partial z} \frac{\partial z}{\partial t}
+a_x = \frac{\partial u(t,x,y,z)}{\partial t} = \frac{\partial u}{\partial t} \frac{\partial t}{\partial t} + \frac{\partial u}{\partial x} \frac{\partial x}{\partial t} + \frac{\partial u}{\partial y} \frac{\partial y}{\partial t} + \frac{\partial u}{\partial z} \frac{\partial z}{\partial t}
 \end{equation}
 
 Observe then, that $\frac{\partial t}{\partial t} = 1$, $\frac{\partial x}{\partial t} = u$, $\frac{\partial y}{\partial t} = v$, $\frac{\partial z}{\partial t} = w$.
 
-Altogether, we have therefore for all three components:
+We have therefore for all three components:
 
 \begin{equation}
-a_x = \frac{d u(t,x,y,z)}{dt} = \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z}
+a_x = \frac{\partial u(t,x,y,z)}{\partial t} = \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z}
 \end{equation}
 
 \begin{equation}
-a_y = \frac{d v(t,x,y,z)}{dt} = \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z}
+a_y = \frac{\partial v(t,x,y,z)}{\partial t} = \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z}
 \end{equation}
 
 \begin{equation}
-a_z = \frac{d w(t,x,y,z)}{dt} = \frac{\partial w}{\partial t} + u \frac{\partial w}{\partial x} + v \frac{\partial w}{\partial y} + w \frac{\partial w}{\partial z}
+a_z = \frac{\partial w(t,x,y,z)}{\partial t} = \frac{\partial w}{\partial t} + u \frac{\partial w}{\partial x} + v \frac{\partial w}{\partial y} + w \frac{\partial w}{\partial z}
 \end{equation}
 
-The terms $\frac{\partial u}{\partial t}$, $\frac{\partial v}{\partial t}$, $\frac{\partial w}{\partial t}$ are called \textbf{local accelerations}, and the remaining terms, where the derivatives are taken with respect to spacial coordinates are called \textbf{convective accelerations}\footnote{See the chapter on Material Derivative for more understanding of the local and convective terms.}. The names "local" and "convective" carry a lot of meaning here, although initially it might be hard to see. The word "convective" means that it is a quantity that depends on traveling to other regions - in other words - it depends on position. It's going to change only due to the fact that the fluid element has traveled to a new place. The word "local" on the other hand, suggests that it is a quantity that is pinned to the particular fluid element and its change doesn't care where that particle is in space, it just change as the time goes on. The "local" quantity can change in a fluid element, but solely "in itself" (or "locally" and that will happen independent of where the fluid particle travels to). Notice that this logic fits into how those derivatives look like. The convective terms are all derivatives with respect to position - they account for a change in velocity components due to change in coordinates. The local terms are all derivatives with respect to time - they just change by itself as the time change and position is irrelevant.
+The terms $\frac{\partial u}{\partial t}$, $\frac{\partial v}{\partial t}$, $\frac{\partial w}{\partial t}$ are called \textbf{local accelerations}, and the remaining terms where the derivatives are taken with respect to spacial coordinates are called \textbf{convective accelerations}\footnote{See the chapter on Material Derivative for more understanding of the local and convective terms.}. The names \textit{local} and \textit{convective} carry a lot of meaning here, although initially it might be hard to see. 
 
-The above equations represent the acceleration components. These components are present in the RHS of the Navier-Stokes equations written before.
+The word \textit{convective} means that it is a quantity that depends on traveling to other regions - in other words - it depends on position. It is going to change due to the fact that the fluid element has traveled to a new place.
+
+The word \textit{local}, on the other hand, suggests that it is a quantity that is intrinsic to the particular fluid element and its change is independent of the particle's position in space. The \textit{local} quantity can change in a fluid element, but solely "in itself" as the time pass (or \textit{locally} and that will happen independent of where the fluid particle travels to). 
+
+Notice that this logic fits into how these derivatives look like. The convective terms are all derivatives with respect to position - they account for a change in velocity components due to change in coordinates. The local terms are all derivatives with respect to time - they just change by itself as the time change and position is irrelevant.
+
+The above equations represent the acceleration components. These components are present in the RHS of the Navier-Stokes equations [\ref{eq:NS_x} - \ref{eq:NS_z}].
 
 The standard way to write the Newton's second law is that the sum of the forces equals mass multiplied by acceleration. Since the Navier-Stokes equations are written per volume basis, the change in momentum (or the mass multiplied by acceleration) is written per unit of volume, so:
 
 \begin{equation}
-\frac{dm}{dV} a_x = \frac{dm}{dV} \frac{d u(t,x,y,z)}{dt} = \rho \frac{d u(t,x,y,z)}{dt}
+\frac{dm}{dV} a_x = \frac{dm}{dV} \frac{\partial u(t,x,y,z)}{\partial t} = \rho \frac{\partial u(t,x,y,z)}{\partial t}
 \end{equation}
 
 Multiplying all the acceleration components by the density $\rho$ we are going to obtain the full description for the change in momentum per unit of volume:
 
 \begin{equation}
-\rho a_x = \rho \frac{d u(t,x,y,z)}{dt} = \rho \frac{\partial u}{\partial t} + \rho  u \frac{\partial u}{\partial x} + \rho v \frac{\partial u}{\partial y} + \rho w \frac{\partial u}{\partial z}
+\rho a_x = \rho \frac{\partial u(t,x,y,z)}{\partial t} = \rho \frac{\partial u}{\partial t} + \rho  u \frac{\partial u}{\partial x} + \rho v \frac{\partial u}{\partial y} + \rho w \frac{\partial u}{\partial z}
 \end{equation}
 
 \begin{equation}
-\rho a_y = \rho \frac{d v(t,x,y,z)}{dt} = \rho \frac{\partial v}{\partial t} + \rho u \frac{\partial v}{\partial x} + \rho v \frac{\partial v}{\partial y} + \rho w \frac{\partial v}{\partial z}
+\rho a_y = \rho \frac{\partial v(t,x,y,z)}{\partial t} = \rho \frac{\partial v}{\partial t} + \rho u \frac{\partial v}{\partial x} + \rho v \frac{\partial v}{\partial y} + \rho w \frac{\partial v}{\partial z}
 \end{equation}
 
 \begin{equation}
-\rho a_z = \rho \frac{d w(t,x,y,z)}{dt} = \rho \frac{\partial w}{\partial t} + \rho u \frac{\partial w}{\partial x} + \rho v \frac{\partial w}{\partial y} + \rho w \frac{\partial w}{\partial z}
+\rho a_z = \rho \frac{\partial w(t,x,y,z)}{\partial t} = \rho \frac{\partial w}{\partial t} + \rho u \frac{\partial w}{\partial x} + \rho v \frac{\partial w}{\partial y} + \rho w \frac{\partial w}{\partial z}
 \end{equation}
 
-That concludes the derivation and explanation of the RHS of the Navier-Stokes equations stated at the beginning of this chapter.
+This concludes the derivation and explanation of the RHS of the Navier-Stokes equations stated at the beginning of this chapter.
 
 
 \subsection{LHS}
 
-Now we are going to crunch the LHS of the Navier-Stokes equations - the sum of the forces acting on a unit volume of fluid. There are three types of forces taken into account here: \textbf{body forces} (gravity), forces due to \textbf{pressure difference} and forces due to \textbf{stresses} at the external surfaces of the unit volume.
+We are now going to crunch the LHS of the Navier-Stokes equations - the sum of the forces acting on a unit volume of fluid. There are three types of forces taken into account here: \textbf{body forces} (gravity), forces due to \textbf{pressure difference} and forces due to \textbf{stresses} at the external surfaces of the unit volume.
+
+\subsubsection{Gravity forces}
 
 The body forces due to gravity are perhaps the most intuitive to figure out. In order to construct the gravity force $F_{g, x}$ on a fluid element, we multiply mass of that element by gravitational acceleration. Inside the Navier-Stokes equations it is not any different. We have the terms: $\rho g_x$, $\rho g_y$, $\rho g_z$, that represent exactly that idea, except they are again written on a per volume basis.
 
@@ -101,6 +104,13 @@ The body forces due to gravity are perhaps the most intuitive to figure out. In 
 \begin{equation}
 \frac{d F_{g, z}}{dV} = \frac{dm}{dV} g_z =  \rho g_z
 \end{equation}
+
+
+\subsubsection{Pressure forces}
+
+
+\subsubsection{Dissipative forces}
+
 
 \section{Assumptions and limitations}
 
