@@ -87,7 +87,7 @@ This concludes the derivation and explanation of the RHS of the Navier-Stokes eq
 
 \subsection{LHS}
 
-We are now going to crunch the LHS of the Navier-Stokes equations - the sum of the forces acting on a unit volume of fluid. There are three types of forces taken into account here: \textbf{body forces} (gravity), forces due to \textbf{pressure difference} and \textbf{dissipative forces} due to viscosity at the external surfaces of the unit volume.
+We are now going to crunch the LHS of the Navier-Stokes equations - the sum of the forces acting on a unit volume of fluid. There are two types of forces taken into account here: \textbf{body forces} (gravity) and \textbf{surface forces} (forces due to pressure difference and dissipative forces due to viscosity).
 
 \subsubsection{Gravity forces}
 
@@ -105,25 +105,50 @@ The body forces due to gravity are perhaps the most intuitive to figure out. In 
 \frac{d F_{g, z}}{dV} = \frac{dm}{dV} g_z =  \rho g_z
 \end{equation}
 
-\subsubsection{Pressure and dissipative forces}
+\subsubsection{Surface forces}
+
+The surface stresses can be represented by the stress tensor:
+
+\begin{equation}
+\bm{\sigma}_{IN} = \left(
+\begin{matrix} 
+\sigma_{xx} & \sigma_{xy} & \sigma_{xz} \\
+\sigma_{yx} & \sigma_{yy} & \sigma_{yz} \\
+\sigma_{zx} & \sigma_{zy} & \sigma_{zz}
+\end{matrix}
+\right)
+\end{equation}
+
+\begin{equation}
+\bm{\sigma}_{OUT} = \left(
+\begin{matrix} 
+\sigma_{xx} + \frac{\partial \sigma_{xx}}{\partial x}dx & \sigma_{xy} + \frac{\partial \sigma_{xy}}{\partial y}dy & \sigma_{xz} + \frac{\partial \sigma_{xz}}{\partial z}dz \\
+\sigma_{yx} + \frac{\partial \sigma_{yx}}{\partial x}dx & \sigma_{yy} + \frac{\partial \sigma_{yy}}{\partial y}dy & \sigma_{yz} + \frac{\partial \sigma_{yz}}{\partial z}dz \\
+\sigma_{zx} + \frac{\partial \sigma_{zx}}{\partial x}dx & \sigma_{zy} + \frac{\partial \sigma_{zy}}{\partial y}dy & \sigma_{zz} + \frac{\partial \sigma_{zz}}{\partial z}dz 
+\end{matrix}
+\right)
+\end{equation}
+
+The net force on the fluid element resulting from the surface stresses
+
+Writing out the :
+
+$\sigma_{xx} dy dz$
+
+
+$\sigma_{xx} dy dz - \frac{\partial \sigma_{xx}}{\partial x}$ 
 
 
 
+In the $x$-direction: 
+
+$\frac{\partial \sigma_{xx}}{\partial x}$ 
+
+In the $y$-direction: 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+In the $z$-direction: 
 
 
 
