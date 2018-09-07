@@ -117,9 +117,7 @@ The surface stresses can be represented by the stress tensor:
 \sigma_{zx} & \sigma_{zy} & \sigma_{zz}
 \end{matrix}
 \right)
-\end{equation}
-
-\begin{equation}
+\,\,\,\,\,\,\,\,\,\,\,\,
 \bm{\sigma}_{OUT} = \left(
 \begin{matrix} 
 \sigma_{xx} + \frac{\partial \sigma_{xx}}{\partial x}dx & \sigma_{xy} + \frac{\partial \sigma_{xy}}{\partial y}dy & \sigma_{xz} + \frac{\partial \sigma_{xz}}{\partial z}dz \\
@@ -129,7 +127,41 @@ The surface stresses can be represented by the stress tensor:
 \right)
 \end{equation}
 
-The net force on the fluid element resulting from the surface stresses
+The net force on the fluid element resulting from the surface stresses comes from the difference between stresses on two opposing sides of the fluid element. Therefore we are going to look at the value of:
+
+\begin{equation}
+\bm{\sigma}_{OUT} - \bm{\sigma}_{IN} = \left(
+\begin{matrix} 
+ \frac{\partial \sigma_{xx}}{\partial x}dx & \frac{\partial \sigma_{xy}}{\partial y}dy & \frac{\partial \sigma_{xz}}{\partial z}dz \\
+\frac{\partial \sigma_{yx}}{\partial x}dx & \frac{\partial \sigma_{yy}}{\partial y}dy & \frac{\partial \sigma_{yz}}{\partial z}dz \\
+\frac{\partial \sigma_{zx}}{\partial x}dx & \frac{\partial \sigma_{zy}}{\partial y}dy & \frac{\partial \sigma_{zz}}{\partial z}dz 
+\end{matrix}
+\right)
+\end{equation}
+
+Since we are interested in forces resulting from these stresses, we need to multiply the above values by the areas of the corresponding surfaces on which these stresses act.
+
+\begin{equation}
+F_{\sigma} = \left(
+\begin{matrix} 
+\frac{\partial \sigma_{xx}}{\partial x}dx dy dz & \frac{\partial \sigma_{xy}}{\partial y}dy dx dz & \frac{\partial \sigma_{xz}}{\partial z}dz dx dy \\
+\frac{\partial \sigma_{yx}}{\partial x}dx dy dz & \frac{\partial \sigma_{yy}}{\partial y}dy dx dz & \frac{\partial \sigma_{yz}}{\partial z}dz dx dy\\
+\frac{\partial \sigma_{zx}}{\partial x}dx dy dz & \frac{\partial \sigma_{zy}}{\partial y}dy dx dz & \frac{\partial \sigma_{zz}}{\partial z}dz dx dy
+\end{matrix}
+\right)
+\end{equation}
+
+And lastly, we will write the forces per unit of volume:
+
+\begin{equation}
+f_{\sigma} = \left(
+\begin{matrix} 
+\frac{\partial \sigma_{xx}}{\partial x} & \frac{\partial \sigma_{xy}}{\partial y} & \frac{\partial \sigma_{xz}}{\partial z} \\
+\frac{\partial \sigma_{yx}}{\partial x} & \frac{\partial \sigma_{yy}}{\partial y} & \frac{\partial \sigma_{yz}}{\partial z} \\
+\frac{\partial \sigma_{zx}}{\partial x} & \frac{\partial \sigma_{zy}}{\partial y} & \frac{\partial \sigma_{zz}}{\partial z}
+\end{matrix}
+\right)
+\end{equation}
 
 Writing out the :
 
