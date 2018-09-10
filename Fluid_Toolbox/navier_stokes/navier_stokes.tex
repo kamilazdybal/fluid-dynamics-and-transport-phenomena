@@ -107,7 +107,7 @@ The body forces due to gravity are perhaps the most intuitive to figure out. In 
 
 \subsubsection{Surface forces}
 
-The surface stresses can be represented by the stress tensor:
+The surface stresses can be represented by the \textbf{stress tensor}:
 
 \begin{equation}
 \bm{\sigma}_{IN} = \left(
@@ -120,9 +120,9 @@ The surface stresses can be represented by the stress tensor:
 \,\,\,\,\,\,\,\,\,\,\,\,
 \bm{\sigma}_{OUT} = \left(
 \begin{matrix} 
-\sigma_{xx} + \frac{\partial \sigma_{xx}}{\partial x}dx & \sigma_{xy} + \frac{\partial \sigma_{xy}}{\partial y}dy & \sigma_{xz} + \frac{\partial \sigma_{xz}}{\partial z}dz \\
-\sigma_{yx} + \frac{\partial \sigma_{yx}}{\partial x}dx & \sigma_{yy} + \frac{\partial \sigma_{yy}}{\partial y}dy & \sigma_{yz} + \frac{\partial \sigma_{yz}}{\partial z}dz \\
-\sigma_{zx} + \frac{\partial \sigma_{zx}}{\partial x}dx & \sigma_{zy} + \frac{\partial \sigma_{zy}}{\partial y}dy & \sigma_{zz} + \frac{\partial \sigma_{zz}}{\partial z}dz 
+\sigma_{xx} + \frac{\partial \sigma_{xx}}{\partial x}dx & \sigma_{xy} + \frac{\partial \sigma_{xy}}{\partial x}dx & \sigma_{xz} + \frac{\partial \sigma_{xz}}{\partial x}dx \\
+\sigma_{yx} + \frac{\partial \sigma_{yx}}{\partial y}dy & \sigma_{yy} + \frac{\partial \sigma_{yy}}{\partial y}dy & \sigma_{yz} + \frac{\partial \sigma_{yz}}{\partial y}dy \\
+\sigma_{zx} + \frac{\partial \sigma_{zx}}{\partial z}dz & \sigma_{zy} + \frac{\partial \sigma_{zy}}{\partial z}dz & \sigma_{zz} + \frac{\partial \sigma_{zz}}{\partial z}dz 
 \end{matrix}
 \right)
 \end{equation}
@@ -132,9 +132,9 @@ The net force on the fluid element resulting from the surface stresses comes fro
 \begin{equation}
 \bm{\sigma}_{OUT} - \bm{\sigma}_{IN} = \left(
 \begin{matrix} 
- \frac{\partial \sigma_{xx}}{\partial x}dx & \frac{\partial \sigma_{xy}}{\partial y}dy & \frac{\partial \sigma_{xz}}{\partial z}dz \\
-\frac{\partial \sigma_{yx}}{\partial x}dx & \frac{\partial \sigma_{yy}}{\partial y}dy & \frac{\partial \sigma_{yz}}{\partial z}dz \\
-\frac{\partial \sigma_{zx}}{\partial x}dx & \frac{\partial \sigma_{zy}}{\partial y}dy & \frac{\partial \sigma_{zz}}{\partial z}dz 
+ \frac{\partial \sigma_{xx}}{\partial x}dx & \frac{\partial \sigma_{xy}}{\partial x}dx & \frac{\partial \sigma_{xz}}{\partial x}dx \\
+\frac{\partial \sigma_{yx}}{\partial y}dy & \frac{\partial \sigma_{yy}}{\partial y}dy & \frac{\partial \sigma_{yz}}{\partial y}dy \\
+\frac{\partial \sigma_{zx}}{\partial z}dz & \frac{\partial \sigma_{zy}}{\partial z}dz & \frac{\partial \sigma_{zz}}{\partial z}dz 
 \end{matrix}
 \right)
 \end{equation}
@@ -144,50 +144,95 @@ Since we are interested in forces resulting from these stresses, we need to mult
 \begin{equation}
 F_{\sigma} = \left(
 \begin{matrix} 
-\frac{\partial \sigma_{xx}}{\partial x}dx dy dz & \frac{\partial \sigma_{xy}}{\partial y}dy dx dz & \frac{\partial \sigma_{xz}}{\partial z}dz dx dy \\
-\frac{\partial \sigma_{yx}}{\partial x}dx dy dz & \frac{\partial \sigma_{yy}}{\partial y}dy dx dz & \frac{\partial \sigma_{yz}}{\partial z}dz dx dy\\
-\frac{\partial \sigma_{zx}}{\partial x}dx dy dz & \frac{\partial \sigma_{zy}}{\partial y}dy dx dz & \frac{\partial \sigma_{zz}}{\partial z}dz dx dy
+\frac{\partial \sigma_{xx}}{\partial x}dx dy dz & \frac{\partial \sigma_{xy}}{\partial x}dx dx dz & \frac{\partial \sigma_{xz}}{\partial x}dx dx dy \\
+\frac{\partial \sigma_{yx}}{\partial y}dy dy dz & \frac{\partial \sigma_{yy}}{\partial y}dy dx dz & \frac{\partial \sigma_{yz}}{\partial y}dz dx dy\\
+\frac{\partial \sigma_{zx}}{\partial z}dx dy dz & \frac{\partial \sigma_{zy}}{\partial z}dy dx dz & \frac{\partial \sigma_{zz}}{\partial z}dz dx dy
 \end{matrix}
 \right)
 \end{equation}
 
 And lastly, we will write the forces per unit of volume:
 
-\begin{equation}
+\begin{equation} \label{eq:forces_sigma}
 f_{\sigma} = \left(
 \begin{matrix} 
-\frac{\partial \sigma_{xx}}{\partial x} & \frac{\partial \sigma_{xy}}{\partial y} & \frac{\partial \sigma_{xz}}{\partial z} \\
-\frac{\partial \sigma_{yx}}{\partial x} & \frac{\partial \sigma_{yy}}{\partial y} & \frac{\partial \sigma_{yz}}{\partial z} \\
-\frac{\partial \sigma_{zx}}{\partial x} & \frac{\partial \sigma_{zy}}{\partial y} & \frac{\partial \sigma_{zz}}{\partial z}
+\frac{\partial \sigma_{xx}}{\partial x} & \frac{\partial \sigma_{xy}}{\partial x} & \frac{\partial \sigma_{xz}}{\partial x} \\
+\frac{\partial \sigma_{yx}}{\partial y} & \frac{\partial \sigma_{yy}}{\partial y} & \frac{\partial \sigma_{yz}}{\partial y} \\
+\frac{\partial \sigma_{zx}}{\partial z} & \frac{\partial \sigma_{zy}}{\partial z} & \frac{\partial \sigma_{zz}}{\partial z}
 \end{matrix}
 \right)
 \end{equation}
 
-Writing out the :
+Since the pressure $P$ is often a variable of interest when it comes to fluids, it is worth decomposing the stress tensor to two terms:
 
-$\sigma_{xx} dy dz$
+\begin{equation}
+\bm{\sigma}_{ij} = \left(
+\begin{matrix} 
+-P & 0 & 0  \\
+0 & -P & 0 \\
+0 & 0 & -P 
+\end{matrix}
+\right) + 
+\left(
+\begin{matrix} 
+\tau_{xx} & \tau_{xy} & \tau_{xz} \\
+\tau_{yx} & \tau_{yy} & \tau_{yz} \\
+\tau_{zx} & \tau_{zy} & \tau_{zz}
+\end{matrix}
+\right)
+\end{equation}
+
+The above pressure $P$ is such that for a fluid at rest the stress tensor is simply:
+
+\begin{equation}
+\bm{\sigma}_{ij} = \left(
+\begin{matrix} 
+-P & 0 & 0  \\
+0 & -P & 0 \\
+0 & 0 & -P 
+\end{matrix}
+\right)
+\end{equation}
+
+The matrix with $\tau$-terms is called \textbf{viscous stress tensor}. In a special case when fluid is inviscid this tensor is zero.
+
+\begin{equation}
+\bm{\tau}_{ij} = 
+\left(
+\begin{matrix} 
+\tau_{xx} & \tau_{xy} & \tau_{xz} \\
+\tau_{yx} & \tau_{yy} & \tau_{yz} \\
+\tau_{zx} & \tau_{zy} & \tau_{zz}
+\end{matrix}
+\right)
+\end{equation}
+
+We can now write the forces per unit volume (eq. \ref{eq:forces_sigma}) as:
+
+\begin{equation} \label{eq:forces_sigma_2}
+f_{\sigma} = \left(
+\begin{matrix} 
+\frac{\partial (\tau_{xx} - P)}{\partial x} & \frac{\partial \tau_{xy}}{\partial x} & \frac{\partial \tau_{xz}}{\partial x} \\
+\frac{\partial \tau_{yx}}{\partial y} & \frac{\partial (\tau_{yy} - P)}{\partial y} & \frac{\partial \tau_{yz}}{\partial y} \\
+\frac{\partial \tau_{zx}}{\partial z} & \frac{\partial \tau_{zy}}{\partial z} & \frac{\partial (\tau_{zz} - P)}{\partial z}
+\end{matrix}
+\right)
+\end{equation}
+
+The above formulation is convenient because there *might*\footnote{I say *might*, because we often deal with Newtonian fluids for which this formulation is known. In short, for Newtonian fluids there is a way to express shear stresses as being proportional to velocity gradients (with viscosity being the proportionality constant). It is analogous to the relation given by Newton:
+
+\begin{equation}
+\tau \propto \frac{\partial u}{dy}
+\end{equation}
+
+However, when dealing with fluids of a more complex nature than Newtonian fluids, this formulation needs to be found accordingly and the remaining derivation of the equations of motion needs to be updated. The Navier-Stokes equations are presented in this chapter for Newtonian fluids.} exist a known relationship between shear stresses $\tau_{ij}$ and velocity gradients (see chapter on \textit{Constitutive equations} for a more thorough explanation). Adding such relation allows to finally represent the forces coming from stresses by means of desired parameters: pressure, velocity components and viscosity.
 
 
-$\sigma_{xx} dy dz - \frac{\partial \sigma_{xx}}{\partial x}$ 
 
 
+\section{A note about Cauchy's equations}
 
-In the $x$-direction: 
-
-$\frac{\partial \sigma_{xx}}{\partial x}$ 
-
-In the $y$-direction: 
-
-
-
-In the $z$-direction: 
-
-
-
-
-
-
-
+The Navier-Stokes equation can be thought of as a special case of the Cauchy's equation that is strictly to be used for a specific type of fluid: a Newtonian, incompressible fluid. Cauchy's equation states the law of conservation of linear momentum for any type of fluid. 
 
 
 \section{Assumptions and limitations}
