@@ -6,6 +6,7 @@
 *.ipynb_checkpoints
 *.pyc
 *__pycache__
+*.DS_Store
 
 Boundary_Layers/Learning_BLs.pdf
-Fluid_Toolbox/Fluid_Toolbox.pdf
+fluid-toolbox/fluid-toolbox.pdf
