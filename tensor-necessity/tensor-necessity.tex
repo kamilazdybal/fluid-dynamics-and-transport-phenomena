@@ -130,7 +130,7 @@ At first encounter, tensors can seem like strange mathematical objects. It can b
 
 \,\,
 
-In this document I would like to convince you that we necessarily need tensors in fluid dynamics! Using a simple example of a Couette flow I will motivate the need and usefulness of tensors. Hopefully by the end of this document you will find them very useful mathematical objects that make our life easier. Join me on the journey!
+In this document I would like to convince you that we necessarily need tensors in fluid dynamics! Using a simple example of a Couette flow we will motivate their usefulness. Hopefully by the end of this document you will find tensors very useful mathematical objects that make our life easier. Join me on the journey!
 
 \,\,
 
@@ -142,24 +142,27 @@ Please feel free to contact me with any suggestions, corrections or comments.
 
 %\tableofcontents
 
+\vspace{5mm}
 
-\subsection*{Momentum transport in a Couette flow}
+{\rule{8.6cm}{0.5pt}}
 
-We will begin our journey with an illustrative example to build our intuition around tensor quantities. We will take a quite simple example of a Couette flow - flow between two parallel plates, one being stationary and one moving with a velocity $u$ as presented in Figure \ref{fig:couette-flow}.
+\vspace{5mm}
+
+We will begin our journey with an illustrative example to build our intuition around tensor quantities. We will take a quite simple example of a Couette flow - flow between two parallel plates, one being stationary and one moving with a velocity $\mathbf{u}$ as presented in Figure \ref{fig:couette-flow}.
 \begin{figure}[H]
 \centering\includegraphics[width=7cm]{couette-flow.png}
 \caption{Velocity profile in the Couette flow.}
 \label{fig:couette-flow}
 \end{figure}
-Suppose however, that we start with the initial situation when both plates were stationary and at some moment in time we begin moving the bottom plate reaching the velocity $u$. You may already expect that the moment we started moving the plate something interesting starts to happen in the fluid in-between - it begins moving as well. As the flow develops, the moving plate successively "drags" fluid particles in a layer adjacent to the plate. Once those fluid particles start moving in the positive $x$-direction, that layer of fluid "drags" another layer laying directly on top of it. This "dragging" progresses upward, in the positive $y$-direction, until at the top stationary plate the fluid is stagnant again. After a sufficient amount of time the situation becomes steady - the velocity profile is fully developed and does not change in time. The velocity profile is plotted in Figure \ref{fig:couette-flow} as well. It is a linear function of $y$ but that is something that we will not prove here.
+Suppose however, that we start with the initial situation when both plates were stationary and at some moment in time we begin moving the bottom plate reaching the velocity $\mathbf{u}$ after a while. You may already expect that the moment we started moving the plate something interesting starts to happen in the fluid in-between - it begins moving as well. As the flow develops, the moving plate successively "drags" fluid particles in a layer adjacent to the plate. Once those fluid particles are set in motion in the positive $x$-direction, the moving layer of fluid "drags" another layer laying directly on top of it. This "dragging" progresses upwards, in the positive $y$-direction, until at the top stationary plate the fluid is stagnant again. After a sufficient amount of time the situation becomes steady - the velocity profile is fully developed and does not depend on time. The steady state velocity profile is plotted in Figure \ref{fig:couette-flow} as well. It is a linear function of $y$ which is something that we will not prove here.
 
 \begin{wrapfigure}{R}{0.1\textwidth}
 \centering\includegraphics[width=1.8cm]{molecular-collisions.png}
 \label{fig:molecular-collisions}
 \end{wrapfigure}
-If we assume that the fluid flow between plates is laminar we may, perhaps a bit naively, assume that fluid flows in thin "laminates" stacked one on top of the other. Knowing the velocity profile, we know exactly what the velocity of each laminate is (at any position $y$). In general, laminate at a lower $y$ coordinate will have a larger velocity than laminate at a larger $y$ coordinate\footnote{That holds in our case where we assumed that it's the bottom plate that is moving and velocity decreases to zero as $y$ increases. Similar reasoning can be done assuming that the top plate is moving at velocity $u$ and the bottom one is stationary.}.
+If we assume that the fluid flow between plates is laminar we may, perhaps a bit naively, assume that fluid flows in thin "laminates" stacked one on top of the other. Knowing the velocity profile, we know exactly what the velocity of each laminate is (at any position $y$). In general, laminate at a lower $y$ coordinate will have a larger velocity than laminate at a larger $y$ coordinate\footnote{That holds in our case where we assumed that it's the bottom plate that is moving and velocity decreases to zero as $y$ increases. Similar reasoning can be done assuming that the top plate is moving at velocity $\mathbf{u}$ and the bottom one is stationary.}.
 In Figure \ref{fig:momentum-transport-in-laminates} we have drawn three such laminates.
-Knowing the velocities, we also know the momentum carried by each laminate. We will in fact consider specific momentum for the purpose of this discussion which is momentum per unit volume. Let's look at the situation from the perspective of one of the laminates whose $y$-coordinate is simply denoted $y$. Its specific momentum is $\rho \mathbf{u}|_{y}$.  It gains momentum from the faster moving laminate directly below whose specific momentum is $\rho \mathbf{u}|_{y-dy}$. It also looses momentum to the slower laminate directly above it whose specific momentum is $\rho \mathbf{u}|_{y+dy}$. Such "transport" of momentum is in practice possible due to molecular collisions - every collision is an opportunity to exchange momentum. When molecules from one laminate collide with molecules from another laminate, momentum can be transported in the positive $y$-direction. 
+Knowing the velocities, we also know the momentum carried by each laminate. We will in fact consider specific momentum for the purpose of this discussion which is momentum per unit volume. Let's look at the situation from the perspective of one of the laminates whose $y$-coordinate is simply denoted $y$. Its specific momentum is $\rho \mathbf{u}|_{y}$.  It gains momentum from the faster moving laminate directly below whose specific momentum is $\rho \mathbf{u}|_{y-dy}$. It also looses momentum to the slower laminate directly above it whose specific momentum is $\rho \mathbf{u}|_{y+dy}$. Such "transport" of momentum is in practice possible due to molecular collisions. Since every collision is an opportunity to exchange momentum, when molecules from one laminate collide with molecules from another laminate, momentum can be transported in the positive $y$-direction. 
 
 \begin{figure}[H]
 \centering\includegraphics[width=7cm]{momentum-transport-in-laminates.png}
@@ -167,26 +170,27 @@ Knowing the velocities, we also know the momentum carried by each laminate. We w
 \label{fig:momentum-transport-in-laminates}
 \end{figure}
 The "dragging" that we talked about before is thus achieved by momentum transport - a faster moving laminate gives some of its momentum to the slower moving one. Note that this can only happen in the world with friction! Since in fluids friction is characterized by viscosity it becomes clear that viscosity plays a role in transporting momentum\footnote{In a "frictionless world" momentum can still be transported by a fluid, however not by the viscous action.}.
-
-An important concept now emerges. Momentum is a vector quantity that has the direction of the velocity vector. In our simple example of the Couette flow, momentum of every laminate has direction parallel to the $x$-axis (in accordance with the velocity profile). However, as we have reasoned before, the transport of that momentum is happening in the direction parallel to the $y$-axis. This is conceptually presented in Figure \ref{fig:couette-flow-momentum-transport}. 
 \begin{figure}[H]
 \centering\includegraphics[width=7cm]{couette-flow-momentum-transport.png}
 \caption{Momentum transport in a Couette flow.}
 \label{fig:couette-flow-momentum-transport}
 \end{figure}
+An important concept now emerges. Momentum is a vector quantity that has a direction of the velocity vector. In our simple example of the Couette flow, momentum of every laminate has direction parallel to the $x$-axis (in accordance with the velocity profile). However, as we have reasoned before, the transport of that momentum is happening in the direction parallel to the $y$-axis. This is conceptually presented in Figure \ref{fig:couette-flow-momentum-transport}. 
+
 \begin{wrapfigure}{L}{0.2\textwidth}
 \centering\includegraphics[width=3cm]{tau_y_x.png}
 \label{fig:tau_y_x}
 \end{wrapfigure}
-Such momentum (also called \textit{momentum flux}) is denoted with a symbol $\tau_{yx}$. Notice now that this symbol is carrying information about two directions - one telling us which direction is the momentum vector in and the other telling us which direction that momentum vector is being transported. Tensors are object that keep track of exactly that situation - they allow to associate more than one direction to a physical quantity. In the case of Couette flow considered here, the tensor quantity would be called \textit{rank-2} because that tensor carries information about two directions.
+Such transported momentum (also called \textit{momentum flux}) is denoted with a symbol $\tau_{yx}$. Notice now that this quantity is carrying information about two directions - one telling us which direction is the momentum vector pointing and the other telling us which direction that momentum vector is being transported. If we considered a different system, perhaps there would be momentum in the $x$-direction transported in the $z$-direction\footnote{Can you think of situations when momentum in the $x$-direction is transported in the $x$-direction?}.
 
-In the most general case - in a 3-dimensional world - momentum vector can be in any of the three directions $x$, $y$ or $z$, transported in any of the three directions $x$, $y$ or $z$\footnote{Can you think of situations when momentum in the $x$-direction is transported in the $x$-direction?}. Tensors allow us to keep track of all those directions as well. For convenience, we often write out the elements of a tensor in a form of a table that resembles a matrix. Unlike in a scalar matrix, this table has additional information "attached" to every element - the directions represented. In Figure \ref{fig:tensor-in-matrix-form} we present an example of the most general tensor of rank two that could represent viscous momentum flux in a 3-dimensional fluid flow.
+Tensors are objects that keep track of exactly that - they allow to associate more than one direction to a physical quantity. In the case of Couette flow considered here, the tensor quantity would be called \textit{second-order tensor} because it carries information about two directions. This can be thought of as a further extension to the concept of a vector, which is characterized by a scalar specifying its magnitude and a direction. Tensor is characterized by a scalar specifying its magnitude and possibly multiple directions attached to it. Of course, we need to create such notation that we know what each direction means physically. Now that is a very useful tool in fluid dynamics, where vector quantities can be transported in many directions!
 
-\newpage
+For instance, in a three-dimensional world, momentum vector can be in general pointing in any of the three directions $x$, $y$ or $z$, and transported in any of the three directions $x$, $y$ or $z$. Tensors allow us to keep track of all those directions as well. If we wanted to account for all these possibilities we would need $3 \times 3 = 9$ quantities $\tau_{ij}$. For convenience, we often write out the elements of a tensor in a form of a table that resembles a matrix. Unlike in a scalar matrix, this table has additional information "attached" to every element - the directions represented. Figure \ref{fig:tensor-in-matrix-form} shows an example of the most general second-order tensor that could represent viscous momentum flux in a three-dimensional fluid flow. The directions that each element is keeping track of are presented as well. Once we write down a specific $\tau_{ij}$, its directions can be understood through the indices $i$ and $j$. In the case of a Couette flow we needed only one of those elements - $\tau_{yx}$ - since there was only one direction for momentum and only one direction in which that momentum was transported.
+
 
 \begin{figure}[H]
 \centering\includegraphics[width=8cm]{tensor-in-matrix-form.png}
-\caption{Second order tensor from a 3-dimensional world.}
+\caption{Second-order tensor from a three-dimensional world.}
 \label{fig:tensor-in-matrix-form}
 \end{figure}
 
