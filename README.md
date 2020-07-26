@@ -1,4 +1,4 @@
-# Fluid mechanics
+# Fluid dynamics and transport phenomena learning materials
 
 [![License: CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
@@ -6,12 +6,10 @@
 
 _Richard Feynman_
 
-This repository is a record of my journey through learning fluid mechanics.
+### PDF notes and tutorials you can find here:
 
-## Study notes in development
+- Tensor necessity
 
-`Fluid Toolbox`
+- Fluid toolbox
 
-`Boundary Layers`
-
-`Transport Phenomena`
+- Computational examples in transport phenomena with Python
