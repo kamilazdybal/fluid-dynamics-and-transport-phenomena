@@ -1,6 +1,5 @@
-\documentclass[10pt]{article}
+\documentclass[20pt]{report}
 \usepackage[utf8]{inputenc}
-%\usepackage[T1]{fontenc}
 \usepackage{tgbonum}
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -13,13 +12,12 @@
 \usepackage{pifont}
 \usepackage
 [
-a4paper,% other options: a3paper, a5paper, etc
+a4paper,
 left=2.2cm,
 right=2.2cm,
 top=2cm,
 bottom=2cm,
 ]{geometry}
-%\geometry{hmargin=3.5cm, vmargin=2.5cm}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -36,29 +34,9 @@ bottom=2cm,
 \usepackage{bm}
 \definecolor{shadecolor}{RGB}{139, 231, 3}
 \usepackage{epigraph}
-
-\usepackage{tcolorbox}
-\definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
-
-\newtcbox{\mb}{nobeforeafter,colframe=mycolor,colback=mycolor!10!white,boxrule=0.5pt,arc=4pt,
-  boxsep=0pt,left=6pt,right=6pt,top=3pt,bottom=3pt,tcbox raise base}
-
-\usepackage{eso-pic}
-\newcommand\BackgroundPic{%
-\put(-0,-150){%
-\parbox[b][\paperheight]{\paperwidth}{%
-\vfill
-\centering
-\includegraphics[width=\paperwidth,%
-keepaspectratio]{plots/foret-de-soignes.jpg}%
-\vfill
-}}}
-
-\usepackage[T1]{fontenc}
-
-\usepackage{anyfontsize}
-\usepackage{t1enc}
-\newcommand{\heart}{\ensuremath\varheartsuit}
+%\usepackage[T1]{fontenc}
+%\usepackage{anyfontsize}
+%\usepackage{t1enc}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usepackage{charter}
@@ -68,9 +46,7 @@ keepaspectratio]{plots/foret-de-soignes.jpg}%
 
 \begin{document}
 
-
   \begin{center}
-%\textcolor{lgray}
     \vskip-5em
 
     \hfill
@@ -107,7 +83,7 @@ keepaspectratio]{plots/foret-de-soignes.jpg}%
 
 \vspace{5mm}
 
-This tutorial is based on a Jupyter notebook that can be accessed \href{https://github.com/camillejr/fluid-dynamics-and-transport-phenomena/blob/master/transport-phenomena-with-Python/code/example-heat-transfer-in-a-rod.ipynb}{\textbf{here}}.
+\normalsize
 
 \section*{Analytic solution}
 
@@ -195,25 +171,79 @@ Note that even though the heat flow was assumed to be one-dimensional in this ex
 
 \section*{Computational example}
 
+This example is based on a Jupyter notebook that can be accessed \href{https://github.com/camillejr/fluid-dynamics-and-transport-phenomena/blob/master/transport-phenomena-with-Python/code/example-heat-transfer-in-a-rod.ipynb}{\textbf{here}}.
+
 As a computational example we will draw the graph of the temperature distribution in a copper rod $200m$ long with cross-sectional area of $0.01m^2$. We assume that the thermal conductivity for this rod is $400 \frac{W}{m \cdot K}$. The internal heat production in the entire rod is $20 W$.
 
+The analytic solution that we previously derived is plotted below:
+
 \begin{figure}[H]
-\centering\includegraphics[width=10cm]{plots/example-heat-transfer-in-a-rod-analytic.png}
-\caption{Analytic solution for the temperature distribution in a rod.}
+\centering\includegraphics[width=12cm]{plots/example-heat-transfer-in-a-rod-analytic.png}
+\caption{Analytic solution.}
 \label{fig:analytic-solution}
 \end{figure}
 
+\subsection*{Numerical solutions}
 
+We are going to numerically solve a second-order linear ODE governing this problem:
 
+$$\frac{d^2 T}{dx^2} = - \frac{Q_p}{\lambda}$$
 
+with two Dirichlet boundary conditions: $T(x=0) = T_0$ and $T(x=L) = T_0$.
 
+\subsubsection*{Finite Difference Method (FDM)}
 
+Using the second-order central difference approximation we have:
 
+$$\frac{T_{i-1} - 2 T_i + T_{i+1}}{\Delta x^2} = - \frac{Q_p}{\lambda}$$
 
+which we can also write as:
 
+$$T_{i-1} - 2 T_i + T_{i+1} = - \Delta x^2 \frac{Q_p}{\lambda}$$
 
+to have a better view for creating the matrix form of the system of equations. Having selected $n$ points that discretize the domain, we have $n$ equations to solve.
 
+In a matrix form those can be written as:
 
+\begin{gather}
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & \dots & 0 \\
+1 & -2 & 1 & 0 & 0 & \dots & 0 \\
+0 & 1 & -2 & 1 & 0 & \dots & 0 \\
+\vdots \\
+0 & 0 & 0 & 0 & 0 & \dots & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+T_1  \\
+T_2 \\
+T_2 \\
+\vdots \\
+T_n \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+T_0  \\
+- \Delta x^2 \frac{Q_p}{\lambda} \\
+- \Delta x^2 \frac{Q_p}{\lambda} \\
+\vdots \\
+T_0 \\
+\end{bmatrix}
+\end{gather}
 
+Or in general as: $\mathbf{A} \mathbf{T} = \mathbf{R}$. Notice that the matrix $\mathbf{A}$ is a tridiagonal matrix. 
+
+The numerical solution using FDM is plotted below on top of the analytic solution using $n=5$ and then $n=10$ equations:
+
+\begin{figure}[H]
+\centering\includegraphics[width=12cm]{plots/example-heat-transfer-in-a-rod-FDM-n5.png}
+\caption{Finite Difference Method numerical solution using $n=5$ equations.}
+\label{fig:FDM-solution}
+\end{figure}
+
+\begin{figure}[H]
+\centering\includegraphics[width=12cm]{plots/example-heat-transfer-in-a-rod-FDM-n10.png}
+\caption{Finite Difference Method numerical solution using $n=10$ equations.}
+\label{fig:FDM-solution}
+\end{figure}
 
 \end{document}
