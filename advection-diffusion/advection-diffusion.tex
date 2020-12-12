@@ -1,0 +1,152 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage{geometry}
+\geometry{verbose,headsep=3cm,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.0cm,rmargin=2.0cm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[font=small]{caption}
+\usepackage{amsmath,amssymb,latexsym}
+\usepackage{marvosym}
+\usepackage{url}
+\usepackage{lipsum}
+\usepackage{bm}
+\usepackage{float}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{subfloat}
+\usepackage{epsf}
+\usepackage{float}
+\usepackage{mathpazo}
+\usepackage{pifont}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage[utf8]{inputenc}
+\graphicspath{{plots/}}
+\usepackage{framed}
+\usepackage{textcomp}
+\usepackage{braket}
+\newcommand{\highlight}[1]{%
+  \colorbox{orange!50}{$\displaystyle#1$}}
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{10} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{10}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false            % 
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+% Document font:
+\usepackage{charter}
+
+
+\begin{document}
+
+%%% HEADER --------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\twocolumn[{
+\begin{@twocolumnfalse}
+
+  \begin{center}
+%\textcolor{lgray}
+    \vskip-5em
+
+    \hfill
+    \fontsize{10}{10}\selectfont {\textit{Bruxelles, December 2020}}
+    \vskip2ex
+	\vspace{5ex}
+    \fontsize{20}{10}\selectfont {The advection-diffusion equation}
+      \vspace{1ex}
+      
+      \fontsize{16}{10}\selectfont {}
+  \noindent%
+    
+\vskip1ex
+
+{\rule{\textwidth}{0.5pt}}
+
+  \end{center}
+  
+    \fontsize{7}{10}\selectfont {This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.}
+
+\vspace{6mm}
+
+\end{@twocolumnfalse}
+}]
+
+%%% HEADER END -----------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\vspace{10mm}
+
+\setlength{\parindent}{0cm}
+
+\fontsize{14}{10}\selectfont {Kamila Zdybał}
+
+\vspace{2mm}
+
+\fontsize{8}{10}\selectfont {\textit{Université libre de Bruxelles, kamila.zdybal@ulb.ac.be}}
+
+\fontsize{8}{10}\selectfont {\textit{kamilazdybal.github.io/science-docs, kamila.zdybal@gmail.com}}
+
+\section*{Preface}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+
+
+Please feel free to contact me with any suggestions, corrections or comments.
+
+\section*{Keywords}
+
+\textit{}
+
+%\tableofcontents
+
+
+
+
+
+
+\thebibliography{}
+
+\bibitem{BSL} R.B. Bird, W.E.Stewart, E.N. Lightfoot, \textit{Transport Phenomena}, John Wiley \& Sons, Inc., 2001
+
+\end{document}
