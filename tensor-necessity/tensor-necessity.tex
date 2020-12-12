@@ -88,7 +88,7 @@ showstringspaces=false            %
     \vskip-5em
 
     \hfill
-    \fontsize{10}{10}\selectfont {\textit{Bruxelles, June 2020}}
+    \fontsize{10}{10}\selectfont {\textit{Bruxelles, June-December 2020}}
     \vskip2ex
 	\vspace{5ex}
     \fontsize{20}{10}\selectfont {The tensor necessity}
@@ -132,7 +132,7 @@ showstringspaces=false            %
 
 At first encounter, tensors can seem like strange mathematical objects. It can be challenging to grasp their meaning and their relevance might not be immediately obvious. At the same time, tensors are indispensable when studying fluid dynamics. So what's with the tensors and why do we need them?
 
-In this document we would like to convince you that we necessarily need tensors in fluid dynamics! We will motivate their usefulness using a simple example of a Couette flow. Hopefully by the end of this document you will find tensors very useful mathematical objects that make our life easier. Join me on the journey!
+In this document we would like to convince you that we necessarily need tensors in fluid dynamics! We will motivate their usefulness using a simple example of a Couette flow. Hopefully by the end of this document you will find tensors very useful mathematical objects that make our life easier. Join us on the journey!
 
 Please feel free to contact me with any suggestions, corrections or comments.
 
@@ -186,7 +186,7 @@ If we considered a different system than the Couette flow, perhaps there would b
 
 In a three-dimensional world, the momentum vector can be pointing in any of the three directions $x$, $y$ or $z$, and can be transported in any of the three directions $x$, $y$ or $z$. Tensors allow us to keep track of all those directions as well. If we wanted to account for all these possibilities in three-dimensions we would need $3 \times 3 = 9$ quantities $\tau_{ij}$. For convenience, we often write out the elements of a tensor in a form of a table that resembles a matrix. Unlike in a scalar matrix, this table has additional information attached to every element -- the directions represented. Those directions are agreed upon and often we can omit specifying them and just write out the magnitudes in a form of a matrix. But we should keep in mind that the directions are still there, even if at the "backstage" of the matrix.
 
-Figure \ref{fig:tensor-in-matrix-form} shows an example of the most general second-order tensor that could represent viscous momentum flux in a three-dimensional fluid flow. We noted the directions that each element is keeping track of. Once we write down a specific $\tau_{ij}$, its directions can be understood through the indices $i$ and $j$. In the case of a Couette flow we needed only one of those elements - $\tau_{yx}$ - since there was only one direction for momentum and only one direction in which that momentum was transported.
+Figure~\ref{fig:tensor-in-matrix-form} shows an example of the most general second-order tensor that could represent viscous momentum flux in the three-dimensional fluid flow. We noted the directions that each element is keeping track of. Once we write down a specific $\tau_{ij}$, its directions can be understood through the indices $i$ and $j$. In the case of the Couette flow, we only needed one of those elements, $\tau_{yx}$, since there was only one direction for momentum and only one direction in which that momentum was transported.
 
 \begin{figure}[H]
 \centering\includegraphics[width=8cm]{tensor-in-matrix-form.png}
