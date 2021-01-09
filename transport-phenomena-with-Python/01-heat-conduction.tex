@@ -1,0 +1,173 @@
+This example is based on a Jupyter notebook that can be accessed \href{https://github.com/camillejr/fluid-dynamics-and-transport-phenomena/blob/master/transport-phenomena-with-Python/code/example-heat-transfer-in-a-rod.ipynb}{\textbf{here}}.
+
+\subsection{Analytic solution}
+
+In this example, we will derive an expression for one-dimensional temperature distribution function $T(x)$, resulting from the steady-state heat conduction in a straight rod of length $L$. We also assume that there is an internal heat production $Q_p$ ($W/m^3$) at every point in the rod's volume. This may for instance simulate heating up of a wire due to electrical current. The rod is perfectly insulated along its length and it looses heat only through its endpoints (at $x=0$ and at $x=L$). At steady-state, these endpoints are kept at a fixed temperature $T_0$. The material from which the rod is made has thermal conductivity $\lambda$ ($\frac{W}{mK}$). This is presented in Figure~\ref{fig:heat-transfer-in-a-rod-theory}a.
+
+Let's start with writing out the energy balance for an infinitesimal control volume shown in Figure~\ref{fig:heat-transfer-in-a-rod-theory}b. The control volume is a slice of length $dx$ extracted from the rod.
+\begin{figure}[H]
+\centering\includegraphics[width=16cm]{plots/example-heat-transfer-in-a-rod-theory.pdf}
+\caption{Conduction in a lengthwise-insulated rod with internal heat production.}
+\label{fig:heat-transfer-in-a-rod-theory}
+\end{figure}
+The energy balance for the rod element $dx$ is:
+\begin{equation}
+\frac{dE_{dx}}{dt} = E_{dx, in} - E_{dx, out} + E_{dx, production}
+\end{equation}
+Note that $E_{dx, in}$, $E_{dx, out}$ and $E_{dx, production}$ are energies per unit time and so have the units of $W$.
+
+The heat flux $\phi$ ($W$) can be modeled using the Fourier's law for one-dimensional heat conduction:
+
+\begin{equation}
+\phi = \lambda A \Big(- \frac{dT}{dx} \Big)
+\label{eq:fourier}
+\end{equation}
+
+where $\lambda$ is the thermal conductivity and is a property of the material, $A$ is the rod's cross-sectional area and $\frac{dT}{dx}$ is the temperature gradient which can be thought of as the "driving force" for thermal energy transport.
+
+Hence:
+
+\begin{equation}
+E_{dx, in} = \lambda A \Big(- \frac{dT}{dx} \Big)_x
+\end{equation}
+
+\begin{equation}
+E_{dx, out} = \lambda A \Big(- \frac{dT}{dx} \Big)_{x + dx}
+\end{equation}
+
+The energy per unit time coming from the heat production can be written as $Q_p$ multiplied by the volume of the slice $dx$:
+
+\begin{equation}
+E_{dx, production} = Q_p A dx
+\end{equation}
+
+At steady-state, $\frac{dE}{dt} = 0$ and the energy balance becomes:
+
+\begin{equation}
+\lambda A \Big(- \frac{dT}{dx} \Big)_x - \lambda A \Big(- \frac{dT}{dx} \Big)_{x + dx} + Q_p A dx = 0
+\end{equation}
+
+Simplifying the above energy balance we get:
+
+\begin{equation*}
+\frac{\Big(\frac{dT}{dx} \Big)_{x + dx} - \Big(\frac{dT}{dx} \Big)_x  }{dx} = - \frac{Q_p}{\lambda}
+\end{equation*}
+
+It is interesting to note here that we have lost the dependence on the cross-sectional area of the rod.
+
+If we now substitute some function $f(x) = \frac{dT}{dx}$ we notice that we have:
+
+\begin{equation*}
+\frac{f(x + dx) - f(x)}{dx} = - \frac{Q_p}{\lambda}
+\end{equation*}
+
+in other words:
+
+\begin{equation}
+\frac{df(x)}{dx} = - \frac{Q_p}{\lambda}
+\end{equation}
+
+With the above substitution, the differential equation that we are about to solve becomes:
+
+\begin{equation}
+\frac{d^2T}{dx^2} = - \frac{Q_p}{\lambda}
+\end{equation}
+
+Applying the boundary conditions from both ends of the rod ($T(x=0) = T_0$ and $T(x=L) = T_0$), the solution to the above differential equation is:
+
+\begin{equation}
+T(x) = - \frac{Q_p}{2 \lambda} (x^2 - Lx) + T_0
+\label{eq:solution}
+\end{equation}
+
+\textbf{Remark on the problem dimensionality}
+
+Note that even though the heat flow was assumed to be one-dimensional in this exercise, it does not mean that the geometry of the problem has to be one-dimensional. In fact, we assumed the rod to be a three-dimensional object having length and a cross-sectional area. Rather, the one-dimensionality of the problem means that it is practical to assume only one of the three directions as an important direction for heat transport. Since the rod was perfectly insulated along its length, the temperature gradient along directions perpendicular to the $x$-axis is zero.
+
+\subsection{Numerical solution}
+
+As a computational example we will draw the graph of the temperature distribution in a copper rod $200m$ long with cross-sectional area of $0.01m^2$. We assume that the thermal conductivity for this rod is $400 \frac{W}{m \cdot K}$. The internal heat production in the entire rod is $20 W$.
+
+The analytic solution that we previously derived is plotted below:
+
+\begin{figure}[H]
+\centering\includegraphics[width=12cm]{plots/example-heat-transfer-in-a-rod-analytic.pdf}
+\caption{Analytic solution.}
+\label{fig:analytic-solution}
+\end{figure}
+
+We are going to numerically solve a second-order linear ODE governing this problem:
+
+$$\frac{d^2 T}{dx^2} = - \frac{Q_p}{\lambda}$$
+
+with two Dirichlet boundary conditions: $T(x=0) = T_0$ and $T(x=L) = T_0$.
+
+\subsubsection{Finite Difference Method (FDM)}
+
+Using the second-order central difference approximation we have:
+
+$$\frac{T_{i-1} - 2 T_i + T_{i+1}}{\Delta x^2} = - \frac{Q_p}{\lambda}$$
+
+which we can also write as:
+
+$$T_{i-1} - 2 T_i + T_{i+1} = - \Delta x^2 \frac{Q_p}{\lambda}$$
+
+to have a better view for creating the matrix form of the system of equations. Having selected $n$ points that discretize the domain, we have $n$ equations to solve.
+
+In a matrix form those can be written as:
+
+\begin{gather}
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & \dots & 0 \\
+1 & -2 & 1 & 0 & 0 & \dots & 0 \\
+0 & 1 & -2 & 1 & 0 & \dots & 0 \\
+\vdots \\
+0 & 0 & 0 & 0 & 0 & \dots & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+T_1  \\
+T_2 \\
+T_2 \\
+\vdots \\
+T_n \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+T_0  \\
+- \Delta x^2 \frac{Q_p}{\lambda} \\
+- \Delta x^2 \frac{Q_p}{\lambda} \\
+\vdots \\
+T_0 \\
+\end{bmatrix}
+\end{gather}
+
+Or in general as: $\mathbf{A} \mathbf{T} = \mathbf{R}$. Notice that the matrix $\mathbf{A}$ is a tridiagonal matrix. 
+
+The numerical solution using FDM is plotted below on top of the analytic solution using $n=5$ and then $n=10$ equations:
+
+\begin{figure}[H]
+\centering\includegraphics[width=12cm]{plots/example-heat-transfer-in-a-rod-FDM-n5.pdf}
+\caption{Finite Difference Method numerical solution using $n=5$ equations.}
+\label{fig:FDM-solution}
+\end{figure}
+
+\begin{figure}[H]
+\centering\includegraphics[width=12cm]{plots/example-heat-transfer-in-a-rod-FDM-n10.pdf}
+\caption{Finite Difference Method numerical solution using $n=10$ equations.}
+\label{fig:FDM-solution}
+\end{figure}
+
+\subsection{References}
+
+Below is a list of all learning materials that helped me put together this example:
+
+\begin{enumerate}
+\item Robert Mudde, Peter Hamersma, \textit{The Basics of Transport Phenomena}, Delft University of Technology, available on edX.org as DelftX: TP101x
+\item Robert Mudde, Peter Hamersma, \textit{Advanced Transport Phenomena}, Delft University of Technology, available on edX.org as DelftX: TP201x.
+\item James C. Sutherland, \textit{\href{https://sutherland.che.utah.edu/teaching/chen6703/lectures-schedule/}{Advanced Numerical Methods}}, The University of Utah, 2018
+\item Joel H. Ferziger, Milovan Perić, Robert L. Street, \textit{Computational Methods for Fluid Dynamics}, 3rd Edition, Springer-Verlag Berlin Heidelberg, 2002.
+\end{enumerate}
+
+This material was adapted from material posted on the DelftX website, delftx.tudelft.nl, and created by TU Delft faculty members Robert Mudde, Professor of Multiphase Flow at the Dept. of Chemical Engineering and Peter Hamersma, Associate Professor at the Dept. of Chemical Engineering, 2015. DelftX is not responsible for any changes made to the original materials posted on its website and any such changes are the sole responsibility of Kamila Zdybał.
+
+The course materials by Delft University of Technology are subjected to copyright and are licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{License}.
