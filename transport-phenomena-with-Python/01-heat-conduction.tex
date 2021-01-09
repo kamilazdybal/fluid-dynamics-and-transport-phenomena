@@ -6,7 +6,7 @@ In this example, we will derive an expression for one-dimensional temperature di
 
 Let's start with writing out the energy balance for an infinitesimal control volume shown in Figure~\ref{fig:heat-transfer-in-a-rod-theory}b. The control volume is a slice of length $dx$ extracted from the rod.
 \begin{figure}[H]
-\centering\includegraphics[width=16cm]{plots/example-heat-transfer-in-a-rod-theory.pdf}
+\centering\includegraphics[width=16cm]{figures/example-heat-transfer-in-a-rod-theory.pdf}
 \caption{Conduction in a lengthwise-insulated rod with internal heat production.}
 \label{fig:heat-transfer-in-a-rod-theory}
 \end{figure}
@@ -91,7 +91,7 @@ As a computational example we will draw the graph of the temperature distributio
 The analytic solution that we previously derived is plotted below:
 
 \begin{figure}[H]
-\centering\includegraphics[width=12cm]{plots/example-heat-transfer-in-a-rod-analytic.pdf}
+\centering\includegraphics[width=12cm]{figures/example-heat-transfer-in-a-rod-analytic.pdf}
 \caption{Analytic solution.}
 \label{fig:analytic-solution}
 \end{figure}
@@ -146,13 +146,13 @@ Or in general as: $\mathbf{A} \mathbf{T} = \mathbf{R}$. Notice that the matrix $
 The numerical solution using FDM is plotted below on top of the analytic solution using $n=5$ and then $n=10$ equations:
 
 \begin{figure}[H]
-\centering\includegraphics[width=12cm]{plots/example-heat-transfer-in-a-rod-FDM-n5.pdf}
+\centering\includegraphics[width=12cm]{figures/example-heat-transfer-in-a-rod-FDM-n5.pdf}
 \caption{Finite Difference Method numerical solution using $n=5$ equations.}
 \label{fig:FDM-solution}
 \end{figure}
 
 \begin{figure}[H]
-\centering\includegraphics[width=12cm]{plots/example-heat-transfer-in-a-rod-FDM-n10.pdf}
+\centering\includegraphics[width=12cm]{figures/example-heat-transfer-in-a-rod-FDM-n10.pdf}
 \caption{Finite Difference Method numerical solution using $n=10$ equations.}
 \label{fig:FDM-solution}
 \end{figure}
@@ -168,6 +168,3 @@ Below is a list of all learning materials that helped me put together this examp
 \item Joel H. Ferziger, Milovan Perić, Robert L. Street, \textit{Computational Methods for Fluid Dynamics}, 3rd Edition, Springer-Verlag Berlin Heidelberg, 2002.
 \end{enumerate}
 
-This material was adapted from material posted on the DelftX website, delftx.tudelft.nl, and created by TU Delft faculty members Robert Mudde, Professor of Multiphase Flow at the Dept. of Chemical Engineering and Peter Hamersma, Associate Professor at the Dept. of Chemical Engineering, 2015. DelftX is not responsible for any changes made to the original materials posted on its website and any such changes are the sole responsibility of Kamila Zdybał.
-
-The course materials by Delft University of Technology are subjected to copyright and are licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{License}.

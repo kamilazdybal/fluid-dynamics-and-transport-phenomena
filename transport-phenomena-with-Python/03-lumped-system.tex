@@ -1,0 +1,27 @@
+In a lumped system analysis, we assume that the temperature of the body changes only with time and is independent of position inside the body. As you might already anticipate, this restriction cannot be applicable to every transient heat transfer problem, as in the majority of applications the temperature does change also with position. Regardless, this model might be useful in some cases and is therefore worth adding to your toolbox.
+
+We start with stating that:
+
+\begin{equation} \label{lumped-system-text}
+\text{heat transfered to the body in during $dt$} = \text{change in internal energy of the body during $dt$}
+\end{equation}
+
+The heat transfer is modeled via the Fick's law:
+
+\begin{equation}
+\dot{Q} = h A_s (T_{\infty} - T(t))
+\end{equation}
+
+Note here that if $T_{\infty} > T(t)$, the heat transfer will happen from the surroundings to the body.
+
+The change in internal energy is:
+
+\begin{equation}
+\Delta E = m c_p \frac{dT}{dt}
+\end{equation}
+
+We can therefore write the equation (\ref{lumped-system-text}) as:
+
+\begin{equation}
+h A_s (T_{\infty} - T(t)) = m c_p \frac{dT}{dt}
+\end{equation}

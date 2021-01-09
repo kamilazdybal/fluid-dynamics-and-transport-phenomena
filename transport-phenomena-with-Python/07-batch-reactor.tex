@@ -1,0 +1,147 @@
+The general form of the continuity equation for species $i$ in the Eulerian form:
+
+\begin{equation} \label{eq:species-mass-conservation}
+\frac{\partial \rho \omega_i}{\partial t} = s_i - \nabla \rho \omega_i \mathbf{u}_{i}
+\end{equation}
+
+Where $\rho$ is the density of the mixture, $\omega_i$ is species mass fraction, $s_i$ is the production rate of species $i$ and $\mathbf{u}_i$ is the velocity of species $i$ in the mixture.
+
+For a 0-D batch reactor we assume that the spatial gradients of any quantity are zero, and so: $ \nabla \rho \omega_i \mathbf{u}_{i} = 0$. The only possible changes inside the reactor will happen in time. Since the species mass fraction is only a function of time we can degrade the $\frac{\partial}{\partial t}$ derivative to $\frac{d}{dt}$. Also as a side note: $\rho \omega_i = m_i$ which is mass of species $i$ in the mixture. We can thus write:
+
+\begin{equation} \label{eq:batch-reactor-species-mass}
+\frac{d \omega_i}{dt} = \frac{s_i}{\rho}
+\end{equation}
+
+assuming that the density is constant in time.
+
+We are going to use the $1^{st}$ law of thermodynamics:
+
+\begin{equation}
+\frac{dU}{dt} = \frac{dQ}{dt} + \frac{dW}{dt}
+\end{equation}
+
+and we will substitute something for $\frac{dU}{dt}$ and $\frac{dW}{dt}$.
+
+We know that the total enthalpy:
+
+\begin{equation}
+H = U + p V
+\end{equation}
+
+and differentiating that with respect to time gives:
+
+\begin{equation} \label{eq:enthalpy}
+\frac{d H}{dt} = \frac{dU}{dt} + p \frac{dV}{dt} + V \frac{dp}{dt}
+\end{equation}
+
+We also know that:
+
+\begin{equation} \label{eq:power}
+\frac{dW}{dt} = -p \frac{dV}{dt}
+\end{equation}
+
+
+Substituting eq.(\ref{eq:power}) and eq.(\ref{eq:enthalpy}) into the $1^{st}$ law of thermodynamics we get:
+
+\begin{equation}
+\frac{dH}{dt} - p \frac{dV}{dt} - V \frac{dp}{dt} = \frac{dQ}{dt} -p \frac{dV}{dt}
+\end{equation}
+
+Which then simplifies to:
+
+\begin{equation} \label{eq:enthalpy-from-1st-law}
+\frac{dH}{dt}  = \frac{dQ}{dt} + V \frac{dp}{dt}
+\end{equation}
+
+We are now going to use the above equation in which we will substitute the expression for the time derivative of enthalpy $\frac{dH}{dt}$.
+
+Writing the enthalpy as an extensive property in terms of the specific enthalpy:
+
+\begin{equation}
+H = m h = m \sum_{i=1}^n \omega_i h_i
+\end{equation}
+
+where $h_i = h_{f,i}^{(0)} + c_{p,i} \Delta T$ and $h_{f,i}^{(0)}$ is the enthalpy of formation at reference conditions and the term $c_{p,i} \Delta T$ accounts for temperature difference with respect to the reference temperature. In other words:
+
+\begin{equation}
+H = m \sum_{i=1}^n \omega_i ( h_{f,i}^{(0)} + c_{p,i} \Delta T )
+\end{equation}
+
+which we can differentiate with respect to time:
+
+\begin{equation*}
+\frac{dH}{dt} = m \frac{d}{dt} \sum_{i=1}^n \omega_i ( h_{f,i}^{(0)} + c_{p,i} \Delta T )
+\end{equation*}
+
+\begin{equation*}
+\frac{dH}{dt} = m \sum_{i=1}^n  \frac{d \omega_i}{dt}  h_{f,i}^{(0)}  + m \sum_{i=1}^n \frac{d}{dt} ( \omega_i c_{p,i} \Delta T )
+\end{equation*}
+
+\begin{equation*}
+\frac{dH}{dt} = m \sum_{i=1}^n  \frac{d \omega_i}{dt}  h_{f,i}^{(0)}  + m \sum_{i=1}^n \frac{d}{dt} ( \omega_i c_{p,i} (T(t) - T_{ref}) )
+\end{equation*}
+
+\begin{equation*}
+\frac{dH}{dt} = m \sum_{i=1}^n  \frac{d \omega_i}{dt}  h_{f,i}^{(0)}  + m \sum_{i=1}^n \frac{d \omega_i}{dt} c_{p,i} T(t) + m \sum_{i=1}^n \omega_i c_{p,i} \frac{d T(t)}{dt}  - m \sum_{i=1}^n \frac{d \omega_i}{dt} c_{p,i} T_{ref}
+\end{equation*}
+
+We can now substitute eq.(\ref{eq:species-mass-conservation}) into all terms  representing $\frac{d \omega_i}{dt}$:
+
+\begin{equation*}
+\frac{dH}{dt} = m \sum_{i=1}^n  \frac{s_i}{\rho}  h_{f,i}^{(0)}  + m \sum_{i=1}^n \frac{s_i}{\rho} c_{p,i} T(t) + m \sum_{i=1}^n \omega_i c_{p,i} \frac{d T(t)}{dt}  - m \sum_{i=1}^n \frac{s_i}{\rho} c_{p,i} T_{ref}
+\end{equation*}
+
+Recognize also that $\frac{d T(t)}{dt}$ is independent of the species and can be factored out in the summation, and that $\sum_{i=1}^n \omega_i c_{p,i} = c_p$ for the entire mixture by definition. Rearranging the terms we get:
+
+\begin{equation*}
+\frac{dH}{dt} = m c_{p} \frac{d T(t)}{dt} + m \sum_{i=1}^n  \frac{s_i}{\rho}  ( h_{f,i}^{(0)} + c_{p,i} T(t)  - c_{p,i} T_{ref})
+\end{equation*}
+
+At this point we can also recognize that the density can be factored out of summation and combined with the total mass of the mixture to give the total volume. We get finally:
+
+\begin{equation} \label{eq:differentiated-enthalpy}
+\frac{dH}{dt} = m c_{p} \frac{d T(t)}{dt} + V \sum_{i=1}^n  s_i  h_i
+\end{equation}
+
+We can now combine eq.(\ref{eq:enthalpy-from-1st-law}) and eq.(\ref{eq:differentiated-enthalpy}) to obtain:
+
+\begin{equation} 
+\frac{dQ}{dt} + V \frac{dp}{dt} = m c_{p} \frac{d T(t)}{dt} + V \sum_{i=1}^n  s_i h_i
+\end{equation}
+
+Rearranging terms we get the general expression for temperature change in the batch reactor:
+
+\begin{equation} \label{eq:bath-reactor-energy}
+m c_{p} \frac{d T(t)}{dt}  = \frac{dQ}{dt} + V \frac{dp}{dt} - V \sum_{i=1}^n  s_i  h_i 
+\end{equation}
+
+The above equation assumes that temperature $T$, volume $V$, pressure $p$ and heat $Q$ can be functions of time. Restricting any of those terms we may however arrive at special cases of the batch reactor equations. We present next one of such special cases.
+
+\subsection{Closed, adiabatic, constant pressure batch reactor}
+
+For a closed, adiabatic $\frac{dQ}{dt} = 0$ and constant pressure $\frac{dp}{dt}= 0$ batch reactor we can simplify eq.(\ref{eq:bath-reactor-energy}):
+
+\begin{equation} \label{eq:bath-reactor-adiabatic-constant-pressure}
+ \frac{d T(t)}{dt}  = - \frac{1}{\rho c_{p}} \sum_{i=1}^n  s_i  h_i 
+\end{equation}
+
+Notice that this equation resembles eq.(\ref{eq:batch-reactor-species-mass}) and sometimes you may find both of these equations written in the form:
+
+\begin{equation} \label{eq:bath-reactor-adiabatic-constant-pressure}
+ \frac{d \boldsymbol{\phi}}{dt}  = \mathbf{s}_{\phi}
+\end{equation}
+
+\begin{equation} \label{eq:bath-reactor-adiabatic-constant-pressure}
+\mathbf{s}_{\eta} = \mathbf{s}_{\phi} \mathbf{A} \mathbf{D}^{-1}
+\end{equation}
+
+where $ \boldsymbol{\phi} = [T, \omega_1, \omega_2, \dots \omega_n]$ and $s_{\phi}$ is a \textit{production rate} of $\phi$. The production rate is equal to $\frac{s_i}{\rho}$ if $\phi_i = \omega_i$ and it is equal to $ - \frac{1}{\rho c_{p}} \sum_{i=1}^n  s_i  h_i $ when $\phi_i = T$. It is worth pointing out that for the temperature, the production rate is actually a sum of production rates of all the species multiplied by their enthalpies. This is in contrast to eq.(\ref{eq:batch-reactor-species-mass}), where for each $\omega_i$ only one corresponding $s_i$ appears in a differential equation.
+
+\subsection{References}
+
+Below is a list of all learning materials that helped me put together this example:
+
+\begin{enumerate}
+\item A. Parente, \textit{Heat Transfer and Combustion}, Université libre de Bruxelles, 2019
+\item J. C. Sutherland, \textit{Multicomponent Mass Transfer}, CHEN 6603, The University of Utah, 2012
+\end{enumerate}
