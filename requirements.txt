@@ -1,7 +1,6 @@
 matplotlib
 numpy
 scipy
-math
 sklearn
 pandas
 IPython
