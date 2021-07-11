@@ -216,10 +216,57 @@ Figure~\ref{fig:tensor-in-matrix-form} shows an example of the most general seco
 
 
 
-%\section*{Operations on tensors}
+\section*{Operations on tensors}
 
+\subsection*{Divergence reduces the tensor rank by one}
 
+Taking a divergence of a tensor of rank $m$ results in a tensor of rank $m-1$. Below, we illustrate that on an example where $m=2$, but the principle extends to any rank $m$. Let $\pmb{\Phi}$ be a tensor of rank two. Let's compute the divergence of $\pmb{\Phi}$:
+\begin{equation*}
+  \nabla \cdot \pmb{\Phi} =
+  \Big[ \frac{\partial}{\partial x_1} , \frac{\partial}{\partial x_2}, \cdots , \frac{\partial}{\partial x_n} \Big]
+  \cdot
+  \begin{bmatrix}
+  \Phi_{1,1} & \Phi_{1,2} & \cdots & \Phi_{1,n} \\
+  \Phi_{2,1} & \Phi_{2,2} & \cdots & \Phi_{2,n}\\
+  \vdots & \vdots & \ddots & \vdots \\
+   \Phi_{n,1} & \Phi_{n,2} & \cdots & \Phi_{n,n} \\
+  \end{bmatrix}.
+\end{equation*}
+The above matrix multiplication results in a vector (tensor of rank one):
+\begin{equation*}
+\mathbf{V} =  \Big[V_1, V_2, \cdots ,  V_n \Big] ,
+\end{equation*}
+where
+\begin{equation*}
+V_j = \sum_{i=1}^n \frac{\partial \Phi_{i,j}}{\partial x_i}.
+\end{equation*}
+By taking a divergence of a tensor of rank two, $\pmb{\Phi}$, we've obtained a tensor of rank one -- a vector $\mathbf{V}$. This example  illustrates the "mechanism" by which the divergence operator reduces rank by one. You can observe that divergence is like taking a dot (scalar) product. For a dot product of two vectors the intuition is perhaps even stronger: a dot product of two vectors results in a scalar (tensor of rank zero). 
 
+\subsection*{Gradient increases the tensor rank by one}
+
+Taking a gradient of a tensor of rank $m$ results in a tensor of rank $m+1$. We present an illustrative example for this as well.
+Let $\mathbf{V}$ be a vector (a tensor of rank one). Let's compute the gradient of $\mathbf{V}$:
+\begin{equation*}
+  \nabla \mathbf{V} =
+  \begin{bmatrix}
+  V_1 \\
+  V_2 \\
+  \vdots \\
+  V_n \\
+  \end{bmatrix}
+  \cdot 
+  \Big[ \frac{\partial}{\partial x_1} , \frac{\partial}{\partial x_2}, \cdots , \frac{\partial}{\partial x_n} \Big].
+\end{equation*}
+The above matrix multiplication results in a tensor of rank two:
+\begin{equation*}
+  \begin{bmatrix}
+  \frac{\partial V_1}{\partial x_1} & \frac{\partial V_1}{\partial x_2} & \cdots & \frac{\partial V_1}{\partial x_n} \\
+  \frac{\partial V_2}{\partial x_1} & \frac{\partial V_2}{\partial x_2} & \cdots & \frac{\partial V_2}{\partial x_n} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  \frac{\partial V_n}{\partial x_1} & \frac{\partial V_n}{\partial x_2} & \cdots & \frac{\partial V_n}{\partial x_n} \\
+  \end{bmatrix}.
+\end{equation*}
+Thus, by taking a gradient of a tensor of rank one, $\mathbf{V}$, we've obtained a tensor of rank two, $\pmb{\Phi}$. This mechanism can also be understood by noting that gradient of a scalar (tensor of rank zero) results in a vector (tensor of rank one).
 
 %\section*{Epilogue}
 
