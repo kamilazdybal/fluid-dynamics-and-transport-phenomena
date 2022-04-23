@@ -89,7 +89,7 @@ showstringspaces=false            %
     \vskip-5em
 
     \hfill
-    \fontsize{10}{10}\selectfont {\textit{Bruxelles, June-December 2020}}
+    \fontsize{10}{10}\selectfont {\textit{Bruxelles, 2022}}
     \vskip2ex
 	\vspace{5ex}
     \fontsize{20}{10}\selectfont {The tensor necessity}
@@ -122,9 +122,7 @@ showstringspaces=false            %
 
 \vspace{2mm}
 
-\fontsize{8}{10}\selectfont {\textit{Université libre de Bruxelles, kamila.zdybal@ulb.ac.be}}
-
-\fontsize{8}{10}\selectfont {\textit{kamilazdybal.github.io/science-docs, kamila.zdybal@gmail.com}}
+\fontsize{8}{10}\selectfont {\textit{kamilazdybal.github.io, kamila.zdybal@gmail.com}}
 
 \,\,
 
@@ -151,7 +149,7 @@ In this document, I would like to convince you that we necessarily do need tenso
 
 To build our intuition around tensor quantities we will begin our journey with an illustrative example. We will look at momentum transport in the Couette flow -- the flow of fluid between two parallel plates. The top plate is stationary and the bottom plate moves in the positive $x$-direction with the velocity $\mathbf{u}$, as presented in Figure~\ref{fig:couette-flow}.
 
-Suppose that we start with an initial situation when both plates are stationary. At some moment in time, we begin sliding the bottom plate, reaching the velocity $\mathbf{u}$ after a while. You may already expect that the moment we started moving the bottom plate something interesting starts to happen to the fluid in-between -- it begins moving as well. As the flow develops, the moving bottom plate successively "drags" fluid particles in the layer directly above it. Once those fluid particles are set in motion in the positive $x$-direction, that moving layer of fluid "drags" another layer directly on top of it. This "dragging" progresses upward in the positive $y$-direction, until at the top stationary plate the fluid is stagnant again to match the zero velocity of the top plate. 
+Suppose that we start with an initial situation when both plates are stationary. At some moment in time, we begin sliding the bottom plate, reaching the velocity $\mathbf{u}$ after a while. You may already expect that the moment we started moving the bottom plate something interesting starts to happen to the fluid in-between -- it begins moving as well. As the flow develops, the moving bottom plate successively ``drags'' fluid particles in the layer directly above it. Once those fluid particles are set in motion in the positive $x$-direction, that moving layer of fluid ``drags'' another layer directly on top of it. This ``dragging'' progresses upward in the positive $y$-direction, until at the top stationary plate the fluid is stagnant again to match the zero velocity of the top plate. 
 After a sufficient amount of time, the fluid motion becomes steady. At steady state, the velocity profile between the two plates is fully developed and does not change in time anymore. The steady state velocity profile in the Couette flow is a linear function of $y$ (this profile is plotted schematically in Figure~\ref{fig:couette-flow}). This is something that we will not prove here but you can give it a try as an exercise!
 \begin{figure}[t!]
 \centering\includegraphics[width=7cm]{couette-flow.pdf}
@@ -165,7 +163,7 @@ After a sufficient amount of time, the fluid motion becomes steady. At steady st
 %\end{wrapfigure}
 If we assume that the fluid flow between the two plates is laminar, we may assume that the fluid flows in thin layers, or \textit{laminates}, stacked one on top of the other. Knowing the velocity profile, we know exactly what the velocity of each laminate is. In other words, since we know $\mathbf{u}(y)$, we can compute the velocity at any position $y$, denoted as $\mathbf{u}|_{y}$. For the flow described in Figure~\ref{fig:couette-flow}, a laminate at a lower $y$-coordinate will have a larger velocity than a laminate at a larger $y$-coordinate. This holds in our case, where we have assumed that the bottom plate is moving and the fluid velocity decreases to zero once we reach the top plate. Similar reasoning can be made assuming that the top plate is moving with the velocity $\mathbf{u}$, and the bottom plate is stationary. In Figure~\ref{fig:momentum-transport-in-laminates}, we have drawn three such laminates, each having thickness $dy$.
 
-Knowing the velocities at any position $y$, we also know the momentum carried by each laminate. We will in fact consider a specific momentum -- momentum per unit volume -- which can be computed as $\rho \mathbf{u}$, where $\rho$ is the fluid density. Let's look at the situation from the perspective of one of the laminates whose $y$-coordinate is simply denoted $y$. This laminate is marked in gray in Figure~\ref{fig:momentum-transport-in-laminates}. Its specific momentum is $\rho \mathbf{u}|_{y}$. It gains momentum from the faster moving laminate directly below it, whose specific momentum is $\rho \mathbf{u}|_{y-dy}$. It also looses momentum to the slower moving laminate directly above it, whose specific momentum is $\rho \mathbf{u}|_{y+dy}$. Such \textit{transport} (loosing and gaining) of momentum is in practice possible due to molecular collisions between fluid particles. Every such collision is an opportunity to exchange momentum. When molecules from one laminate collide with molecules from another laminate, momentum can be transported in the positive $y$-direction. The "dragging", that we talked about before, is thus achieved by the momentum transport. The faster moving laminate gives some of its momentum to the slower moving one.
+Knowing the velocities at any position $y$, we also know the momentum carried by each laminate. We will in fact consider a specific momentum -- momentum per unit volume -- which can be computed as $\rho \mathbf{u}$, where $\rho$ is the fluid density. Let's look at the situation from the perspective of one of the laminates whose $y$-coordinate is simply denoted $y$. This laminate is marked in gray in Figure~\ref{fig:momentum-transport-in-laminates}. Its specific momentum is $\rho \mathbf{u}|_{y}$. It gains momentum from the faster moving laminate directly below it, whose specific momentum is $\rho \mathbf{u}|_{y-dy}$. It also looses momentum to the slower moving laminate directly above it, whose specific momentum is $\rho \mathbf{u}|_{y+dy}$. Such \textit{transport} (loosing and gaining) of momentum is in practice possible due to molecular collisions between fluid particles. Every such collision is an opportunity to exchange momentum. When molecules from one laminate collide with molecules from another laminate, momentum can be transported in the positive $y$-direction. The ``dragging'', that we talked about before, is thus achieved by the momentum transport. The faster moving laminate gives some of its momentum to the slower moving one.
 
 \begin{figure}[t!]
 \centering\includegraphics[width=7cm]{momentum-transport-in-laminates.pdf}
@@ -173,7 +171,7 @@ Knowing the velocities at any position $y$, we also know the momentum carried by
 \label{fig:momentum-transport-in-laminates}
 \end{figure}
 
-%Note that this can only happen in the world with friction! Since in fluids friction is accounted for by viscosity it becomes clear that viscosity plays a role in transporting momentum\footnote{Although in a "frictionless world" momentum can still be transported by a fluid but not by means of viscosity. We will move to other forms of momentum transport in the next section.}.
+%Note that this can only happen in the world with friction! Since in fluids friction is accounted for by viscosity it becomes clear that viscosity plays a role in transporting momentum\footnote{Although in a ``frictionless world'' momentum can still be transported by a fluid but not by means of viscosity. We will move to other forms of momentum transport in the next section.}.
 
 
 An interesting concept now emerges. Momentum is a vector quantity that has a direction of the velocity vector. In our example of the Couette flow, momentum of every laminate has the direction parallel to the $x$-axis (in accordance with the velocity profile). However, the transport of that momentum is happening in the direction parallel to the $y$-axis: from the laminates at the lower $y$-coordinate to the laminates at the larger $y$-coordinate. This is conceptually presented in Figure~\ref{fig:couette-flow-momentum-transport}. 
@@ -182,20 +180,20 @@ An interesting concept now emerges. Momentum is a vector quantity that has a dir
 \centering\includegraphics[width=3cm]{tau_y_x.pdf}
 \label{fig:tau_y_x}
 \end{wrapfigure}
-This transported momentum (also called the \textit{momentum flux}) is denoted with a symbol $\tau_{yx}$. Notice now that this quantity, $\tau_{yx}$, carries information about two directions. The first one tells us which direction is the momentum vector pointing at ($x$ direction). The second one tells us in which direction that momentum is being transported ($y$ direction). Now that's a strange object! It's neither a scalar nor a vector, since we need to "attach" two directions to $\tau_{yx}$ in order to give complete information about this particular momentum flux. We call such object a tensor quantity -- just a fancy mathematical name!
+This transported momentum (also called the \textit{momentum flux}) is denoted with a symbol $\tau_{yx}$. Notice now that this quantity, $\tau_{yx}$, carries information about two directions. The first one tells us which direction is the momentum vector pointing at ($x$ direction). The second one tells us in which direction that momentum is being transported ($y$ direction). Now that's a strange object! It's neither a scalar nor a vector, since we need to ``attach'' two directions to $\tau_{yx}$ in order to give complete information about this particular momentum flux. We call such object a tensor quantity -- just a fancy mathematical name!
 \begin{figure}[t!]
 \centering\includegraphics[width=7cm]{couette-flow-momentum-transport.pdf}
 \caption{In the Couette flow, the momentum in the $x$ direction is transported in the $y$ direction. The transported momentum is called the \textit{momentum flux}.}
 \label{fig:couette-flow-momentum-transport}
 \end{figure}
 
-Tensors are objects that allow us to associate multiple directions to a physical quantity. Hence, they can also be thought of as a generalization of the concept of a vector, which is a quantity associated with a single direction. Or even a generalization of a scalar, which is a quantity with zero directions associated with it! A scalar would then be called a \textit{zeroth-order tensor} -- a magnitude with no directions associated with it. A vector is characterized by the magnitude and one direction -- we call that a \textit{first-order tensor}. In the case of the Couette flow, we can define the tensor quantity $\tau_{yx}$, representing the momentum flux. It would be called a \textit{second-order tensor} because it carries information about two directions. In general, tensors can be characterized by the magnitude and zero, or one, or multiple directions attached to it. Of course, we need to create such notation that we know what each direction means physically. In our example, we used the indices $yx$. The first index, $y$, keeps track of the transport direction and the second, $x$, keeps track of the direction of the momentum vector. Keep in mind, that in the case of zero or one direction we already have convenient names for such quantities: \textit{scalars} and \textit{vectors}. Therefore, often people only bother callings something a tensor when it's a quantity with at least two directions associated with it.
+Tensors are objects that allow us to associate multiple directions to a physical quantity. Hence, they can also be thought of as a generalization of the concept of a vector, which is a quantity associated with a single direction. Or even a generalization of a scalar, which is a quantity with zero directions associated with it! A scalar would then be called a \textit{zeroth-order tensor} -- a magnitude with no directions associated with it. A vector is characterized by the magnitude and one direction -- we call that a \textit{first-order tensor}. In the case of the Couette flow, we can define the tensor quantity $\tau_{yx}$, representing the momentum flux. It would be called a \textit{second-order tensor} because it carries information about two directions. In general, tensors can be characterized by the magnitude and zero, or one, or multiple directions attached to it. Of course, we need to create such notation that we know what each direction means physically. In our example, we used the indices $yx$. The first index, $y$, keeps track of the transport direction and the second, $x$, keeps track of the direction of the momentum vector. Keep in mind, that in the case of zero or one direction we already have convenient names for such quantities: \textit{scalars} and \textit{vectors}. Therefore, often people only bother calling something a tensor when it's a quantity with at least two directions associated with it.
 
-Hopefully, by now you can appreciate that tensors are very useful tools in fluid dynamics, where vector quantities (such as momentum) can be transported in many directions! As a final thought of this section, let's take a step back and look at fluid dynamics from a broader perspective. The reason why fluid dynamics is so populated with tensor quantities, is the fact that it is all about transport and describing fluid in motion. When fluid is physically transported through space, it carries with it all the other physical quantities that it possesses. Some of those properties are vector quantities, carried by a flow velocity -- another vector quantity.
+As a final thought of this section, let's take a step back and look at fluid dynamics from a broader perspective. The reason why fluid dynamics is so populated with tensor quantities, is the fact that it is all about transport and describing fluid in motion. When fluid is physically transported through space, it carries with it all the other physical properties that it possesses. Some of those properties are vector quantities, carried by a flow velocity -- another vector quantity. Hopefully, by now you can appreciate that tensors are very useful tools in fluid dynamics, where vector quantities (such as momentum) can be transported in many directions!
 
 \section*{Tensors as matrices}
 
-If we considered a different system than the Couette flow, perhaps there would be momentum in the $x$-direction transported in the $z$-direction. Or, momentum in the $y$-direction transported in the $x$-direction\footnote{Can you think of a real situation when momentum in the $x$-direction is transported in the $x$-direction?}. In a three-dimensional world, the momentum vector can be pointing in any of the three directions $x$, $y$ or $z$, and can be transported in any of the three directions $x$, $y$ or $z$. Tensors allow us to keep track of all those directions as well. If we wanted to account for all these possibilities in three-dimensions we would need $3 \times 3 = 9$ quantities $\tau_{ij}$. For convenience, we often write out the elements of a tensor in a form of a table that resembles a matrix. Unlike in a scalar matrix, this table has additional information attached to every element -- the directions represented. Those directions are agreed upon and often we can omit specifying them and just write out the magnitudes in a form of a matrix. But we should keep in mind that the directions are still there, even if at the "backstage" of that matrix.
+If we considered a different system than the Couette flow, perhaps there would be momentum in the $x$-direction transported in the $z$-direction. Or, momentum in the $y$-direction transported in the $x$-direction\footnote{Can you think of a real situation when momentum in the $x$-direction is transported in the $x$-direction?}. In a three-dimensional world, the momentum vector can be pointing in any of the three directions $x$, $y$ or $z$, and can be transported in any of the three directions $x$, $y$ or $z$. Tensors allow us to keep track of all those directions as well. If we wanted to account for all these possibilities in three-dimensions we would need $3 \times 3 = 9$ quantities $\tau_{ij}$. For convenience, we often write out the elements of a tensor in a form of a table that resembles a matrix. Unlike in a scalar matrix, this table has additional information attached to every element -- the directions represented. Those directions are agreed upon and often we can omit specifying them and just write out the magnitudes in a form of a matrix. But we should keep in mind that the directions are still there, even if at the ``backstage'' of that matrix.
 
 Figure~\ref{fig:tensor-in-matrix-form} shows an example of the most general second-order tensor that could represent viscous momentum flux in a three-dimensional fluid flow. We note the directions that each element is keeping track of. Once we write down a specific $\tau_{ij}$, its directions can be understood through the indices $i$ and $j$. In the case of the Couette flow, we only needed one of those elements, $\tau_{yx}$, since there was only one direction for momentum and only one direction in which that momentum was transported.
 
@@ -205,14 +203,66 @@ Figure~\ref{fig:tensor-in-matrix-form} shows an example of the most general seco
 \label{fig:tensor-in-matrix-form}
 \end{figure}
 
-%\section*{Convective momentum flux tensor}
+\section*{Convective momentum flux tensor}
+
+To complete the discussion about momentum transport, let's take a look at another mechanism of transporting momentum. In addition to the viscous transport of momentum that we talked about so far, momentum can also be transported by convection. It is, in some ways, a simpler mechanism to understand conceptually. If we think of momentum as a quantity inherent to any moving mass, this quantity is being transported just by the virtue of the bulk movement of that mass. In more mathematical terms, if a given mass of fluid, $m$, moves with a velocity $\pmb{V}$, the amount of momentum carried by that mass is $m \pmb{V}$. This momentum is carried also with a velocity $\pmb{V}$, and thus to describe the flux of momentum, we should multiply $m \pmb{V}$ by $\pmb{V}$ to get $m \pmb{V} \pmb{V}$.
+
+Thus, the velocity $\pmb{V}$ has two roles in our thought example. First, it allows for the appearance of this quantity \textit{momentum}. Second, it carries, or ``advects'', that momentum. We call this type of carrying of momentum a convective momentum flux. This time, momentum is not transported due to molecular collisions which allow for momentum exchange. It is transported due to the bulk movement of mass. Using the Couette flow example, we can say that each laminate, e.g. at location $y$, is advected in the $x$-direction by the velocity $\pmb{u}|_y$. Thus, the specific momentum $\rho \pmb{u}|_y$ that this laminate carries is advected by $\pmb{u}|_y$ and the associated convective momentum flux can be expressed as $\rho \pmb{u}|_y \pmb{u}|_y$.
+
+In a general case of a three-dimensional flow, $\pmb{V}$ is composed of three elements, let's call them $\pmb{u}$, $\pmb{v}$ and $\pmb{w}$. The momentum associated with any of these three directions can be advected in any of the three spatial directions $x$, $y$ or $z$. Similarly to what we've seen earlier, to describe such momentum in transit, we need one direction to keep track of the direction of momentum, and a second direction to keep track of the transport direction. This concept also calls for a use of a tensor, doesn't it?
+
+So how do convective momentum flux tensor tensors manifest themselves in fluid dynamics? You might have already seen terms that look like $\pmb{V} \pmb{V}$, or perhaps more commonly like $\nabla \cdot \pmb{V} \pmb{V}$, in the governing equations. The multiplication $\pmb{V} \pmb{V}$ is a very special type of multiplication called a \textit{dyadic product}. For a three-dimensional flow, we can write it in a matrix form like this:
+\begin{equation*}
+  \mathbf{V} \mathbf{V} =
+  \begin{bmatrix}
+  u \\
+  v \\
+  w \\
+  \end{bmatrix}
+  \cdot 
+  \Big[ u , v , w \Big] = 
+  \begin{bmatrix}
+  uu & uv & uw\\
+  vu & vv & vw \\
+  wu & wv & ww \\
+  \end{bmatrix}.
+\end{equation*}
+From the equation above, you see that by computing the dyadic product we've obtained a second-order tensor. Each entry in the above matrix is associated with two directions. If we further multiply the whole thing by density out front, we get:
+\begin{equation*}
+ \rho \mathbf{V} \mathbf{V} =
+  \rho
+  \begin{bmatrix}
+  u \\
+  v \\
+  w \\
+  \end{bmatrix}
+  \cdot 
+  \Big[ u , v , w \Big] = 
+  \begin{bmatrix}
+   \rho uu &  \rho uv &  \rho uw\\
+   \rho vu &  \rho vv &  \rho vw \\
+   \rho wu &  \rho wv &  \rho ww \\
+  \end{bmatrix}.
+\end{equation*}
+Each element in the above matrix is one momentum component (e.g. $\rho u$ is the $x$-direction component, $\rho v$ is the $y$-direction component, and so on), transported by a given component of velocity $\pmb{V}$. For example, the element $\rho w v$ is the $z$-component of momentum ($\rho w$) transported in the $y$-direction (by the component $v$). Instead of a very wordy description that I attempted to make here, tensors allow us for an elegant mathematical description!
+And hey, look at the momentum transport equation that you might have already encountered:
+\begin{equation*}
+\frac{\partial \rho \mathbf{V}}{\partial t} = \underbrace{- \nabla \cdot \rho \mathbf{V} \mathbf{V}}_\text{there it is!} - \nabla \cdot \pmb{\tau} - \nabla \cdot p \mathbf{I}
+\end{equation*}
+convective momentum flux tensor in disguise!
+
+Finally, I wanted to end this section with a bigger-picture thought. You may now ask a question: fair enough, we've been able to write a neat expression for the convective momentum flux tensor ($\rho \pmb{V} \pmb{V}$), why didn't we also write down a similar expression for the viscous momentum flux tensor? Instead, we've left the discussion at hiding that quantity behind the vague $\tau_{yx}$. The answer to this is that we don't really know the molecular velocity of fluid particles that ``carries'' that viscous momentum! So even though we could write a neat expression for the amount of momentum carried by each laminate, we don't really have a neat expression for the velocity that ``diffuses'' that momentum upward in the Couette flow channel. Instead, people have come up with models that aim to describe the viscous momentum flux, bypassing the need to know that velocity. We call those models constitutive models. One of such models was proposed by Isaac Newton, and states that:
+\begin{equation*}
+\tau_{yx} = - \mu \frac{d \pmb{u}|_y}{dy} ,
+\end{equation*}
+where $\mu$ is the fluid viscosity.
+For a general three-dimensional flow, a more complicated generalization can be used \cite{BSL}, which allows us to calculate each entry in the $3 \times 3$ viscous momentum flux tensor matrix.
 
 %Transport of a vector quantity is not the only application for a tensor. Another possibility could be keeping track of a vector quantity that is linked to a surface oriented in a particular direction (with the direction being defined by a unit normal vector). Imagine then having unit normal vectors in Cartesian coordinates $\hat{i}$, $\hat{j}$ and $\hat{k}$ that specify surfaces perpendicular to respectively $x$, $y$ and $z$ axis. At each of those surfaces 
 
 
 
 % A flux of a vector quantity always requires the concept of a tensor!
-
 
 
 
@@ -240,7 +290,7 @@ where
 \begin{equation*}
 V_j = \sum_{i=1}^n \frac{\partial \Phi_{i,j}}{\partial x_i}.
 \end{equation*}
-By taking a divergence of a tensor of rank two, $\pmb{\Phi}$, we've obtained a tensor of rank one -- a vector $\mathbf{V}$. This example  illustrates the "mechanism" by which the divergence operator reduces rank by one. You can observe that divergence is like taking a dot (scalar) product. For a dot product of two vectors the intuition is perhaps even stronger: a dot product of two vectors results in a scalar (tensor of rank zero). 
+By taking a divergence of a tensor of rank two, $\pmb{\Phi}$, we've obtained a tensor of rank one -- a vector $\mathbf{V}$. This example  illustrates the ``mechanism'' by which the divergence operator reduces rank by one. You can observe that divergence is like taking a dot (scalar) product. For a dot product of two vectors the intuition is perhaps even stronger: a dot product of two vectors results in a scalar (tensor of rank zero). 
 
 \subsection*{Gradient increases the tensor rank by one}
 
@@ -268,29 +318,16 @@ The above matrix multiplication results in a tensor of rank two:
 \end{equation*}
 Thus, by taking a gradient of a tensor of rank one, $\mathbf{V}$, we've obtained a tensor of rank two, $\pmb{\Phi}$. This mechanism can also be understood by noting that gradient of a scalar (tensor of rank zero) results in a vector (tensor of rank one).
 
-%\section*{Epilogue}
+\newpage
 
-%Some say that a good scientific writing that keeps the reader engaged is characterized by a single idea carried over from sentence to sentence that guides the reader through the journey. I hope that I managed to make this reading interesting to you by transporting the idea of a tensor downward this document!
+\section*{Epilogue}
 
-%I wanted to use the momentum transport as a pretext to explain these bizzare objects that tensors are and I hope that I managed to make tensors the main character of this article. On the other hand, momentum transport in fluids has itself its peculiarities. Hopefully piggybacking the concept of a tensor was an overall useful experience for you!
+This is one in a series of tutorials on fluid dynamics concepts. My goal is to present a more human-readable understanding of common concepts that I myself really missed when I studied fluid dynamics on my own. Here, I used the momentum transport in the Couette flow, but only as a pretext to explain these bizzare objects that tensors are. Hopefully this piggybacking of a tensor concept was a useful experience to you!
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Finally, some say that a good scientific writing that keeps the reader engaged is characterized by a single idea carried over from sentence to sentence that guides the reader through the journey. I hope that I've managed to make this reading interesting to you by transporting the idea of a tensor downward this document!
 
 \thebibliography{}
 
-\bibitem{BSL} R.B. Bird, W.E.Stewart, E.N. Lightfoot, \textit{Transport Phenomena}, John Wiley \& Sons, Inc., 2001
+\bibitem{BSL} R.B. Bird, W.E. Stewart, E.N. Lightfoot, \textit{Transport Phenomena}, John Wiley \& Sons, Inc., 2001
 
 \end{document}
