@@ -122,7 +122,7 @@ showstringspaces=false            %
 
 \vspace{2mm}
 
-\fontsize{8}{10}\selectfont {\textit{kamilazdybal.github.io, kamila.zdybal@gmail.com}}
+\fontsize{8}{10}\selectfont {\textit{\href{https://kamilazdybal.github.io/}{kamilazdybal.github.io}, kamila.zdybal@gmail.com}}
 
 \,\,
 
@@ -139,9 +139,9 @@ At first encounter, tensors can seem like strange mathematical objects. It can b
 
 In this document, I would like to convince you that we necessarily do need tensors in fluid dynamics! I will motivate their usefulness by discussing momentum transport in the Couette flow. Hopefully, by the end of this document, you will find that tensors can be very useful mathematical objects that make our life easier. Join me on the journey!
 
-\section*{Keywords}
+\subsection*{Keywords}
 
-\textit{tensor, momentum transport, transport phenomena, fluid dynamics, Couette flow}
+\textit{tensor, momentum transport, viscous momentum flux tensor, convective momentum flux tensor, transport phenomena, fluid dynamics, Couette flow}
 
 %\tableofcontents
 
@@ -187,7 +187,7 @@ This transported viscous momentum (also called the \textit{viscous momentum flux
 \label{fig:couette-flow-momentum-transport}
 \end{figure}
 
-Tensors are objects that allow us to associate multiple directions to a physical quantity. Hence, they can also be thought of as a generalization of the concept of a vector, which is a quantity associated with a single direction. Or even a generalization of a scalar, which is a quantity with zero directions associated with it! A scalar would then be called a \textit{zeroth-order tensor} -- a magnitude with no directions associated with it. A vector is characterized by the magnitude and one direction -- we call that a \textit{first-order tensor}. In the case of the Couette flow, we can define the tensor quantity $\tau_{yx}$, representing the momentum flux. It would be called a \textit{second-order tensor} because it carries information about two directions. In general, tensors can be characterized by the magnitude and zero, or one, or multiple directions attached to it. Of course, we need to create such notation that we know what each direction means physically. In our example, we used the indices $yx$. The first index, $y$, keeps track of the transport direction and the second, $x$, keeps track of the direction of the momentum vector. Keep in mind, that in the case of zero or one direction we already have convenient names for such quantities: \textit{scalars} and \textit{vectors}. Therefore, often people only bother calling something a tensor when it's a quantity with at least two directions associated with it.
+Tensors are objects that allow us to associate multiple directions to a physical quantity. Hence, they can also be thought of as a generalization of the concept of a vector, which is a quantity associated with a single direction. Or even a generalization of a scalar, which is a quantity with zero directions associated with it! A scalar would then be called a \textit{zeroth-order tensor} -- a magnitude with no directions associated with it. A vector is characterized by the magnitude and one direction -- we call that a \textit{first-order tensor}. In the case of the Couette flow, we can define the tensor quantity $\tau_{yx}$, representing the viscous momentum flux. It would be called a \textit{second-order tensor} because it carries information about two directions. In general, tensors can be characterized by the magnitude and zero, or one, or multiple directions attached to it. Of course, we need to create such notation that we know what each direction means physically. In our example, we used the indices $yx$. The first index, $y$, keeps track of the transport direction and the second, $x$, keeps track of the direction of the momentum vector. Keep in mind, that in the case of zero or one direction we already have convenient names for such quantities: \textit{scalars} and \textit{vectors}. Therefore, often people only bother calling something a tensor when it's a quantity with at least two directions associated with it.
 
 As a final thought of this section, let's take a step back and look at fluid dynamics from a broader perspective. The reason why fluid dynamics is so populated with tensor quantities, is the fact that it is all about transport and describing fluid in motion. When fluid is physically transported through space, it carries with it all the other physical properties that it possesses. Some of those properties are vector quantities, carried by a flow velocity -- another vector quantity. Hopefully, by now you can appreciate that tensors are very useful tools in fluid dynamics, where vector quantities (such as momentum) can be transported in many directions!
 
@@ -205,9 +205,9 @@ Figure~\ref{fig:tensor-in-matrix-form} shows an example of the most general seco
 
 \section*{Convective momentum flux tensor}
 
-To complete the discussion about momentum transport, let's take a look at another mechanism for transporting momentum. In addition to the viscous momentum flux that we talked about so far, momentum can also be transported by convection. It is, in some ways, a simpler mechanism to understand conceptually. If we think of momentum as a quantity inherent to any moving mass, this quantity is being transported just by the virtue of the bulk movement of that mass. In more mathematical terms, if a given mass of fluid, $m$, moves with a velocity $\pmb{V}$, the amount of momentum carried by that mass is $m \pmb{V}$. This momentum is carried also with a velocity $\pmb{V}$, and thus to describe the flux of momentum, we should multiply $m \pmb{V}$ by $\pmb{V}$ to get $m \pmb{V} \pmb{V}$.
+To complete the discussion about momentum transport, let's take a look at another mechanism for transporting momentum in a fluid. In addition to the viscous momentum flux that we talked about so far, momentum can also be transported by convection. It is, in some ways, a simpler mechanism to understand conceptually. If we think of momentum as a quantity inherent to any moving mass, this quantity is being transported just by the virtue of the bulk movement of that mass. In more mathematical terms, if a given mass of fluid, $m$, moves with a velocity $\pmb{V}$, the amount of momentum carried by that mass is $m \pmb{V}$. This momentum is carried also with a velocity $\pmb{V}$, and thus to describe the flux of momentum, we should multiply $m \pmb{V}$ by $\pmb{V}$ to get $m \pmb{V} \pmb{V}$. We can also define a specific momentum as $\rho \pmb{V}$ and write the \textit{convective momentum flux} as $\rho \pmb{V} \pmb{V}$.
 
-Thus, the velocity $\pmb{V}$ has two roles in our thought example. First, it allows for the appearance of this quantity \textit{momentum}. Second, it carries, or ``advects'', that momentum. We call this type of carrying of momentum a convective momentum flux. This time, momentum is not transported due to molecular collisions which allow for viscous momentum exchange. It is transported due to the bulk (convective) movement of mass. Using the Couette flow example, we can say that each laminate, e.g. at location $y$, is advected in the $x$-direction by the velocity $\pmb{u}|_y$. Thus, the specific momentum $\rho \pmb{u}|_y$ that this laminate carries is advected by $\pmb{u}|_y$ and the associated \textit{convective momentum flux} can be expressed as $\rho \pmb{u}|_y \pmb{u}|_y$.
+Thus, the velocity $\pmb{V}$ has two roles in our thought example. First, it allows for the appearance of this quantity \textit{momentum}. Second, it carries, or ``convects'', that momentum. We call this type of carrying of momentum a convective momentum flux. This time, momentum is not transported due to molecular collisions which allow for viscous momentum exchange. It is transported due to the bulk (convective) movement of mass. Using the Couette flow example, we can say that each laminate, e.g. at location $y$, is convected in the $x$-direction by the velocity $\pmb{u}|_y$. Thus, the specific momentum $\rho \pmb{u}|_y$ that this laminate carries is convected by $\pmb{u}|_y$ and the associated convective momentum flux can be expressed as $\rho \pmb{u}|_y \pmb{u}|_y$.
 
 In a general case of a three-dimensional flow, $\pmb{V}$ is composed of three elements, let's call them $u$, $v$ and $w$. The momentum associated with any of these three directions can be advected in any of the three spatial directions $x$, $y$ or $z$. Similarly to what we've seen earlier, to describe such momentum in transit, we need one direction to keep track of the direction of momentum, and a second direction to keep track of the transport direction. This concept also calls for a use of a tensor, doesn't it?
 
@@ -309,6 +309,7 @@ Let $\mathbf{V}$ be a vector (a tensor of rank one). Let's compute the gradient 
 \end{equation*}
 The above matrix multiplication results in a tensor of rank two:
 \begin{equation*}
+\pmb{\Phi} =
   \begin{bmatrix}
   \frac{\partial V_1}{\partial x_1} & \frac{\partial V_1}{\partial x_2} & \cdots & \frac{\partial V_1}{\partial x_n} \\
   \frac{\partial V_2}{\partial x_1} & \frac{\partial V_2}{\partial x_2} & \cdots & \frac{\partial V_2}{\partial x_n} \\
@@ -317,8 +318,6 @@ The above matrix multiplication results in a tensor of rank two:
   \end{bmatrix}.
 \end{equation*}
 Thus, by taking a gradient of a tensor of rank one, $\mathbf{V}$, we've obtained a tensor of rank two, $\pmb{\Phi}$. This mechanism can also be understood by noting that gradient of a scalar (tensor of rank zero) results in a vector (tensor of rank one).
-
-\newpage
 
 \section*{Epilogue}
 
