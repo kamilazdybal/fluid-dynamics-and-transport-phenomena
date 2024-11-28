@@ -1,4 +1,4 @@
-\documentclass[10pt]{report}
+\documentclass[12pt]{report}
 \usepackage[utf8]{inputenc}
 %\usepackage[T1]{fontenc}
 \usepackage{tgbonum}
@@ -45,6 +45,39 @@ bottom=3cm,
 \usepackage{bm}
 \definecolor{shadecolor}{RGB}{139, 231, 3}
 \usepackage{epigraph}
+
+\usepackage{mathpazo}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{lipsum}
+
+\usepackage{color}
+\definecolor{color-box-border-equation}{RGB}{200,200,200}
+\definecolor{color-box-background-equation}{RGB}{250,250,250}
+
+\definecolor{color-box-border-code}{RGB}{54,119,168}
+\definecolor{color-box-background-code}{RGB}{236,245,255}
+
+\mdfdefinestyle{equation-frame}{%
+    linecolor=color-box-border-equation,
+    outerlinewidth=1pt,
+    roundcorner=10pt,
+    innertopmargin=\baselineskip,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=20pt,
+    innerleftmargin=20pt,
+    backgroundcolor=color-box-background-equation}
+    
+\mdfdefinestyle{exercise-frame}{%
+    linecolor=color-box-border-code,
+    outerlinewidth=1pt,
+    roundcorner=10pt,
+    innertopmargin=\baselineskip,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=20pt,
+    innerleftmargin=20pt,
+    backgroundcolor=color-box-background-code}
+
+\usepackage{pifont}
 
 \usepackage{tcolorbox}
 \definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
@@ -142,13 +175,13 @@ keepaspectratio]{DWGs/cover.png}%
 
 \vspace*{2cm}
 
-Copyright \textcopyright \, K. Zdybał, 2018-2020
+Copyright \textcopyright \, K. Zdybał, 2018-2024
 
 For more projects similar to this one
 
 visit me on GitHub: \verb|@kamilazdybal|
 
-\verb|kamilazdybal.github.io/science-docs/|
+\verb|kamilazdybal.github.io|
 
 To contact me personally drop me a line at:
 
@@ -197,7 +230,7 @@ There are a few things that I would like to state at the very beginning to give 
 
 \begin{enumerate}
 \item I want to take you through the journey of learning as you read these notes. Above all, I will know that it was worth writing this document if you enjoyed the journey or reading it and learning from it.
-\item It's not enough to read a textbook. The real learning and understanding comes when it's only you, your head and a blank piece of paper. Reading a textbook is an easy task to do, so is watching a lecture. When tou become a spectator, it's an easy trap towards fooling yourself that you understood something. It's when you have a chance to take action in your learning that you can really test your knowledge.
+\item It's not enough to read a textbook. The real learning and understanding comes when it's only you, your head and a blank piece of paper. Reading a textbook is an easy task to do, so is watching a lecture. When you become a spectator, it's an easy trap towards fooling yourself that you understood something. It's when you have a chance to take action in your learning that you can really test your knowledge.
 \item I believe in the quote by Richard Feynman: \textit{Study hard what interest you the most in the most undisciplined, irreverent and original manner possible.} I will sometimes ask a brain-teasing question or challenge you to \textit{pause and ponder}. But also do challenge yourself and don't let your imagination be limited by simply following the pages of any textbook.
 \item Programming is a great way to roll your sleeves and put things into action.
 \item This document will be alive for quite some time. I will be coming back to it to add or improve things. You can always access the newest version through my GitHub site:
@@ -237,7 +270,7 @@ Please feel free to contact me with any suggestions, corrections or comments: \v
 
 
 
-\chapter{Changes}
+\chapter{Changes} \label{chap:changes}
 
 \rightline{{\rm \textit{Ch-ch-ch-ch-changes}}}
 \rightline{{\rm \textit{Turn and face the strange}}}
@@ -338,32 +371,8 @@ Photo by: J. Aleksanderek $\copyright$
 
 
 
-
-\begin{thebibliography}{50}
-
-\item Y. A. Çengel, J. M. Cimbala, \textbf{\textit{Fluid Mechanics: Fundamentals and Applications}}, McGraw-Hill, 2006
-\item
-\item
-\item
-\item
-\item 
-
-\item 
-\item
-\item
-\item
-\item
-\item 
-
-\item 
-\item
-\item
-\item
-\item
-\item 
-\thispagestyle{empty}
-\end{thebibliography}
-
+\bibliographystyle{apalike}
+\bibliography{bibliography}
 
 
 \end{document}

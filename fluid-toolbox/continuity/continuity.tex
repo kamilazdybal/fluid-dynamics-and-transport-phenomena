@@ -57,7 +57,7 @@ Lastly, we can observe that the divergence of the quantity $\rho \vec{V}$ is:
 So in the end, we can further write the RHS of the equation \ref{eq:continuity_general} in a shorter format as:
 
 \begin{equation} \label{eq:continuity_divergence}
-\frac{\partial \rho}{dt} = - \nabla (\rho \vec{V})
+\frac{\partial \rho}{dt} = - \nabla \cdot (\rho \vec{V})
 \end{equation}
 
 \section{Special cases of density function}
@@ -69,7 +69,7 @@ In the most general case, the density $\rho$ is a function of time and space $\r
 When we assume that the density is constant in space, it can be taken out front of the divergence operator and the incompressible continuity equation is:
 
 \begin{equation} \label{eq:continuity_incompressible}
-\frac{\partial \rho}{dt} = - \rho \nabla \vec{V}
+\frac{\partial \rho}{dt} = - \rho \nabla \cdot \vec{V}
 \end{equation}
 
 The above equation corresponds to the density that is constant throughout the flow field at any moment in time, but can change in time in the entire flow field.
@@ -82,7 +82,7 @@ The above equation corresponds to the density that is constant throughout the fl
 The steady flow can be further combined with the incompressible condition, which disables the density to change both in time and space. The stead-state incompressible continuity equation then becomes:
 
 \begin{equation} \label{eq:continuity_stst_incompressible}
-0 = \nabla \vec{V}
+0 = \nabla \cdot \vec{V}
 \end{equation}
 
 or writing the above equation with the use of partial differentiation operator:
@@ -99,7 +99,7 @@ First, when the density $\rho$ is only a function of position $\rho = \rho(x,y,z
 The continuity equation then becomes:
 
 \begin{equation} \label{eq:continuity_stst}
-0 = - \nabla (\rho  \vec{V})
+0 = - \nabla \cdot (\rho  \vec{V})
 \end{equation}
 
 

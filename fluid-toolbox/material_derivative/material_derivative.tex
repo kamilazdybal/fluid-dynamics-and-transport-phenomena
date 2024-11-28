@@ -1,13 +1,50 @@
-The material derivative is an operator defined as:
-
-\begin{equation}
-\frac{D}{D t} \equiv \frac{\partial}{\partial t} + \vec{\bm{V}} \cdot \nabla
+The material derivative, $\frac{D}{Dt}$, is an operator acting on a scalar, $\bullet$, such that
+\begin{equation} \label{eq:material-derivative}
+\frac{D \bullet}{D t} \equiv \frac{\partial \bullet}{\partial t} + \vec{\bm{V}} \cdot \nabla \bullet \, .
 \end{equation}
+In essence, it describes the \textit{total} change in quantity $\bullet$ as we \textit{move} across the field of $\bullet$. You can substitute for $\bullet$ any interesting physical quantity that you'd like, such as density, $\rho$, or temperature, $T$.
 
-Or, expanding out the terms (in 3D case, where $\vec{\bm{V}} = \langle u, \upsilon, w \rangle$):
+So how is the material derivative different from the regular derivative, say $\frac{d}{dt}$ or $\frac{\partial}{\partial t}$? Well, the material derivative isn't mathematically different from regular derivatives. Rather, it's a special sum of those regular derivatives that accounts for change in time and space \textit{simultaneously}. We can dissect the two terms on the right-hand-side of Eq.~(\ref{eq:material-derivative}) to gain more intuition behind why writing this special sum of derivatives can make our life easier in fluid dynamics.
 
-\begin{equation}
-\frac{D}{D t} \equiv \frac{\partial}{\partial t} + u \frac{\partial}{\partial x} + \upsilon \frac{\partial}{\partial y} + w \frac{\partial}{\partial z}
+First, we have $\frac{\partial \bullet}{\partial t}$ which is the plain old partial derivative of $\bullet$ with respect to time\footnote{See Chapter~\ref{chap:changes}}. It says that at all possible locations in space, the quantity $\bullet$ can evolve in time. One example of such quantity is temperature. Even if we remain stationary in a specific location, say in a corner of a room, we can still experience change in temperature because our room might be heated (or cooled) and the temperature in our little corner changes in time because of that. The term $\frac{\partial \bullet}{\partial t}$ gives us a recipe for \textit{how} that temperature changes in time in any location of the room.
+
+Second, we have $\vec{\bm{V}} \cdot \nabla \bullet$, that is, a gradient vector, $\nabla \bullet$, dotted with the flow velocity, $\vec{\bm{V}}$. At this point, you might remind yourself of the intuition behind taking a dot product between two vectors from Fig.~\ref{fig:circulation-dot-product}. 
+
+
+
+Or, expanding out the terms (in the most general 3D case, where $\vec{\bm{V}} = \langle u, \upsilon, w \rangle$):
+
+\begin{equation} \label{eq:material-derivative-full}
+\frac{D}{D t} \equiv \frac{\partial}{\partial t} + u \frac{\partial}{\partial x} + \upsilon \frac{\partial}{\partial y} + w \frac{\partial}{\partial z} \, .
 \end{equation}
+A different way of writing the equation above that you might sometimes encounter is the following:
+\begin{equation} \label{eq:material-derivative-ein stein}
+\frac{D}{D t} \equiv \frac{\partial}{\partial t} + V_i \frac{\partial}{\partial i} \, .
+\end{equation}
+This way of writing Eq.~(\ref{eq:material-derivative-full}) is using the Einstein notation, where it is implied that you should substitute for the dummy index $i$ every possible spatial dimension, i.e., $x$, $y$, and $z$, and, as you substitute, you sum up 
+
 
 Material derivative is indeed a shorthand for writing a special sum of other operators and it has been created because this set is frequently used in fluid dynamics related equations. Writing it in short as $\frac{D}{D t}$ simply makes life easier.
+
+
+
+
+
+
+
+\begin{mdframed}[style=exercise-frame]
+
+\subsection*{Looking for more?}
+
+You can find a great intuitive description of a material derivative in Chapter~3, \S3.5 of the \textit{Transport Phenomena} textbook by Bird, Stewart \& Lightfoot \cite{bird2002transport}. They delineate differences between various derivatives on the example of following fish in a Mississippi river (or St. Croix River in the newer version of the textbook!).
+
+\end{mdframed}
+
+
+
+
+
+\section{Practical example}
+
+
+

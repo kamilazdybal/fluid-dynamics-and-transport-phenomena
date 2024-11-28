@@ -4,7 +4,7 @@ Changes are modeled by derivatives. Derivative explains how much one variable $\
 \frac{d \phi_1}{d \phi_2}
 \end{equation}
 
-where the letter $d$ stands for \textit{the change of...} and is later followed by the variable that we are speaking of. So really the above ratio means: there is this much change of variable $\phi_1$ per this much change of variable $\phi_2$. In fluid dynamics, you will find that we are most interested with two types of changes: change in time and change in space (position). Therefore you will most often encounter $dt$ or $dx$, $dy$, $dz$ in the denominator of various forms of Eq. (\ref{eq:change-d}). Since we live in the three-dimensional space with a time arrow, it is justifiable why these two have the biggest popularity, right?
+where the letter $d$ stands for \textit{the change of...} and is later followed by the variable that we are speaking of. So really the above ratio means: there is this much change of variable $\phi_1$ per this much change of variable $\phi_2$. In fluid dynamics, you will find that we are most interested with two types of changes: change in time and change in space (position). Therefore you will most often encounter $dt$ or $dx$, $dy$, $dz$ in the denominator of various forms of Eq.~(\ref{eq:change-d}). Since we live in the three-dimensional space with a time arrow, it is justifiable why these two have the biggest popularity, right?
 
 There is also another mathematical expression for a derivative and it is:
 
@@ -12,7 +12,7 @@ There is also another mathematical expression for a derivative and it is:
 \frac{\partial \phi_1}{\partial \phi_2}
 \end{equation}
 
-The operator $\partial$ (called "partial" or "del") also stands for \textit{the change of...} but it also gives you a hint that the variable $\phi_1$ can change with the change of variables other than $\phi_2$. Perhaps it can also change with some $\phi_3$ and $\phi_4$, even though in this particular ratio from Eq. (\ref{eq:change-partial}) we are only interested in the change with respect to $\phi_2$.
+The operator $\partial$ (called ''partial`` or ''del``) also stands for \textit{the change of...} but it also gives you a hint that the variable $\phi_1$ can change with the change of variables other than $\phi_2$. Perhaps it can also change with some $\phi_3$ and $\phi_4$, even though in this particular ratio from Eq. (\ref{eq:change-partial}) we are only interested in the change with respect to $\phi_2$.
 
 \section{What does it mean for a quantity to change in time and in space?}
 
@@ -21,7 +21,7 @@ The operator $\partial$ (called "partial" or "del") also stands for \textit{the 
 
 \section{Convention for the sign of a derivative}
 
-For the purpose of this demonstration we will look at the derivative $\frac{dp}{dx}$ - change in pressure per change in the $x$-axis position - which is often encountered in fluid dynamics. We will lay the ground for what does it mean for this derivative to be positive, negative or zero, and why the reasoning makes sense.
+For the purpose of this demonstration we will look at the derivative $\frac{dp}{dx}$ -- change in pressure per change in the $x$-axis position -- which is often encountered in fluid dynamics. We will lay the ground for what does it mean for this derivative to be positive, negative or zero, and why the reasoning makes sense.
 
 Suppose that the initial point is marked with \textcolor{myblue}{$(i)$} and it is always a point at coordinate $x$. The point to which we move after one space-step, the final point, is marked with \textcolor{myblue}{$(f)$} and is either at $x+dx$ or $x - dx$ coordinate, depending on the positive or negative change that we decide to make. The direction of the change on the $x$-axis is marked with a blue arrow.
 
@@ -57,7 +57,7 @@ $ $
 \label{fig:dp-dx-signs}
 \end{figure}
 
-We will now find out for all cases which pressure, at \textcolor{myblue}{$(i)$} or at \textcolor{myblue}{$(f)$} must be larger. Our aim is to show that situations (a) and (b) in Figure \ref{fig:dp-dx-signs} must be equivalent - they explain the same physical phenomena. In both of these cases we will show that the pressure is increasing with the increasing $x$-coordinate, independent of whether we decide to take a step to the right or to the left of our initial point \textcolor{myblue}{$(i)$}. 
+We will now find out for all cases which pressure, at \textcolor{myblue}{$(i)$} or at \textcolor{myblue}{$(f)$} must be larger. Our aim is to show that situations (a) and (b) in Figure \ref{fig:dp-dx-signs} must be equivalent -- they explain the same physical phenomena. In both of these cases we will show that the pressure is increasing with the increasing $x$-coordinate, independent of whether we decide to take a step to the right or to the left of our initial point \textcolor{myblue}{$(i)$}. 
 
 We will show the analogical result can be said about situations (c) and (d) but in this case the pressure is decreasing with the increasing $x$-coordinate.
 
@@ -65,7 +65,7 @@ We will show the analogical result can be said about situations (c) and (d) but 
 
 \subsection{Closing note}
 
-The analysis done in this section is often necessary in order to find out whether or not to "put a minus sign" in front of the equations. For instance, as we will show later in the text, such reasoning can help us understand why there is a minus sign in the Euler equation for a fluid element experiencing pressure force: $dp = - \rho \upsilon d \upsilon$. Oftentimes, the sign of a derivative tells an important information about the nature of the physical phenomena.
+The analysis done in this section is often necessary in order to find out whether or not to ''put a minus sign`` in front of expressions. For instance, as we will show later in the text, such reasoning can help us understand why there is a minus sign in the Euler equation for a fluid element experiencing pressure force: $dp = - \rho \upsilon d \upsilon$. Oftentimes, the sign of a derivative tells an important information about the nature of the physical phenomena.
 
 
 
