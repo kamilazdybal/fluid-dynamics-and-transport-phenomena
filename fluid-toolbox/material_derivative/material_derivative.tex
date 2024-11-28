@@ -2,35 +2,15 @@ The material derivative, $\frac{D}{Dt}$, is an operator acting on a scalar, $\bu
 \begin{equation} \label{eq:material-derivative}
 \frac{D \bullet}{D t} \equiv \frac{\partial \bullet}{\partial t} + \vec{\bm{V}} \cdot \nabla \bullet \, .
 \end{equation}
-In essence, it describes the \textit{total} change in quantity $\bullet$ as we \textit{move} across the field of $\bullet$. You can substitute for $\bullet$ any interesting physical quantity that you'd like, such as density, $\rho$, or temperature, $T$.
+In essence, it describes the \textit{total} change in quantity $\bullet$ as \textit{time goes on} and as we \textit{move} across the field of $\bullet$ with velocity $\vec{\bm{V}}$. You can substitute for $\bullet$ any interesting physical quantity that you'd like, such as density, $\rho$, or temperature, $T$.
 
-So how is the material derivative different from the regular derivative, say $\frac{d}{dt}$ or $\frac{\partial}{\partial t}$? Well, the material derivative isn't mathematically different from regular derivatives. Rather, it's a special sum of those regular derivatives that accounts for change in time and space \textit{simultaneously}. We can dissect the two terms on the right-hand-side of Eq.~(\ref{eq:material-derivative}) to gain more intuition behind why writing this special sum of derivatives can make our life easier in fluid dynamics.
+But you might rightfully ask: How is the material derivative different from the regular derivative, say $\frac{d}{dt}$ or $\frac{\partial}{\partial t}$? Well, its practical computation isn't mathematically any different from computing regular derivatives. Rather, it's simply a special sum of those regular derivatives that accounts for change in time and space \textit{simultaneously}. We can dissect the two terms on the right-hand-side of Eq.~(\ref{eq:material-derivative}) to gain more intuition behind why writing this special sum of derivatives makes sense when studying fluid motion.
 
-First, we have $\frac{\partial \bullet}{\partial t}$ which is the plain old partial derivative of $\bullet$ with respect to time\footnote{See Chapter~\ref{chap:changes}}. It says that at all possible locations in space, the quantity $\bullet$ can evolve in time. One example of such quantity is temperature. Even if we remain stationary in a specific location, say in a corner of a room, we can still experience change in temperature because our room might be heated (or cooled) and the temperature in our little corner changes in time because of that. The term $\frac{\partial \bullet}{\partial t}$ gives us a recipe for \textit{how} that temperature changes in time in any location of the room.
+First, we have $\frac{\partial \bullet}{\partial t}$ which is the plain old\footnote{See Chapter~\ref{chap:changes}} partial derivative of $\bullet$ with respect to time. It says that at all possible locations in space, the quantity $\bullet$ can evolve in time. One example of such quantity is temperature. Even if we remain stationary in a specific location, say in a corner of a room, we can still experience change in temperature because our room might be heated (or cooled) and the temperature in our little corner changes in time because of that. The term $\frac{\partial \bullet}{\partial t}$ gives us a recipe for \textit{how} that temperature changes in time in every location of the room.
 
-Second, we have $\vec{\bm{V}} \cdot \nabla \bullet$, that is, a gradient vector, $\nabla \bullet$, dotted with the flow velocity, $\vec{\bm{V}}$. At this point, you might remind yourself of the intuition behind taking a dot product between two vectors from Fig.~\ref{fig:circulation-dot-product}. 
+Second, we have $\vec{\bm{V}} \cdot \nabla \bullet$, that is, a gradient vector, $\nabla \bullet = \langle \frac{\partial \bullet}{\partial x}, \frac{\partial \bullet}{\partial y}, \frac{\partial \bullet}{\partial z} \rangle$, dotted with the velocity vector, $\vec{\bm{V}}$. At this point, you might remind yourself of the intuition behind taking a dot product between two vectors from Fig.~\ref{fig:circulation-dot-product}. The gradient of $\bullet$ is a vector field that describes directions in which $\bullet$ varies. If, and only if, your own movement is aligned (at least to some extent) with the direction of $\bullet$'s gradient, you will experience a change in quantity $\bullet$. Otherwise, if you walk along an isocurve of $\bullet$, you will not experience any change in $\bullet$.
 
-
-
-Or, expanding out the terms (in the most general 3D case, where $\vec{\bm{V}} = \langle u, \upsilon, w \rangle$):
-
-\begin{equation} \label{eq:material-derivative-full}
-\frac{D}{D t} \equiv \frac{\partial}{\partial t} + u \frac{\partial}{\partial x} + \upsilon \frac{\partial}{\partial y} + w \frac{\partial}{\partial z} \, .
-\end{equation}
-A different way of writing the equation above that you might sometimes encounter is the following:
-\begin{equation} \label{eq:material-derivative-ein stein}
-\frac{D}{D t} \equiv \frac{\partial}{\partial t} + V_i \frac{\partial}{\partial i} \, .
-\end{equation}
-This way of writing Eq.~(\ref{eq:material-derivative-full}) is using the Einstein notation, where it is implied that you should substitute for the dummy index $i$ every possible spatial dimension, i.e., $x$, $y$, and $z$, and, as you substitute, you sum up 
-
-
-Material derivative is indeed a shorthand for writing a special sum of other operators and it has been created because this set is frequently used in fluid dynamics related equations. Writing it in short as $\frac{D}{D t}$ simply makes life easier.
-
-
-
-
-
-
+In other words, the first term on the right-hand-side of Eq.~(\ref{eq:material-derivative}) describes how we will experience change in $\bullet$ in the absence of our motion through the field. The second term describes how we will experience additional change due to moving around through the field. The material derivative is a neat superposition of these two factors for why $\bullet$ can change. It is also a shorthand for describing change in $\bullet$ in a moving fluid and it has been created because this set is frequently used in fluid dynamics related equations. Writing it in short as $\frac{D}{D t}$ simply makes life easier.
 
 \begin{mdframed}[style=exercise-frame]
 
@@ -39,6 +19,18 @@ Material derivative is indeed a shorthand for writing a special sum of other ope
 You can find a great intuitive description of a material derivative in Chapter~3, \S3.5 of the \textit{Transport Phenomena} textbook by Bird, Stewart \& Lightfoot \cite{bird2002transport}. They delineate differences between various derivatives on the example of following fish in a Mississippi river (or St. Croix River in the newer version of the textbook!).
 
 \end{mdframed}
+
+Finally, I would like to present two more ways of writing Eq.~(\ref{eq:material-derivative}) just to expose you to other possible notations that you might encounter in textbooks. 
+In the most general 3D case, where $\vec{\bm{V}} = \langle u, \upsilon, w \rangle$, we can expand the dot product terms to obtain:
+\begin{equation} \label{eq:material-derivative-full}
+\frac{D}{D t} \equiv \frac{\partial}{\partial t} + u \frac{\partial}{\partial x} + \upsilon \frac{\partial}{\partial y} + w \frac{\partial}{\partial z} \, .
+\end{equation}
+A yet another way of writing the equation above that you might sometimes encounter is the following:
+\begin{equation} \label{eq:material-derivative-ein stein}
+\frac{D}{D t} \equiv \frac{\partial}{\partial t} + V_i \frac{\partial}{\partial i} \, .
+\end{equation}
+This way of writing Eq.~(\ref{eq:material-derivative-full}) is using the Einstein notation, where it is implied that you should substitute for the dummy index $i$ every possible spatial dimension, \textit{i.e.}, $x$, $y$, and $z$, and, as you substitute, you also sum up all the terms that form for each possible $i$.
+
 
 
 
