@@ -1,12 +1,12 @@
-\section{Where space and time meet}
+\section{Where space, time, and fluid flow meet}
 
 The material derivative describes the \textit{total experienced} change in quantity $\bullet$ as \textit{time goes on} \textbf{and} as we \textit{move} across the field of $\bullet$ with fluid velocity, $\vec{\bm{V}} = \langle u, \upsilon, w \rangle$.
 In this chapter, you can substitute for $\bullet$ any interesting physical quantity that you'd like, such as density, $\rho$, or temperature, $T$. Interestingly, this quantity does not need to be a scalar, but can also be a vector or even a tensor.
 
-Pictorially, you may consider a field of $\bullet$ that changes in time and space as presented in Fig.~\ref{fig:material-derivative-example}. In the absence of spatial movement on the $(x,y)$ grid we can only experience change in $\bullet$ if $\bullet$ varies in time. Similarly, in the absence of temporal variation in $\bullet$, we can experience change in $\bullet$ only if we travel on the $(x,y)$ grid and $\bullet$ varies over that grid. With both time and motion present, we experience a superposition of these two effects and that will be our total experienced change in $\bullet$.
+Pictorially, you may consider a 2D field of $\bullet$ that changes in time and space as presented in Fig.~\ref{fig:material-derivative-example}. In the absence of spatial movement over the $(x,y)$ grid we can only experience change in $\bullet$ if $\bullet$ varies in time. Similarly, in the absence of temporal variation in $\bullet$, we can experience change in $\bullet$ only if we travel along the $(x,y)$ grid and $\bullet$ varies over that grid. With both time and motion present, we experience a superposition of these two effects and that will be our total experienced change in $\bullet$.
 \begin{figure}[H]
 \centering\includegraphics[width=15cm]{material-derivative.pdf}
-\caption{A field of some scalar quantity, $\bullet$, that changes in time and space.}			
+\caption{A 2D field of some scalar quantity, $\bullet$, that changes in time, $t$, and space, $(x, y)$.}			
 \label{fig:material-derivative-example}
 \end{figure}
 
@@ -14,23 +14,25 @@ In mathematical terms, the material derivative, $\frac{D}{Dt}$, is an operator a
 \begin{equation} \label{eq:material-derivative}
 \frac{D \bullet}{D t} \equiv \frac{\partial \bullet}{\partial t} + \vec{\bm{V}} \cdot \nabla \bullet \, .
 \end{equation}
-We can now dissect the two terms on the right-hand-side of Eq.~(\ref{eq:material-derivative}) to understand why writing this special sum of partial derivatives makes sense when studying fluid motion.
+The superposition that I mentioned before is embedded in the two terms on the right-hand-side of Eq.~(\ref{eq:material-derivative}). We can now dissect these two terms to better understand why introducing the material derivative is very useful when studying fluid motion.
 
 First, we have $\frac{\partial \bullet}{\partial t}$ which is the plain old\footnote{See Chapter~\ref{chap:changes}.} partial derivative of $\bullet$ with respect to time. It says that at all possible locations in space, and at any one location, the quantity $\bullet$ can evolve in time. One example of such quantity is temperature. Even if we remain stationary in a specific location, say in a corner of a room, we can still experience change in temperature because our room might be heated (or cooled) and the temperature in our little corner changes in time because of that. The term $\frac{\partial \bullet}{\partial t}$ gives us a recipe for \textit{how} that temperature changes in time in every location of the room.
 
-Second, we have $\vec{\bm{V}} \cdot \nabla \bullet$, that is, a gradient vector, $\nabla \bullet = \langle \frac{\partial \bullet}{\partial x}, \frac{\partial \bullet}{\partial y}, \frac{\partial \bullet}{\partial z} \rangle$, dotted with the velocity vector, $\vec{\bm{V}}$. At this point, you might remind yourself of the intuition behind taking a dot product between two vectors from Fig.~\ref{fig:circulation-dot-product}. The gradient of $\bullet$ is a vector field that describes directions in which $\bullet$ varies. If, and only if, your own movement is aligned (at least to some extent) with the direction of $\bullet$'s gradient, you will experience a change in quantity $\bullet$. Otherwise, if you walk along an isocurve of $\bullet$, you will not experience any change in $\bullet$.
+Second, we have $\vec{\bm{V}} \cdot \nabla \bullet$, that is, a gradient vector, $\nabla \bullet = \langle \frac{\partial \bullet}{\partial x}, \frac{\partial \bullet}{\partial y}, \frac{\partial \bullet}{\partial z} \rangle$, dotted with the fluid velocity vector, $\vec{\bm{V}}$. 
+%At this point, you might remind yourself of the intuition behind taking a dot product between two vectors from Fig.~\ref{fig:circulation-dot-product}. 
+The gradient of $\bullet$ is a vector field that describes directions in which $\bullet$ varies. If, and only if, your own movement is aligned (at least to some extent) with the direction of $\bullet$'s gradient, you will experience a change in quantity $\bullet$. Otherwise, if you walk along an isocurve of $\bullet$, you will not experience any change in $\bullet$. I will emphasize, however, that in the definition of the material derivative our movement is restricted to one defined by the fluid flow. Hence, we specifically use the flow velocity, $\vec{\bm{V}}$, and not any other velocity\footnote{That said, one could, potentially, define a generalization of the material derivative to allow for an arbitrary velocity! Such a new quantity will have a different physical meaning though.}.
 
-In other words, the first term on the right-hand-side of Eq.~(\ref{eq:material-derivative}) describes how we will experience change in $\bullet$ in the absence of our motion through the field. The second term describes how we will experience additional change due to moving around through the field. The material derivative is a neat superposition of these two factors for why $\bullet$ can change. It is also a shorthand for describing change in $\bullet$ in a moving fluid and it has been created because this set is frequently used in fluid dynamics related equations. Writing it in short as $\frac{D}{D t}$ simply makes life easier.
-
-You might rightfully ask: How is the material derivative different from the regular derivative, say $\frac{d}{dt}$ or $\frac{\partial}{\partial t}$? Well, it's simply a special sum of those regular derivatives, such that it accounts for change in time and movement through space \textit{simultaneously}. Therefore, its practical computation isn't mathematically any different from computing regular partial derivatives. 
+In other words, the first term on the right-hand-side of Eq.~(\ref{eq:material-derivative}) describes how we will experience change in $\bullet$ in the absence of our motion through the field of $\bullet$. The second term describes how we will experience additional change in $\bullet$ due to moving around through the field of $\bullet$. The material derivative is a neat superposition of these two factors for why $\bullet$ can change. It is also a shorthand for describing change in $\bullet$ in a moving fluid and it has been created because this set is frequently used in the governing equations of fluid dynamics. Writing it in short as $\frac{D}{D t}$ simply makes our life easier.
 
 \begin{mdframed}[style=exercise-frame]
 
 \subsection*{Searching for more?}
 
-You can find a great intuitive description of a material derivative in Chapter~3, \S3.5 of the \textit{Transport Phenomena} textbook by Bird, Stewart \& Lightfoot \cite{bird2002transport}. They delineate differences between various derivatives on the example of following fish in a Mississippi river (or St. Croix River in the newer version of the textbook!).
+You can find a great intuitive description of a material derivative in Chapter~3, \S3.5 of the \textit{Transport Phenomena} textbook by Bird, Stewart \& Lightfoot \cite{bird2002transport}. They delineate differences between various derivatives on the example of following fish in a river.
 
 \end{mdframed}
+
+%You might rightfully ask: How is the material derivative different from the regular derivative, say $\frac{d}{dt}$ or $\frac{\partial}{\partial t}$? Well, it's simply a special sum of those regular derivatives, such that it accounts for change in time and movement through space \textit{simultaneously}. Therefore, its practical computation isn't mathematically any different from computing regular partial derivatives. 
 
 Finally, I would like to present two more ways of writing Eq.~(\ref{eq:material-derivative}) just to expose you to other possible notations that you might encounter in textbooks. 
 In the most general 3D case, where $\vec{\bm{V}} = \langle u, \upsilon, w \rangle$, we can expand the dot product terms to obtain:
