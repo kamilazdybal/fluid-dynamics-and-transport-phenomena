@@ -7,6 +7,6 @@
 *.pyc
 *__pycache__
 *.DS_Store
+*.idea
 
 Boundary_Layers/Learning_BLs.pdf
-fluid-toolbox/fluid-toolbox.pdf
